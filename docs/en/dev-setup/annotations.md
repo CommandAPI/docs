@@ -22,7 +22,7 @@ The annotation system effectively needs to be added twice: Once for compilation 
       <dependency>
           <groupId>dev.jorel</groupId>
           <artifactId>commandapi-annotations</artifactId>
-          <version>10.1.0</version>
+          <version>10.1.2</version>
           <scope>provided</scope>
       </dependency>
   </dependencies>
@@ -42,7 +42,7 @@ The annotation system effectively needs to be added twice: Once for compilation 
                       <path>
                           <groupId>dev.jorel</groupId>
                           <artifactId>commandapi-annotations</artifactId>
-                          <version>10.1.0</version>
+                          <version>10.1.2</version>
                       </path>
                   </annotationProcessorPaths>
               </configuration>
@@ -81,8 +81,8 @@ The annotation system effectively needs to be added twice: Once for compilation 
   
   ```groovy
   dependencies {
-      compileOnly "dev.jorel:commandapi-annotations:10.1.0"
-      annotationProcessor "dev.jorel:commandapi-annotations:10.1.0"
+      compileOnly "dev.jorel:commandapi-annotations:10.1.2"
+      annotationProcessor "dev.jorel:commandapi-annotations:10.1.2"
   }
   ```
   </div>
@@ -90,8 +90,8 @@ The annotation system effectively needs to be added twice: Once for compilation 
   
   ```kotlin
   dependencies {
-      compileOnly("dev.jorel:commandapi-annotations:10.1.0")
-      annotationProcessor("dev.jorel:commandapi-annotations:10.1.0")
+      compileOnly("dev.jorel:commandapi-annotations:10.1.2")
+      annotationProcessor("dev.jorel:commandapi-annotations:10.1.2")
   }
   ```
   </div>
