@@ -26,7 +26,7 @@ Add the dependency to your list of dependencies in your build script:
     <dependency>
         <groupId>dev.jorel</groupId>
         <artifactId>commandapi-velocity-shade</artifactId>
-        <version>10.1.2</version>
+        <version>11.0.0-SNAPSHOT</version>
     </dependency>
 </dependencies>
 ```
@@ -38,7 +38,7 @@ Add the dependency to your list of dependencies in your build script:
 
 ```groovy
 dependencies {
-    implementation "dev.jorel:commandapi-velocity-shade:10.1.2"
+    implementation "dev.jorel:commandapi-velocity-shade:11.0.0-SNAPSHOT"
 }
 ```
 
@@ -47,7 +47,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("dev.jorel:commandapi-velocity-shade:10.1.2")
+    implementation("dev.jorel:commandapi-velocity-shade:11.0.0-SNAPSHOT")
 }
 ```
 
