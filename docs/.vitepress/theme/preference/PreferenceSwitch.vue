@@ -4,7 +4,13 @@
 import {VTIconChevronDown, VTSwitch} from '@vue/theme'
 import {useData, useRoute} from 'vitepress'
 import {onMounted, ref, Ref, watch} from 'vue'
-import {openPreference, openPreferenceKey, preferGroovyInGradle, preferGroovyInGradleKey, preferMaven, preferMavenKey, preferReobf, preferReobfKey,} from "./preference";
+import {
+    openPreference, openPreferenceKey, 
+    preferPaper, preferPaperKey,
+    preferGroovyInGradle, preferGroovyInGradleKey, 
+    preferMaven, preferMavenKey, 
+    preferReobf, preferReobfKey, 
+} from "./preference";
 
 const {frontmatter} = useData();
 let preferencesToDisplay: Ref<string[]> = ref();
@@ -35,6 +41,12 @@ const removeOutline = (e: Event) => {
 const restoreOutline = (e: Event) => {
     (e.target as HTMLElement).classList.remove('no-outline');
 };
+
+const togglePaper = useToggleFn(
+    preferPaperKey,
+    preferPaper,
+    'prefer-paper'
+)
 
 const toggleMaven = useToggleFn(
     preferMavenKey,
@@ -77,6 +89,7 @@ function useToggleFn(
 refresh()
 
 onMounted(() => {
+    togglePaper(preferPaper.value);
     toggleMaven(preferMaven.value);
     toggleGradleDsl(preferGroovyInGradle.value);
     toggleMapping(preferReobf.value);
@@ -102,6 +115,16 @@ onMounted(() => {
              :aria-hidden="!openPreference"
         >
             <div class="mobile-wrapper switches">
+                <div v-if="preferencesToDisplay.includes('platform')" class="switch-container">
+                    <label class="paper-label prefer-label-left" @click="togglePaper(true)">Paper</label>
+                    <VTSwitch
+                        class="platform-switch"
+                        aria-label="prefer paper"
+                        :aria-checked="preferPaper"
+                        @click="togglePaper()"
+                    />
+                    <label class="spigot-label prefer-label-right" @click="togglePaper(false)">Spigot</label>
+                </div>
                 <div v-if="preferencesToDisplay.includes('build-system')" class="switch-container">
                     <label class="gradle-label prefer-label-left" @click="toggleMaven(false)">Gradle</label>
                     <VTSwitch
@@ -270,37 +293,51 @@ onMounted(() => {
 </style>
 
 <style>
+.paper,
 .maven,
 .groovy,
 .reobf {
     display: none;
 }
 
+.prefer-paper .spigot,
 .prefer-maven .gradle,
 .prefer-groovy .kts,
 .prefer-reobf .mojmap {
     display: none;
 }
 
+.prefer-paper .paper,
 .prefer-maven .maven,
 .prefer-groovy .groovy,
 .prefer-reobf .reobf {
     display: initial;
 }
 
+.paper-label,
 .maven-label,
 .groovy-label,
 .reobf-label,
+.prefer-paper .spigot-label,
 .prefer-maven .gradle-label,
 .prefer-groovy .kts-label,
 .prefer-reobf .mojmap-label {
     color: var(--vt-c-text-3);
 }
 
+.prefer-paper .paper-label,
 .prefer-maven .maven-label,
 .prefer-groovy .groovy-label,
 .prefer-reobf .reobf-label {
     color: var(--vt-c-text-1);
+}
+
+.platform-switch .vt-switch-check {
+    transform: translateX(18px);
+}
+
+.prefer-paper .platform-switch .vt-switch-check {
+    transform: translateX(0px);
 }
 
 .prefer-maven .api-switch .vt-switch-check {
@@ -315,6 +352,8 @@ onMounted(() => {
     transform: translateX(18px);
 }
 
+.tip .paper,
+.tip .spigot,
 .tip .gradle,
 .tip .groovy,
 .tip .kts,
