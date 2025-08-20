@@ -12,6 +12,9 @@ function getBoolean(key: string, defaultValue: boolean) {
 export const openPreferenceKey = 'command-api-docs-prefer-open-preference'
 export const openPreference = ref(getBoolean(openPreferenceKey, true))
 
+export const preferPaperKey = 'command-api-docs-prefer-paper'
+export const preferPaper = ref(getBoolean(preferPaperKey, true))
+
 export const preferMavenKey = 'command-api-docs-prefer-maven'
 export const preferMaven = ref(getBoolean(preferMavenKey, false))
 
