@@ -52,8 +52,7 @@ However, the `CommandAPIConfig` class is abstract and can’t be used to configu
 ===Bukkit
 ```java
 public abstract class CommandAPIBukkitConfig extends CommandAPIConfig {
-    CommandAPIBukkitConfig useLatestNMSVersion(boolean value); // Whether the latest NMS implementation should be used or not
-    CommandAPIBukkitConfig beLenientForMinorVersions(boolean value); // Whether the CommandAPI should be more lenient with minor Minecraft versions
+    CommandAPIBukkitConfig fallbackToLatestNMS(boolean fallbackToLatestNMS); // Whether the CommandAPI should fall back to the latest NMS version if no implementation for the current version was found
     CommandAPIBukkitConfig missingExecutorImplementationMessage(String value); // Set message to display when executor implementation is missing
     <T> CommandAPIConfig initializeNBTAPI(Class<T> nbtContainerClass, Function<Object, T> nbtContainerConstructor); // Initializes hooks with an NBT API. See NBT arguments documentation page for more info
 }
