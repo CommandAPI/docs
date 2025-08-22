@@ -196,52 +196,51 @@ create-dispatcher-json: false
 create-dispatcher-json: true
 ```
 
-### `use-latest-nms-version`
+### `fallback-to-latest-nms`
 
-Controls whether the CommandAPI should use the latest NMS implementation for command registration and execution.
+Controls whether the CommandAPI should use the latest NMS implementation for command registration and execution if no matching CommandAPI implementation for the version used is found.
 
 This setting can be used to run the CommandAPI on Minecraft versions higher than it can support. For example, if the CommandAPI supports Minecraft 1.18 and Minecraft 1.18.1 comes out, you can use this to enable support for 1.18.1 before an official CommandAPI release comes out that supports 1.18.1.
 
-:::danger
+<div class="paper">
 
-This feature is very experimental and should only be used if you know what you’re doing. In almost every case, it is better to wait for an official CommandAPI release that supports the latest version of Minecraft. Using `use-latest-nms-version` is _not_ guaranteed to work and can cause unexpected side effects!
+:::warning
 
-:::
-
-**Default value**
-
-```yaml
-use-latest-nms-version: false
-```
-
-**Example value**
-
-```yaml
-use-latest-nms-version: true
-```
-
-### `be-lenient-for-minor-versions`
-
-Controls whether the CommandAPI should be more lenient when updating to a new Minecraft version.
-
-Similar to the [`use-latest-nms-version`](#use-latest-nms-version) setting, this can allow the CommandAPI to run on a version higher than it officially supports. As an example, this setting can allow updating to 1.21.2 from 1.21.1 but doesn't allow updating to 1.22 from 1.21.2.
-
-:::danger
-
-Take the warning from the [`use-latest-nms-version`](#use-latest-nms-version) and apply it here too. This is _not_ guaranteed to work either and also may cause unexpected side effects.
+Using `fallback-to-latest-nms` is _not_ guaranteed to work and can cause unexpected side effects! However, since we expect very few major breaking changes, we decided to set this value to `true` by default.
 
 :::
 
 **Default value**
 
 ```yaml
-be-lenient-for-minor-versions: false
+fallback-to-latest-nms: true
 ```
 
 **Example value**
 
 ```yaml
-be-lenient-for-minor-versions: true
+fallback-to-latest-nms: false
+```
+
+</div>
+<div class="spigot">
+
+:::danger
+
+This feature is very experimental and should only be used if you know what you’re doing. In almost every case, it is better to wait for an official CommandAPI release that supports the latest version of Minecraft. Using `fallback-to-latest-nms` is _not_ guaranteed to work and can cause unexpected side effects!
+
+:::
+
+**Default value**
+
+```yaml
+fallback-to-latest-nms: false
+```
+
+**Example value**
+
+```yaml
+fallback-to-latest-nms: true
 ```
 
 ### `skip-initial-datapack-reload`
@@ -263,6 +262,8 @@ skip-initial-datapack-reload: true
 ```yaml
 skip-initial-datapack-reload: false
 ```
+
+</div>
 
 ### `plugins-to-convert`
 
