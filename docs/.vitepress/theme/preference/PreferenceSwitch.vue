@@ -123,14 +123,14 @@ onMounted(() => {
                     <label class="groovy-label prefer-label-right" @click="toggleGradleDsl(true)">.gradle</label>
                 </div>
                 <div v-if="preferencesToDisplay.includes('mapping')" class="switch-container">
-                    <label class="mojmap-label prefer-label-left" @click="toggleMapping(false)">Mojmap</label>
+                    <label class="mojmap-label prefer-label-left" @click="toggleMapping(false)">Paper</label>
                     <VTSwitch
                         class="mapping-switch"
                         aria-label="prefer reobf"
                         :aria-checked="preferReobf"
                         @click="toggleMapping()"
                     />
-                    <label class="reobf-label prefer-label-right" @click="toggleMapping(true)">Reobf</label>
+                    <label class="reobf-label prefer-label-right" @click="toggleMapping(true)">Spigot</label>
                 </div>
             </div>
         </div>
