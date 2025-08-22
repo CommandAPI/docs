@@ -44,33 +44,11 @@ messages:
 # setting this to "false" will improve command registration performance.
 create-dispatcher-json: false
 
-# Use latest version (default: false)
-# If "true", the CommandAPI will use the latest available NMS implementation
-# when the CommandAPI is used. This avoids all checks to see if the latest NMS
-# implementation is actually compatible with the current Minecraft version.
-use-latest-nms-version: false
-
-# Be lenient with version checks when loading for new minor Minecraft versions (default: false)
-# If "true", the CommandAPI loads NMS implementations for potentially unsupported Minecraft versions.
-# For example, this setting may allow updating from 1.21.1 to 1.21.2 as only the minor version is changing
-# but will not allow an update from 1.21.2 to 1.22.
-# Keep in mind that implementations may vary and actually updating the CommandAPI might be necessary.
-be-lenient-for-minor-versions: false
-
-# Hook into Paper's ServerResourcesReloadedEvent (default: false)
-# If "true", and the CommandAPI detects it is running on a Paper server, it will
-# hook into Paper's ServerResourcesReloadedEvent to detect when /minecraft:reload is run.
-# This allows the CommandAPI to automatically call its custom datapack-reloading
-# function which allows CommandAPI commands to be used in datapacks.
-# If you set this to false, CommandAPI commands may not work inside datapacks after
-# reloading datapacks.
-hook-paper-reload: false
-
-# Skips the initial datapack reload when the server loads (default: true)
-# If "true", the CommandAPI will not reload datapacks when the server has finished
-# loading. Datapacks will still be reloaded if performed manually when "hook-paper-reload"
-# is set to "true" and /minecraft:reload is run.
-skip-initial-datapack-reload: true
+# Fallback to latest version (default: true)
+# If "true", the CommandAPI will fall back to the latest available NMS
+# implementation when the CommandAPI is used and no implementation for the
+# current Minecraft version was found.
+fallback-to-latest-nms: true
 
 # Plugins to convert (default: [])
 # Controls the list of plugins to process for command conversion.
@@ -114,24 +92,17 @@ messages:
 # setting this to "false" will improve command registration performance.
 create-dispatcher-json: false
 
-# Use latest version (default: false)
-# If "true", the CommandAPI will use the latest available NMS implementation
-# when the CommandAPI is used. This avoids all checks to see if the latest NMS
-# implementation is actually compatible with the current Minecraft version.
-use-latest-nms-version: false
+# Fallback to latest version (default: false)
+# If "true", the CommandAPI will fall back to the latest available NMS
+# implementation when the CommandAPI is used and no implementation for the
+# current Minecraft version was found.
+fallback-to-latest-nms: false
 
-# Be lenient with version checks when loading for new minor Minecraft versions (default: false)
-# If "true", the CommandAPI loads NMS implementations for potentially unsupported Minecraft versions.
-# For example, this setting may allow updating from 1.21.1 to 1.21.2 as only the minor version is changing
-# but will not allow an update from 1.21.2 to 1.22.
-# Keep in mind that implementations may vary and actually updating the CommandAPI might be necessary.
-be-lenient-for-minor-versions: false
-
-# Skips the initial datapack reload when the server loads (default: false)
+# Skips the initial datapack reload when the server loads (default: true)
 # If "true", the CommandAPI will not reload datapacks when the server has finished
 # loading. Datapacks will still be reloaded if performed manually when "hook-paper-reload"
 # is set to "true" and /minecraft:reload is run.
-skip-initial-datapack-reload: false
+skip-initial-datapack-reload: true
 
 # Plugins to convert (default: [])
 # Controls the list of plugins to process for command conversion.
