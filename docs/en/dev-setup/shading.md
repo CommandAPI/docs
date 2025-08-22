@@ -1,6 +1,6 @@
 ---
 order: 2
-preferences: ["build-system", "mapping"]
+preferences: ["build-system", "paper-spigot"]
 authors:
   - JorelAli
   - DerEchtePilz
@@ -117,7 +117,7 @@ To shade the CommandAPI into a maven project, you'll need to use the `commandapi
 
 Add the CommandAPI shade dependency:
 
-<div class="reobf">
+<div class="spigot">
 
 ```xml
 <dependencies>
@@ -130,7 +130,7 @@ Add the CommandAPI shade dependency:
 ```
 
 </div>
-<div class="mojmap">
+<div class="paper">
 
 ```xml
 <dependencies>
@@ -230,7 +230,7 @@ repositories {
 Next, we declare our dependencies:
 
 <div class="groovy">
-<div class="reobf">
+<div class="spigot">
 
 ```groovy
 dependencies {
@@ -239,7 +239,7 @@ dependencies {
 ```
 
 </div>
-<div class="mojmap">
+<div class="paper">
 
 ```groovy
 dependencies {
@@ -250,7 +250,7 @@ dependencies {
 </div>
 </div>
 <div class="kts">
-<div class="reobf">
+<div class="spigot">
 
 ```kotlin
 dependencies {
@@ -259,7 +259,7 @@ dependencies {
 ```
 
 </div>
-<div class="mojmap">
+<div class="paper">
 
 ```kotlin
 dependencies {

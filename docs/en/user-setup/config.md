@@ -1,5 +1,6 @@
 ---
 order: 2
+preferences: ["paper-spigot"]
 authors:
   - DerEchtePilz
   - JorelAli
@@ -16,8 +17,8 @@ The default `config.yml` is shown below:
 
 ::: details **config.yml**
 
-:::tabs
-===Paper
+<div class="paper">
+
 ```yaml
 # Verbose outputs (default: false)
 # If "true", outputs command registration and unregistration logs in the console
@@ -65,7 +66,10 @@ other-commands-to-convert: []
 # plugin to this list.
 skip-sender-proxy: []
 ```
-===Spigot
+
+</div>
+<div class="spigot">
+
 ```yaml
 # Verbose outputs (default: false)
 # If "true", outputs command registration and unregistration logs in the console
@@ -119,6 +123,8 @@ other-commands-to-convert: []
 # plugin to this list.
 skip-sender-proxy: []
 ```
+
+</div>
 :::
 
 ## Configuration settings
@@ -236,26 +242,6 @@ be-lenient-for-minor-versions: false
 
 ```yaml
 be-lenient-for-minor-versions: true
-```
-
-### `hook-paper-reload`
-
-Controls whether the CommandAPI hooks into the Paper-exclusive `ServerResourcesReloadedEvent` when available.
-
-When the CommandAPI detects it is running on a Paper-based server, this config option controls if the CommandAPI hooks into the `ServerResourcesReloadedEvent`, which triggers when `/minecraft:reload` is run. During this event, the CommandAPI runs a custom datapack reloading sequence that helps commands registered with the CommandAPI work within datapacks. See [Reloading datapacks](../internal/internal#reloading-datapacks) for more information on this process.
-
-By default, this value is set to `false` and the CommandAPI will not hook into the `ServerResourcesReloadedEvent`. If you want, you can set this to `true`, and the CommandAPI will hook into this event.
-
-**Default value**
-
-```yaml
-hook-paper-reload: false
-```
-
-**Example value**
-
-```yaml
-hook-paper-reload: true
 ```
 
 ### `skip-initial-datapack-reload`
