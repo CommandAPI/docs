@@ -43,21 +43,13 @@ repositories {
 }
 
 dependencies {
-    api("dev.jorel:commandapi-bukkit-core:$commandApiVersion")
-    api("dev.jorel:commandapi-paper-core:$commandApiVersion")
-    api("dev.jorel:commandapi-spigot-core:$commandApiVersion")
-    api("dev.jorel:commandapi-kotlin-bukkit:$commandApiVersion")
     api("dev.jorel:commandapi-annotations:$commandApiVersion")
-    compileOnly("dev.jorel:commandapi-velocity-shade:$commandApiVersion")
     api("de.tr7zw:item-nbt-api:$nbtApiVersion")
     api("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
     testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
-    //testImplementation(libs.dev.jorel.commandapi.bukkit.test.toolkit)
     testImplementation("com.github.seeseemelk:MockBukkit-v1.21:$mockBukkitVersion")
     compileOnly("com.mojang:brigadier:$brigadierVersion")
     compileOnly("com.mojang:authlib:$authlibVersion")
-    compileOnly("io.papermc.paper:paper-api:$paperVersion")
-    compileOnly("com.velocitypowered:velocity-api:$velocityVersion")
 }
 
 tasks.withType<JavaCompile> {

@@ -4,13 +4,12 @@ plugins {
 
 group = "dev.jorel.commandapi"
 version = "1.0-SNAPSHOT"
-description = "reference-code-bukkit"
+description = "reference-code-paper"
 
 val commandApiVersion: String by project
 val paperVersion: String by project
 
 dependencies {
-    compileOnly("dev.jorel:commandapi-bukkit-core:$commandApiVersion")
-    compileOnly("dev.jorel:commandapi-kotlin-bukkit:$commandApiVersion")
+    compileOnly("dev.jorel:commandapi-paper-core:$commandApiVersion")
     compileOnly("io.papermc.paper:paper-api:$paperVersion")
 }
