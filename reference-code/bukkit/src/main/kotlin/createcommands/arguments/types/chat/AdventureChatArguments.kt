@@ -4,6 +4,9 @@ import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.AdventureChatArgument
 import dev.jorel.commandapi.arguments.AdventureChatColorArgument
 import dev.jorel.commandapi.arguments.AdventureChatComponentArgument
+import dev.jorel.commandapi.arguments.ChatColorArgument
+import dev.jorel.commandapi.arguments.ChatComponentArgument
+import dev.jorel.commandapi.arguments.EntitySelectorArgument
 import dev.jorel.commandapi.arguments.PlayerArgument
 import dev.jorel.commandapi.arguments.StringArgument
 import dev.jorel.commandapi.arguments.TextArgument
@@ -28,7 +31,7 @@ import org.bukkit.entity.Player
 fun adventureChatArguments() {
     // #region namedTextColorExample
     CommandAPICommand("namecolor")
-        .withArguments(AdventureChatColorArgument("chatcolor"))
+        .withArguments(ChatColorArgument("chatcolor"))
         .executesPlayer(PlayerCommandExecutor { player, args ->
             val color = args["chatcolor"] as NamedTextColor
             player.displayName(Component.text().color(color).append(Component.text(player.name)).build())
@@ -38,10 +41,10 @@ fun adventureChatArguments() {
 
     // #region componentExample
     CommandAPICommand("showbook")
-        .withArguments(PlayerArgument("target"))
+        .withArguments(EntitySelectorArgument.OnePlayer("target"))
         .withArguments(TextArgument("title"))
         .withArguments(StringArgument("author"))
-        .withArguments(AdventureChatComponentArgument("contents"))
+        .withArguments(ChatComponentArgument("contents"))
         .executes(CommandExecutor { _, args ->
             val target = args["target"] as Player
             val title = args["title"] as String

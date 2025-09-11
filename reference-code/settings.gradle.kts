@@ -3,3 +3,4 @@
  */
 
 rootProject.name = "reference-code"
+include("bukkit")
