@@ -5,11 +5,7 @@ echo "New version:"
 read -r newVer
 
 # Update CommandAPI dependency versions
-sed -i "s/dev-jorel-commandapi-annotations = \"$oldVer\"/dev-jorel-commandapi-annotations = \"$newVer\"/" reference-code/gradle/libs.versions.toml
-sed -i "s/dev-jorel-commandapi-bukkit-core = \"$oldVer\"/dev-jorel-commandapi-bukkit-core = \"$newVer\"/" reference-code/gradle/libs.versions.toml
-sed -i "s/dev-jorel-commandapi-bukkit-kotlin = \"$oldVer\"/dev-jorel-commandapi-bukkit-kotlin = \"$newVer\"/" reference-code/gradle/libs.versions.toml
-sed -i "s/dev-jorel-commandapi-bukkit-test-toolkit = \"$oldVer\"/dev-jorel-commandapi-bukkit-test-toolkit = \"$newVer\"/" reference-code/gradle/libs.versions.toml
-sed -i "s/dev-jorel-commandapi-velocity-shade = \"$oldVer\"/dev-jorel-commandapi-velocity-shade = \"$newVer\"/" reference-code/gradle/libs.versions.toml
+sed -i "s/commandApiVersion=\"$oldVer\"/commandApiVersion\"$newVer\"/" reference-code/gradle.properties
 
 # Update CommandAPI version in documentation files (Maven)
 sed -i "s/<version>$oldVer<\/version>/<version>$newVer<\/version>/" docs/en/dev-setup/annotations.md
