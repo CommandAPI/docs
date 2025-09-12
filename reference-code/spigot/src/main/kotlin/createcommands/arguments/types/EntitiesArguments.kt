@@ -1,26 +1,15 @@
 package createcommands.arguments.types
 
 import dev.jorel.commandapi.CommandAPICommand
-import dev.jorel.commandapi.arguments.AsyncOfflinePlayerArgument
-import dev.jorel.commandapi.arguments.EntitySelectorArgument
-import dev.jorel.commandapi.arguments.EntityTypeArgument
-import dev.jorel.commandapi.arguments.IntegerArgument
-import dev.jorel.commandapi.arguments.PlayerArgument
-import dev.jorel.commandapi.arguments.SafeSuggestions
+import dev.jorel.commandapi.arguments.*
 import dev.jorel.commandapi.executors.CommandExecutor
 import dev.jorel.commandapi.executors.PlayerCommandExecutor
-import dev.jorel.commandapi.kotlindsl.anyExecutor
-import dev.jorel.commandapi.kotlindsl.commandAPICommand
-import dev.jorel.commandapi.kotlindsl.asyncOfflinePlayerArgument
-import dev.jorel.commandapi.kotlindsl.entitySelectorArgumentManyEntities
-import dev.jorel.commandapi.kotlindsl.entityTypeArgument
-import dev.jorel.commandapi.kotlindsl.integerArgument
-import dev.jorel.commandapi.kotlindsl.playerExecutor
+import dev.jorel.commandapi.kotlindsl.*
 import org.bukkit.Bukkit
-import org.bukkit.OfflinePlayer
 import org.bukkit.entity.Entity
 import org.bukkit.entity.EntityType
 import org.bukkit.entity.Player
+import org.bukkit.profile.PlayerProfile
 import java.util.concurrent.CompletableFuture
 
 fun entitiesArguments() {
@@ -41,9 +30,9 @@ fun entitiesArguments() {
     // #endregion entitySelectorArgumentExample
 
     // #region buildNoSelectorSuggestions
-    val noSelectorSuggestions = PlayerArgument("target")
-        .replaceSafeSuggestions(SafeSuggestions.suggest {
-            Bukkit.getOnlinePlayers().toTypedArray()
+    val noSelectorSuggestions = PlayerProfileArgument("target")
+        .replaceSafeSuggestions(SafeSuggestions.suggest { info ->
+            Bukkit.getOnlinePlayers().map { player -> player.playerProfile }.toTypedArray()
         })
     // #endregion buildNoSelectorSuggestions
 
@@ -59,15 +48,15 @@ fun entitiesArguments() {
 
     // #region playedBeforeArgumentExample
     CommandAPICommand("playedbefore")
-        .withArguments(AsyncOfflinePlayerArgument("player"))
+        .withArguments(AsyncPlayerProfileArgument("player"))
         .executes(CommandExecutor { sender, args ->
-            val player = args["player"] as CompletableFuture<OfflinePlayer>
+            val profiles = args["player"] as CompletableFuture<List<PlayerProfile>>
 
             // Directly sends a message to the sender, indicating that the command is running to prevent confusion
             sender.sendMessage("Checking if the player has played before...")
 
-            player.thenAccept { offlinePlayer ->
-                if (offlinePlayer.hasPlayedBefore()) {
+            profiles.thenAccept { profileList ->
+                if (Bukkit.getPlayer(profileList.first().uniqueId!!)!!.hasPlayedBefore()) {
                     sender.sendMessage("Player has played before")
                 } else {
                     sender.sendMessage("Player has never played before")
@@ -116,15 +105,15 @@ fun entitiesArgumentsDSL() {
 
     // #region playedBeforeArgumentExampleDSL
     commandAPICommand("playedbefore") {
-        asyncOfflinePlayerArgument("player")
+        asyncPlayerProfileArgument("player")
         anyExecutor { sender, args ->
-            val player = args["player"] as CompletableFuture<OfflinePlayer>
+            val profiles = args["player"] as CompletableFuture<List<PlayerProfile>>
 
             // Directly sends a message to the sender, indicating that the command is running to prevent confusion
             sender.sendMessage("Checking if the player has played before...")
 
-            player.thenAccept { offlinePlayer ->
-                if (offlinePlayer.hasPlayedBefore()) {
+            profiles.thenAccept { profileList ->
+                if (Bukkit.getPlayer(profileList.first().uniqueId!!)!!.hasPlayedBefore()) {
                     sender.sendMessage("Player has played before")
                 } else {
                     sender.sendMessage("Player has never played before")

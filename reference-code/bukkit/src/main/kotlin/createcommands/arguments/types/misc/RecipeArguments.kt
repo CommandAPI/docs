@@ -1,7 +1,7 @@
 package createcommands.arguments.types.misc
 
 import dev.jorel.commandapi.CommandAPICommand
-import dev.jorel.commandapi.arguments.PlayerArgument
+import dev.jorel.commandapi.arguments.EntitySelectorArgument
 import dev.jorel.commandapi.arguments.RecipeArgument
 import dev.jorel.commandapi.executors.CommandExecutor
 import dev.jorel.commandapi.executors.PlayerCommandExecutor
@@ -22,7 +22,7 @@ fun recipeArguments() {
 
     // #region getKeyExample
     CommandAPICommand("unlockrecipe")
-        .withArguments(PlayerArgument("player"))
+        .withArguments(EntitySelectorArgument.OnePlayer("player"))
         .withArguments(RecipeArgument("recipe"))
         .executes(CommandExecutor { _, args ->
             val target = args["player"] as Player
@@ -47,7 +47,7 @@ fun recipeArgumentsDSL() {
 
     // #region getKeyExampleDSL
     commandAPICommand("unlockrecipe") {
-        playerArgument("player")
+        entitySelectorArgumentOnePlayer("player")
         recipeArgument("recipe")
         anyExecutor { _, args ->
             val target = args["player"] as Player

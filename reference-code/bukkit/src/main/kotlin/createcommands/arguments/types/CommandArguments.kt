@@ -3,13 +3,13 @@ package createcommands.arguments.types
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.ArgumentSuggestions
 import dev.jorel.commandapi.arguments.CommandArgument
-import dev.jorel.commandapi.arguments.PlayerArgument
+import dev.jorel.commandapi.arguments.EntitySelectorArgument
 import dev.jorel.commandapi.arguments.SuggestionsBranch
 import dev.jorel.commandapi.executors.CommandExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
 import dev.jorel.commandapi.kotlindsl.commandAPICommand
 import dev.jorel.commandapi.kotlindsl.commandArgument
-import dev.jorel.commandapi.kotlindsl.playerArgument
+import dev.jorel.commandapi.kotlindsl.entitySelectorArgumentOnePlayer
 import dev.jorel.commandapi.wrappers.CommandResult
 import org.bukkit.Bukkit
 import org.bukkit.command.CommandSender
@@ -18,7 +18,7 @@ import org.bukkit.entity.Player
 fun commandArguments() {
     // #region sudoCommandExample
     CommandAPICommand("sudo")
-        .withArguments(PlayerArgument("target"))
+        .withArguments(EntitySelectorArgument.OnePlayer("target"))
         .withArguments(CommandArgument("command"))
         .executes(CommandExecutor { _, args ->
             val target = args["target"] as Player
@@ -83,7 +83,7 @@ fun commandArguments() {
 fun commandArgumentsDSL() {
     // #region sudoCommandExampleDSL
     commandAPICommand("sudo") {
-        playerArgument("target")
+        entitySelectorArgumentOnePlayer("target")
         commandArgument("command")
         anyExecutor { _, args ->
             val target = args["target"] as Player

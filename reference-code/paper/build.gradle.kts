@@ -11,5 +11,6 @@ val paperVersion: String by project
 
 dependencies {
     compileOnly("dev.jorel:commandapi-paper-core:$commandApiVersion")
+    compileOnly("dev.jorel:commandapi-kotlin-paper:$commandApiVersion")
     compileOnly("io.papermc.paper:paper-api:$paperVersion")
 }

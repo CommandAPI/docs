@@ -4,8 +4,8 @@ import createcommands.Permissions.Economy
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.CommandPermission
 import dev.jorel.commandapi.arguments.DoubleArgument
-import dev.jorel.commandapi.arguments.LiteralArgument;
-import dev.jorel.commandapi.arguments.PlayerArgument
+import dev.jorel.commandapi.arguments.EntitySelectorArgument
+import dev.jorel.commandapi.arguments.LiteralArgument
 import dev.jorel.commandapi.executors.PlayerCommandExecutor
 import org.bukkit.entity.Player
 
@@ -44,7 +44,7 @@ fun permissions() {
     // #region argumentPermissionExampleStep2
     // Adds the OP permission to the "target" argument. The sender requires OP to execute /kill <target>
     CommandAPICommand("kill")
-        .withArguments(PlayerArgument("target").withPermission(CommandPermission.OP))
+        .withArguments(EntitySelectorArgument.OnePlayer("target").withPermission(CommandPermission.OP))
         .executesPlayer(PlayerCommandExecutor { _, args ->
             (args["target"] as Player).health = 0.0
         })
@@ -63,7 +63,7 @@ fun permissions() {
     // /economy <target> - requires the permission "economy.other" to execute
     CommandAPICommand("economy")
         .withPermission("economy.other") // The important part of this example
-        .withArguments(PlayerArgument("target"))
+        .withArguments(EntitySelectorArgument.OnePlayer("target"))
         .executesPlayer(PlayerCommandExecutor { player, args ->
             val target = args["target"] as Player
 
@@ -76,7 +76,7 @@ fun permissions() {
     CommandAPICommand("economy")
         .withPermission("economy.admin.give") // The important part of this example
         .withArguments(LiteralArgument("give"))
-        .withArguments(PlayerArgument("target"))
+        .withArguments(EntitySelectorArgument.OnePlayer("target"))
         .withArguments(DoubleArgument("amount"))
         .executesPlayer(PlayerCommandExecutor { player, args ->
             val target = args["target"] as Player
@@ -91,7 +91,7 @@ fun permissions() {
     CommandAPICommand("economy")
         .withPermission("economy.admin.reset") // The important part of this example
         .withArguments(LiteralArgument("reset"))
-        .withArguments(PlayerArgument("target"))
+        .withArguments(EntitySelectorArgument.OnePlayer("target"))
         .executesPlayer(PlayerCommandExecutor { player, args ->
             val target = args["target"] as Player
 

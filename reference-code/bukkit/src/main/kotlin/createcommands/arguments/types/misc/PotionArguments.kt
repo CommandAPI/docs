@@ -1,8 +1,8 @@
 package createcommands.arguments.types.misc
 
 import dev.jorel.commandapi.CommandAPICommand
+import dev.jorel.commandapi.arguments.EntitySelectorArgument
 import dev.jorel.commandapi.arguments.IntegerArgument
-import dev.jorel.commandapi.arguments.PlayerArgument
 import dev.jorel.commandapi.arguments.PotionEffectArgument
 import dev.jorel.commandapi.arguments.TimeArgument
 import dev.jorel.commandapi.executors.CommandExecutor
@@ -15,7 +15,7 @@ import org.bukkit.potion.PotionEffectType
 fun potionArguments() {
     // #region potionEffectArgumentsExample
     CommandAPICommand("potion")
-        .withArguments(PlayerArgument("target"))
+        .withArguments(EntitySelectorArgument.OnePlayer("target"))
         .withArguments(PotionEffectArgument("potion"))
         .withArguments(TimeArgument("duration"))
         .withArguments(IntegerArgument("strength"))
@@ -33,7 +33,7 @@ fun potionArguments() {
 
     // #region potionEffectArgumentsNamespacedKeyExample
     CommandAPICommand("potion")
-        .withArguments(PlayerArgument("target"))
+        .withArguments(EntitySelectorArgument.OnePlayer("target"))
         .withArguments(PotionEffectArgument.NamespacedKey("potion"))
         .withArguments(TimeArgument("duration"))
         .withArguments(IntegerArgument("strength"))
@@ -55,7 +55,7 @@ fun potionArguments() {
 fun potionArgumentsDSL() {
     // region potionEffectArgumentsExampleDSL
     commandAPICommand("potion") {
-        playerArgument("target")
+        entitySelectorArgumentOnePlayer("target")
         potionEffectArgument("potion")
         timeArgument("duration")
         integerArgument("strength")
@@ -73,7 +73,7 @@ fun potionArgumentsDSL() {
 
     // region potionEffectArgumentsNamespacedKeyExampleDSL
     commandAPICommand("potion") {
-        playerArgument("target")
+        entitySelectorArgumentOnePlayer("target")
         potionEffectArgument("potion", true)
         timeArgument("duration")
         integerArgument("strength")

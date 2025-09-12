@@ -63,11 +63,11 @@ fun requirements() {
     arguments.add(LiteralArgument("tp")
         .withRequirement { partyMembers.containsKey((it as Player).uniqueId) })
 
-    arguments.add(PlayerArgument("player")
-        .replaceSafeSuggestions(SafeSuggestions.suggest { info ->
+    arguments.add(EntitySelectorArgument.OnePlayer("player")
+        .replaceSuggestions(ArgumentSuggestions.strings { info ->
 
             // Store the list of party members to teleport to
-            val playersToTeleportTo = mutableListOf<Player>()
+            val playersToTeleportTo = mutableListOf<String>()
 
             val partyName = partyMembers[(info.sender() as Player).uniqueId]
 
@@ -83,7 +83,7 @@ fun requirements() {
                         val target = Bukkit.getPlayer(uuid)!!
                         if (target.isOnline) {
                             // Add them if they are online
-                            playersToTeleportTo.add(target)
+                            playersToTeleportTo.add(target.name)
                         }
                     }
                 }

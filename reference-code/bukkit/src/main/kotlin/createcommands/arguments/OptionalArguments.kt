@@ -1,23 +1,19 @@
 package createcommands.arguments
 
 import dev.jorel.commandapi.CommandAPICommand
+import dev.jorel.commandapi.arguments.EntitySelectorArgument
 import dev.jorel.commandapi.arguments.IntegerArgument
-import dev.jorel.commandapi.arguments.PlayerArgument
 import dev.jorel.commandapi.arguments.StringArgument
 import dev.jorel.commandapi.executors.CommandExecutor
 import dev.jorel.commandapi.executors.PlayerCommandExecutor
-import dev.jorel.commandapi.kotlindsl.anyExecutor
-import dev.jorel.commandapi.kotlindsl.argument
-import dev.jorel.commandapi.kotlindsl.commandAPICommand
-import dev.jorel.commandapi.kotlindsl.playerArgument
-import dev.jorel.commandapi.kotlindsl.playerExecutor
+import dev.jorel.commandapi.kotlindsl.*
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 fun optionalArguments() {
     // #region simpleOptionalArgumentsExample
     CommandAPICommand("sayhi")
-        .withOptionalArguments(PlayerArgument("target"))
+        .withOptionalArguments(EntitySelectorArgument.OnePlayer("target"))
         .executesPlayer(PlayerCommandExecutor { player, args ->
             val target: Player? = args["target"] as Player?
             if (target != null) {
@@ -31,7 +27,7 @@ fun optionalArguments() {
 
     // #region getOptionalExample
     CommandAPICommand("sayhi")
-        .withOptionalArguments(PlayerArgument("target"))
+        .withOptionalArguments(EntitySelectorArgument.OnePlayer("target"))
         .executesPlayer(PlayerCommandExecutor { player, args ->
             val target: Player = args.getOptional("target").orElse(player) as Player
             target.sendMessage("Hi!")
@@ -42,7 +38,7 @@ fun optionalArguments() {
     // #region argumentsAfterOptionalArgumentsExample
     CommandAPICommand("rate")
         .withOptionalArguments(StringArgument("topic").combineWith(IntegerArgument("rating", 0, 10)))
-        .withOptionalArguments(PlayerArgument("target"))
+        .withOptionalArguments(EntitySelectorArgument.OnePlayer("target"))
         .executes(CommandExecutor { sender, args ->
             val topic: String? = args["topic"] as String?
             if (topic == null) {
@@ -69,7 +65,7 @@ fun optionalArguments() {
 fun optionalArgumentsDSL() {
     // #region simpleOptionalArgumentsExampleDSL
     commandAPICommand("sayhi") {
-        playerArgument("target", optional = true)
+        entitySelectorArgumentOnePlayer("target", optional = true)
         playerExecutor { player, args ->
             val target: Player? = args["target"] as Player?
             if (target != null) {
@@ -83,7 +79,7 @@ fun optionalArgumentsDSL() {
 
     // #region getOptionalExampleDSL
     commandAPICommand("sayhi") {
-        playerArgument("target", optional = true)
+        entitySelectorArgumentOnePlayer("target", optional = true)
         playerExecutor { player, args ->
             val target: Player = args.getOptional("target").orElse(player) as Player
             target.sendMessage("Hi!")
@@ -94,7 +90,7 @@ fun optionalArgumentsDSL() {
     // #region argumentsAfterOptionalArgumentsExampleDSL
     commandAPICommand("rate") {
         argument(StringArgument("topic").setOptional(true).combineWith(IntegerArgument("rating", 0, 10)))
-        playerArgument("target", optional = true)
+        entitySelectorArgumentOnePlayer("target", optional = true)
         anyExecutor { sender, args ->
             val topic: String? = args["topic"] as String?
             if (topic == null) {

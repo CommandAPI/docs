@@ -1,9 +1,9 @@
 package createcommands.arguments.types.misc
 
 import dev.jorel.commandapi.CommandAPICommand
+import dev.jorel.commandapi.arguments.EntitySelectorArgument
 import dev.jorel.commandapi.arguments.IntegerArgument
 import dev.jorel.commandapi.arguments.MathOperationArgument
-import dev.jorel.commandapi.arguments.PlayerArgument
 import dev.jorel.commandapi.executors.CommandExecutor
 import dev.jorel.commandapi.kotlindsl.*
 import dev.jorel.commandapi.wrappers.MathOperation
@@ -12,7 +12,7 @@ import org.bukkit.entity.Player
 fun mathOperationArguments() {
     // #region mathOperationArgumentsExample
     CommandAPICommand("changelevel")
-        .withArguments(PlayerArgument("player"))
+        .withArguments(EntitySelectorArgument.OnePlayer("player"))
         .withArguments(MathOperationArgument("operation"))
         .withArguments(IntegerArgument("value"))
         .executes(CommandExecutor { _, args ->
@@ -29,7 +29,7 @@ fun mathOperationArguments() {
 fun mathOperationArgumentsDSL() {
     // #region mathOperationArgumentsExampleDSL
     commandAPICommand("changelevel") {
-        playerArgument("player")
+        entitySelectorArgumentOnePlayer("player")
         mathOperationArgument("operation")
         integerArgument("value")
         anyExecutor { _, args ->

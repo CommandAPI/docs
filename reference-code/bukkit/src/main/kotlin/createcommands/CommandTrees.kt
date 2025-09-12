@@ -18,7 +18,7 @@ fun commandTrees() {
             sender.sendMessage("Hi!")
         })
         .then(
-            PlayerArgument("target")
+            EntitySelectorArgument.OnePlayer("target")
                 .executes(CommandExecutor { _, args ->
                     val target = args["target"] as Player
                     target.sendMessage("Hi")

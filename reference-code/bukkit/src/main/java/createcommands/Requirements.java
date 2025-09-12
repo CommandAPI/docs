@@ -3,9 +3,9 @@ package createcommands;
 import dev.jorel.commandapi.CommandAPI;
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.Argument;
+import dev.jorel.commandapi.arguments.ArgumentSuggestions;
+import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.arguments.LiteralArgument;
-import dev.jorel.commandapi.arguments.PlayerArgument;
-import dev.jorel.commandapi.arguments.SafeSuggestions;
 import dev.jorel.commandapi.arguments.StringArgument;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -76,11 +76,11 @@ class Requirements {
             .withRequirement(sender -> partyMembers.containsKey(((Player) sender).getUniqueId()))
         );
 
-        arguments.add(new PlayerArgument("player")
-            .replaceSafeSuggestions(SafeSuggestions.suggest(info -> {
+        arguments.add(new EntitySelectorArgument.OnePlayer("player")
+            .replaceSuggestions(ArgumentSuggestions.strings(info -> {
 
                 // Store the list of party members to teleport to
-                List<Player> playersToTeleportTo = new ArrayList<>();
+                List<String> playersToTeleportTo = new ArrayList<>();
 
                 String partyName = partyMembers.get(((Player) info.sender()).getUniqueId());
                 // Find the party members
@@ -95,13 +95,13 @@ class Requirements {
                             Player target = Bukkit.getPlayer(entry.getKey());
                             if (target.isOnline()) {
                                 // Add them if they are online
-                                playersToTeleportTo.add(target);
+                                playersToTeleportTo.add(target.getName());
                             }
                         }
                     }
                 }
 
-                return playersToTeleportTo.toArray(new Player[0]);
+                return playersToTeleportTo.toArray(new String[0]);
             })));
         // #endregion partySystemExampleStep4
 

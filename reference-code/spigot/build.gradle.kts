@@ -11,5 +11,6 @@ val spigotVersion: String by project
 
 dependencies {
     compileOnly("dev.jorel:commandapi-spigot-core:$commandApiVersion")
+    compileOnly("dev.jorel:commandapi-kotlin-spigot:$commandApiVersion")
     compileOnly("org.spigotmc:spigot-api:$spigotVersion")
 }

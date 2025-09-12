@@ -3,10 +3,10 @@ package createcommands;
 import dev.jorel.commandapi.CommandAPI;
 import dev.jorel.commandapi.CommandTree;
 import dev.jorel.commandapi.arguments.DoubleArgument;
+import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.arguments.GreedyStringArgument;
 import dev.jorel.commandapi.arguments.IntegerArgument;
 import dev.jorel.commandapi.arguments.LiteralArgument;
-import dev.jorel.commandapi.arguments.PlayerArgument;
 import dev.jorel.commandapi.arguments.StringArgument;
 import dev.jorel.commandapi.exceptions.WrapperCommandSyntaxException;
 import org.bukkit.block.Block;
@@ -23,7 +23,7 @@ class CommandTrees {
             .executes((sender, args) -> {
                 sender.sendMessage("Hi!");
             })
-            .then(new PlayerArgument("target")
+            .then(new EntitySelectorArgument.OnePlayer("target")
                 .executes((sender, args) -> {
                     Player target = (Player) args.get("target");
                     target.sendMessage("Hi");

@@ -1,7 +1,7 @@
 package kotlindsl
 
 import dev.jorel.commandapi.CommandAPICommand
-import dev.jorel.commandapi.arguments.PlayerArgument
+import dev.jorel.commandapi.arguments.EntitySelectorArgument
 import dev.jorel.commandapi.arguments.StringArgument
 import dev.jorel.commandapi.executors.PlayerCommandExecutor
 import dev.jorel.commandapi.kotlindsl.*
@@ -11,7 +11,7 @@ fun delegatedProperties() {
     // #region delegatedPropertiesExample
     CommandAPICommand("mycommand")
         .withArguments(StringArgument("string"))
-        .withArguments(PlayerArgument("target"))
+        .withArguments(EntitySelectorArgument.OnePlayer("target"))
         .executesPlayer(PlayerCommandExecutor { player, args ->
             val string: String by args
             val target: Player by args
@@ -25,7 +25,7 @@ fun delegatedPropertiesDSL() {
     // #region delegatedPropertiesExampleDSL
     commandAPICommand("mycommand") {
         stringArgument("string")
-        playerArgument("target")
+        entitySelectorArgumentOnePlayer("target")
         playerExecutor { player, args ->
             val string: String by args
             val target: Player by args

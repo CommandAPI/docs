@@ -10,8 +10,8 @@ fun commandArguments() {
     CommandAPICommand("mycommand")
         .withArguments(StringArgument("name"))
         .withArguments(IntegerArgument("amount"))
-        .withOptionalArguments(PlayerArgument("player"))
-        .withOptionalArguments(PlayerArgument("target"))
+        .withOptionalArguments(EntitySelectorArgument.OnePlayer("player"))
+        .withOptionalArguments(EntitySelectorArgument.OnePlayer("target"))
         .withOptionalArguments(GreedyStringArgument("message"))
         .executesPlayer(PlayerCommandExecutor { player, args ->
             val name = args[0] as String // Access arguments by index
@@ -36,7 +36,7 @@ fun commandArguments() {
 
     // #region getUncheckedExample
     CommandAPICommand("mycommand")
-        .withArguments(PlayerArgument("player"))
+        .withArguments(EntitySelectorArgument.OnePlayer("player"))
         .executesPlayer(PlayerCommandExecutor { player, args ->
             val p: Player = args.getUnchecked("player")!!
             // Do whatever with the player
@@ -47,8 +47,8 @@ fun commandArguments() {
     // #region getByArgumentExample
     val nameArgument = StringArgument("name")
     val amountArgument = IntegerArgument("amount")
-    val playerArgument = PlayerArgument("player")
-    val targetArgument = PlayerArgument("target")
+    val playerArgument = EntitySelectorArgument.OnePlayer("player")
+    val targetArgument = EntitySelectorArgument.OnePlayer("target")
     val messageArgument = GreedyStringArgument("message")
 
     CommandAPICommand("mycommand")

@@ -1,31 +1,16 @@
 package createcommands.arguments.types.chat
 
 import dev.jorel.commandapi.CommandAPICommand
-import dev.jorel.commandapi.arguments.AdventureChatArgument
-import dev.jorel.commandapi.arguments.AdventureChatColorArgument
-import dev.jorel.commandapi.arguments.AdventureChatComponentArgument
-import dev.jorel.commandapi.arguments.ChatColorArgument
-import dev.jorel.commandapi.arguments.ChatComponentArgument
-import dev.jorel.commandapi.arguments.EntitySelectorArgument
-import dev.jorel.commandapi.arguments.PlayerArgument
-import dev.jorel.commandapi.arguments.StringArgument
-import dev.jorel.commandapi.arguments.TextArgument
+import dev.jorel.commandapi.arguments.*
 import dev.jorel.commandapi.executors.CommandExecutor
 import dev.jorel.commandapi.executors.PlayerCommandExecutor
-import dev.jorel.commandapi.kotlindsl.adventureChatArgument
-import dev.jorel.commandapi.kotlindsl.adventureChatComponentArgument
-import dev.jorel.commandapi.kotlindsl.anyExecutor
-import dev.jorel.commandapi.kotlindsl.chatColorArgument
-import dev.jorel.commandapi.kotlindsl.commandAPICommand
-import dev.jorel.commandapi.kotlindsl.playerArgument
-import dev.jorel.commandapi.kotlindsl.playerExecutor
-import dev.jorel.commandapi.kotlindsl.stringArgument
-import dev.jorel.commandapi.kotlindsl.textArgument
+import dev.jorel.commandapi.kotlindsl.*
+import net.kyori.adventure.chat.ChatType
+import net.kyori.adventure.chat.SignedMessage
 import net.kyori.adventure.inventory.Book
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import org.bukkit.Bukkit
-import org.bukkit.Server
 import org.bukkit.entity.Player
 
 fun adventureChatArguments() {
@@ -60,13 +45,12 @@ fun adventureChatArguments() {
 
     // #region chatArgumentExample
     CommandAPICommand("pbroadcast")
-        .withArguments(AdventureChatArgument("message"))
-        .executes(CommandExecutor { _, args ->
-            val message = args["message"] as Component
+        .withArguments(ChatArgument("message"))
+        .executesPlayer(PlayerCommandExecutor { sender, args ->
+            val message = args["message"] as SignedMessage
 
-            // Broadcast the message to everyone with broadcast permissions.
-            Bukkit.getServer().broadcast(message, Server.BROADCAST_CHANNEL_USERS)
-            Bukkit.getServer().broadcast(message)
+            // Sends the message as if it was sent by a player
+            Bukkit.getServer().sendMessage(message, ChatType.CHAT.bind(Component.text(sender.name)))
         })
         .register()
     // #endregion chatArgumentExample
@@ -85,10 +69,10 @@ fun adventureChatArgumentsDSL() {
 
     // #region componentExampleDSL
     commandAPICommand("showbook") {
-        playerArgument("target")
+        entitySelectorArgumentOnePlayer("target")
         textArgument("title")
         stringArgument("author")
-        adventureChatComponentArgument("contents")
+        chatComponentArgument("contents")
         anyExecutor { _, args ->
             val target = args["target"] as Player
             val title = args["title"] as String
@@ -104,13 +88,12 @@ fun adventureChatArgumentsDSL() {
 
     // #region chatArgumentExampleDSL
     commandAPICommand("pbroadcast") {
-        adventureChatArgument("message")
-        anyExecutor { _, args ->
+        chatArgument("message")
+        playerExecutor { sender, args ->
             val message = args["message"] as Component
 
             // Broadcast the message to everyone with broadcast permissions.
-            Bukkit.getServer().broadcast(message, Server.BROADCAST_CHANNEL_USERS)
-            Bukkit.getServer().broadcast(message)
+            Bukkit.getServer().sendMessage(message, ChatType.CHAT.bind(Component.text(sender.name)))
         }
     }
     // #endregion chatArgumentExampleDSL

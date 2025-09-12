@@ -2,18 +2,13 @@ package createcommands.arguments.suggestions
 
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.SuggestionInfo
-import dev.jorel.commandapi.arguments.Argument
-import dev.jorel.commandapi.arguments.ArgumentSuggestions
-import dev.jorel.commandapi.arguments.GreedyStringArgument
-import dev.jorel.commandapi.arguments.IntegerArgument
-import dev.jorel.commandapi.arguments.PlayerArgument
-import dev.jorel.commandapi.arguments.StringArgument
+import dev.jorel.commandapi.arguments.*
 import dev.jorel.commandapi.executors.PlayerCommandExecutor
 import org.bukkit.Location
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.EntityType
 import org.bukkit.entity.Player
-import java.util.UUID
+import java.util.*
 
 // #region createFriendsClass
 object Friends {
@@ -54,7 +49,7 @@ fun stringSuggestions() {
 fun stringSuggestions2() {
     // #region createFriendCommand
     val arguments = listOf<Argument<*>>(
-        PlayerArgument("friend").replaceSuggestions(
+        EntitySelectorArgument.OnePlayer("friend").replaceSuggestions(
             ArgumentSuggestions.strings { info ->
                 Friends.getFriends(info.sender())
             }
@@ -75,10 +70,10 @@ fun stringSuggestions2() {
     val commandArgs = mutableListOf<Argument<*>>()
     commandArgs.add(IntegerArgument("radius"))
 
-    // Replace the suggestions for the PlayerArgument.
+    // Replace the suggestions for the EntitySelectorArgument.OnePlayer.
     // info.sender() refers to the command sender running this command
     // info.previousArgs() refers to the Object[] of previously declared arguments (in this case, the IntegerArgument radius)
-    commandArgs.add(PlayerArgument("target").replaceSuggestions(ArgumentSuggestions.strings { info: SuggestionInfo<CommandSender> ->
+    commandArgs.add(EntitySelectorArgument.OnePlayer("target").replaceSuggestions(ArgumentSuggestions.strings { info: SuggestionInfo<CommandSender> ->
 
         // Cast the first argument (radius, which is an IntegerArgument) to get its value
         val radius = (info.previousArgs()["radius"] as Int).toDouble()

@@ -10,8 +10,6 @@ java.sourceCompatibility = JavaVersion.VERSION_21
 java.targetCompatibility = JavaVersion.VERSION_21
 
 val commandApiVersion: String by project
-val paperVersion: String by project
-val velocityVersion: String by project
 val brigadierVersion: String by project
 val authlibVersion: String by project
 val nbtApiVersion: String by project
@@ -43,9 +41,9 @@ repositories {
 }
 
 dependencies {
-    api("dev.jorel:commandapi-annotations:$commandApiVersion")
-    api("de.tr7zw:item-nbt-api:$nbtApiVersion")
-    api("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
+    compileOnly("dev.jorel:commandapi-annotations:$commandApiVersion")
+    compileOnly("de.tr7zw:item-nbt-api:$nbtApiVersion")
+    compileOnly("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
     testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
     testImplementation("com.github.seeseemelk:MockBukkit-v1.21:$mockBukkitVersion")
     compileOnly("com.mojang:brigadier:$brigadierVersion")

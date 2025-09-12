@@ -5,12 +5,8 @@ import dev.jorel.commandapi.BukkitTooltip
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.IStringTooltip
 import dev.jorel.commandapi.StringTooltip
-import dev.jorel.commandapi.arguments.Argument
-import dev.jorel.commandapi.arguments.ArgumentSuggestions
-import dev.jorel.commandapi.arguments.LocationArgument
-import dev.jorel.commandapi.arguments.PlayerArgument
+import dev.jorel.commandapi.arguments.*
 import dev.jorel.commandapi.arguments.SafeSuggestions
-import dev.jorel.commandapi.arguments.StringArgument
 import dev.jorel.commandapi.executors.PlayerCommandExecutor
 import org.bukkit.Location
 import org.bukkit.Material
@@ -30,7 +26,7 @@ fun tooltips() {
                 )
             })
     )
-    arguments.add(PlayerArgument("target"))
+    arguments.add(EntitySelectorArgument.OnePlayer("target"))
     // #endregion createArgumentsWithTooltips
 
     // #region registerEmoteCommand

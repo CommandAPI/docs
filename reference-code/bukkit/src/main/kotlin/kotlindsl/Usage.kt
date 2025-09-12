@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemStack
 fun usage() {
     // #region dslExample
     commandAPICommand("sendmessageto") {
-        playerArgument("player") // Defines a new PlayerArgument("player")
+        entitySelectorArgumentOnePlayer("player") // Defines a new EntitySelectorArgument.OnePlayer("player")
         greedyStringArgument("msg") // Defines a new GreedyStringArgument("msg")
         anyExecutor { _, args -> // Command can be executed by anyone and anything (such as entities, the console, etc.)
             val player: Player = args["player"] as Player
@@ -22,7 +22,7 @@ fun usage() {
 
     // #region argumentRequirementsExample
     commandAPICommand("sendMessageTo") {
-        playerArgument("player")
+        entitySelectorArgumentOnePlayer("player")
         greedyStringArgument("msg")
         playerExecutor { _, args ->
             val player: Player = args["player"] as Player
@@ -85,7 +85,7 @@ fun usage() {
 fun usageTree() {
     // #region dslTreeExample
     commandTree("sendmessageto") {
-        playerArgument("player") { // Defines a new PlayerArgument("player")
+        entitySelectorArgumentOnePlayer("player") { // Defines a new EntitySelectorArgument.OnePlayer("player")
             greedyStringArgument("msg") { // Defines a new GreedyStringArgument("msg")
                 anyExecutor { _, args -> // Command can be executed by anyone and anything (such as entities, the console, etc.)
                     val player: Player = args["player"] as Player
@@ -99,7 +99,7 @@ fun usageTree() {
 
     // #region argumentRequirementsTreeExample
     commandTree("sendMessageTo") {
-        playerArgument("player") {
+        entitySelectorArgumentOnePlayer("player") {
             greedyStringArgument("msg") {
                 playerExecutor { _, args ->
                     val player: Player = args["player"] as Player

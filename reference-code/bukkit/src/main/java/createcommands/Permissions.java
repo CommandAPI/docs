@@ -3,8 +3,8 @@ package createcommands;
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.CommandPermission;
 import dev.jorel.commandapi.arguments.DoubleArgument;
+import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.arguments.LiteralArgument;
-import dev.jorel.commandapi.arguments.PlayerArgument;
 import org.bukkit.entity.Player;
 
 class Permissions {
@@ -43,7 +43,7 @@ class Permissions {
         // #region argumentPermissionExampleStep2
         // Adds the OP permission to the "target" argument. The sender requires OP to execute /kill <target>
         new CommandAPICommand("kill")
-            .withArguments(new PlayerArgument("target").withPermission(CommandPermission.OP))
+            .withArguments(new EntitySelectorArgument.OnePlayer("target").withPermission(CommandPermission.OP))
             .executesPlayer((player, args) -> {
                 ((Player) args.get("target")).setHealth(0);
             })
@@ -62,7 +62,7 @@ class Permissions {
         // /economy <target> - requires the permission "economy.other" to execute
         new CommandAPICommand("economy")
             .withPermission("economy.other") // The important part of this example
-            .withArguments(new PlayerArgument("target"))
+            .withArguments(new EntitySelectorArgument.OnePlayer("target"))
             .executesPlayer((player, args) -> {
                 Player target = (Player) args.get("target");
 
@@ -75,7 +75,7 @@ class Permissions {
         new CommandAPICommand("economy")
             .withPermission("economy.admin.give") // The important part of this example
             .withArguments(new LiteralArgument("give"))
-            .withArguments(new PlayerArgument("target"))
+            .withArguments(new EntitySelectorArgument.OnePlayer("target"))
             .withArguments(new DoubleArgument("amount"))
             .executesPlayer((player, args) -> {
                 Player target = (Player) args.get("target");
@@ -90,7 +90,7 @@ class Permissions {
         new CommandAPICommand("economy")
             .withPermission("economy.admin.reset") // The important part of this example
             .withArguments(new LiteralArgument("reset"))
-            .withArguments(new PlayerArgument("target"))
+            .withArguments(new EntitySelectorArgument.OnePlayer("target"))
             .executesPlayer((player, args) -> {
                 Player target = (Player) args.get("target");
 

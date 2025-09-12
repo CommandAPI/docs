@@ -4,16 +4,10 @@ import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.arguments.ChatArgument
 import dev.jorel.commandapi.arguments.ChatColorArgument
 import dev.jorel.commandapi.arguments.ChatComponentArgument
-import dev.jorel.commandapi.arguments.PlayerArgument
+import dev.jorel.commandapi.arguments.EntitySelectorArgument
 import dev.jorel.commandapi.executors.CommandExecutor
 import dev.jorel.commandapi.executors.PlayerCommandExecutor
-import dev.jorel.commandapi.kotlindsl.anyExecutor
-import dev.jorel.commandapi.kotlindsl.chatArgument
-import dev.jorel.commandapi.kotlindsl.chatColorArgument
-import dev.jorel.commandapi.kotlindsl.chatComponentArgument
-import dev.jorel.commandapi.kotlindsl.commandAPICommand
-import dev.jorel.commandapi.kotlindsl.playerArgument
-import dev.jorel.commandapi.kotlindsl.playerExecutor
+import dev.jorel.commandapi.kotlindsl.*
 import net.md_5.bungee.api.chat.BaseComponent
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
@@ -35,7 +29,7 @@ fun spigotChatArguments() {
 
     // #region setPagesExample
     CommandAPICommand("makebook")
-        .withArguments(PlayerArgument("player"))
+        .withArguments(EntitySelectorArgument.OnePlayer("player"))
         .withArguments(ChatComponentArgument("contents"))
         .executes(CommandExecutor { _, args ->
             val player = args["player"] as Player
@@ -81,7 +75,7 @@ fun spigotChatArgumentsDSL() {
 
     // #region setPagesExampleDSL
     commandAPICommand("makebook") {
-        playerArgument("player")
+        entitySelectorArgumentOnePlayer("player")
         chatComponentArgument("contents")
         anyExecutor { _, args ->
             val player = args["player"] as Player

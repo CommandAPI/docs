@@ -2,8 +2,8 @@ package createcommands.arguments.types
 
 import de.tr7zw.changeme.nbtapi.NBTContainer
 import dev.jorel.commandapi.CommandAPI
-import dev.jorel.commandapi.CommandAPIBukkitConfig
 import dev.jorel.commandapi.CommandAPICommand
+import dev.jorel.commandapi.CommandAPIPaperConfig
 import dev.jorel.commandapi.arguments.NBTCompoundArgument
 import dev.jorel.commandapi.executors.CommandExecutor
 import dev.jorel.commandapi.kotlindsl.anyExecutor
@@ -14,7 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin
 val nbtArguments = object : JavaPlugin() {
     // #region hookNbtAPIExample
     override fun onLoad() {
-        CommandAPI.onLoad(CommandAPIBukkitConfig(this)
+        CommandAPI.onLoad(CommandAPIPaperConfig(this.pluginMeta, this)
             .initializeNBTAPI(NBTContainer::class.java, ::NBTContainer)
         )
     }
