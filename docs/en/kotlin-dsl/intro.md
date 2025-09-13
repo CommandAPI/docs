@@ -1,6 +1,6 @@
 ---
 order: 1
-preferences: ["build-system"]
+preferences: ["build-system", "paper-spigot"]
 authors:
   - JorelAli
   - willkroboth
@@ -20,9 +20,8 @@ To install the DSL, you need to add the Kotlin DSL dependency into your build sc
 ### Adding the dependency
 
 <div class="maven">
+<div class="paper">
 
-:::tabs
-===Paper
 ```xml
 <dependencies>
     <dependency>
@@ -32,17 +31,21 @@ To install the DSL, you need to add the Kotlin DSL dependency into your build sc
     </dependency>
 </dependencies>
 ```
-===Spigot
+
+</div>
+<div class="spigot">
+
 ```xml
 <dependencies>
     <dependency>
         <groupId>dev.jorel</groupId>
         <artifactId>commandapi-kotlin-spigot</artifactId>
-        <version>11.0.0</version>
+        <version>11.0.0-SNAPSHOT</version>
     </dependency>
 </dependencies>
 ```
-:::
+
+</div>
 
 Next, you need to add Kotlin to your project. For this, you first need to add the dependency:
 
@@ -117,38 +120,45 @@ Next, you need to add the dependency:
 
 <div class="groovy">
 
-:::tabs
-===Paper
-```groovy
-dependencies {
-    implementation "dev.jorel:commandapi-kotlin-paper:11.0.0"
-}
-```
-===Spigot
-```groovy
-dependencies {
-    implementation "dev.jorel:commandapi-kotlin-spigot:11.0.0"
-}
-```
-:::
+<div class="paper">
 
+```groovy
+dependencies {
+    implementation "dev.jorel:commandapi-kotlin-paper:11.0.0-SNAPSHOT"
+}
+```
+
+</div>
+<div class="spigot">
+
+```groovy
+dependencies {
+    implementation "dev.jorel:commandapi-kotlin-spigot:11.0.0-SNAPSHOT"
+}
+```
+
+</div>
 </div>
 <div class="kts">
 
-:::tabs
-===Paper
+<div class="paper">
+
 ```kotlin
 dependencies {
-    implementation("dev.jorel:commandapi-kotlin-paper:11.0.0")
+    implementation("dev.jorel:commandapi-kotlin-paper:11.0.0-SNAPSHOT")
 }
 ```
-===Spigot
+
+</div>
+<div class="spigot">
+
 ```kotlin
 dependencies {
-    implementation("dev.jorel:commandapi-kotlin-spigot:11.0.0")
+    implementation("dev.jorel:commandapi-kotlin-spigot:11.0.0-SNAPSHOT")
 }
 ```
-:::
+
+</div>
 
 </div>
 

@@ -110,6 +110,7 @@ The `onDisable()` method disables the CommandAPI gracefully. This should be plac
 
 :::tip Example – Setting up the CommandAPI in your plugin
 
+<div>
 <div class="paper">
 
 :::tabs
@@ -129,6 +130,7 @@ The `onDisable()` method disables the CommandAPI gracefully. This should be plac
 <<< @/../reference-code/spigot/src/main/kotlin/devsetup/Shading.kt#shadingExample
 :::
 
+</div>
 </div>
 
 ## A note about relocating

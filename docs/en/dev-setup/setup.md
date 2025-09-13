@@ -1,6 +1,6 @@
 ---
 order: 1
-preferences: ["build-system"]
+preferences: ["build-system", "paper-spigot"]
 authors:
   - JorelAli
   - DerEchtePilz
@@ -46,8 +46,8 @@ If you've never used a build system before, I highly recommend it! It makes it e
 
 - Add the dependency to your `pom.xml`:
 
-:::tabs
-===Paper
+  <div class="paper">
+
   ```xml
   <dependencies>
       <dependency>
@@ -58,7 +58,10 @@ If you've never used a build system before, I highly recommend it! It makes it e
       </dependency>
   </dependencies>
   ```
-===Spigot
+
+  </div>
+  <div class="spigot">
+
   ```xml
   <dependencies>
       <dependency>
@@ -69,7 +72,8 @@ If you've never used a build system before, I highly recommend it! It makes it e
       </dependency>
   </dependencies>
   ```
-:::
+
+  </div>
 
 </div>
 <div class="gradle">
@@ -102,38 +106,46 @@ If you've never used a build system before, I highly recommend it! It makes it e
 
   <div class="groovy">
 
-  :::tabs
-  ===Paper
+  <div class="paper">
+  
   ```groovy
   dependencies {
       compileOnly "dev.jorel:commandapi-paper-core:11.0.0-SNAPSHOT"
   }
   ```
-  ===Spigot
+  
+  </div> 
+  <div class="spigot">
+
   ```groovy
   dependencies {
       compileOnly "dev.jorel:commandapi-spigot-core:11.0.0-SNAPSHOT"
   }
   ```
-  :::
+  
+  </div>
   
   </div>
   <div class="kts">
   
-  :::tabs
-  ===Paper
+  <div class="paper">
+
   ```kotlin
   dependencies {
       compileOnly("dev.jorel:commandapi-paper-core:11.0.0-SNAPSHOT")
   }
   ```
-  ===Spigot
+  
+  </div>
+  <div class="spigot">
+  
   ```kotlin
   dependencies {
       compileOnly("dev.jorel:commandapi-spigot-core:11.0.0-SNAPSHOT")
   }
   ```
-  :::
+  
+  </div>
   </div>
 
 </div>

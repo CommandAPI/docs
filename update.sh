@@ -17,10 +17,12 @@ sed -i "s/<version>$oldVer<\/version>/<version>$newVer<\/version>/" docs/en/velo
 
 # Update CommandAPI version in documentation files (Gradle)
 sed -i "s/dev.jorel:commandapi-annotations:$oldVer/dev.jorel:commandapi-annotations:$newVer/" docs/en/dev-setup/annotations.md
-sed -i "s/dev.jorel:commandapi-bukkit-core:$oldVer/dev.jorel:commandapi-bukkit-core:$newVer/" docs/en/dev-setup/setup.md
-sed -i "s/dev.jorel:commandapi-bukkit-shade:$oldVer/dev.jorel:commandapi-bukkit-shade:$newVer/" docs/en/dev-setup/shading.md
-sed -i "s/dev.jorel:commandapi-bukkit-shade-mojang-mapped:$oldVer/dev.jorel:commandapi-bukkit-shade-mojang-mapped:$newVer/" docs/en/dev-setup/shading.md
-sed -i "s/dev.jorel:commandapi-bukkit-kotlin:$oldVer/dev.jorel:commandapi-bukkit-kotlin:$newVer/" docs/en/kotlin-dsl/intro.md
+sed -i "s/dev.jorel:commandapi-paper-core:$oldVer/dev.jorel:commandapi-paper-core:$newVer/" docs/en/dev-setup/setup.md
+sed -i "s/dev.jorel:commandapi-spigot-core:$oldVer/dev.jorel:commandapi-spigot-core:$newVer/" docs/en/dev-setup/setup.md
+sed -i "s/dev.jorel:commandapi-paper-shade:$oldVer/dev.jorel:commandapi-paper-shade:$newVer/" docs/en/dev-setup/shading.md
+sed -i "s/dev.jorel:commandapi-spigot-shade:$oldVer/dev.jorel:commandapi-spigot-shade:$newVer/" docs/en/dev-setup/shading.md
+sed -i "s/dev.jorel:commandapi-kotlin-paper:$oldVer/dev.jorel:commandapi-kotlin-paper:$newVer/" docs/en/kotlin-dsl/intro.md
+sed -i "s/dev.jorel:commandapi-kotlin-spigot:$oldVer/dev.jorel:commandapi-kotlin-spigot:$newVer/" docs/en/kotlin-dsl/intro.md
 sed -i "s/dev.jorel:commandapi-bukkit-test-toolkit:$oldVer/dev.jorel:commandapi-bukkit-test-toolkit:$newVer/" docs/en/test/setup.md
 sed -i "s/dev.jorel:commandapi-bukkit-core:$oldVer/dev.jorel:commandapi-bukkit-core:$newVer/" docs/en/test/setup.md
 sed -i "s/dev.jorel:commandapi-velocity-shade:$oldVer/dev.jorel:commandapi-velocity-shade:$newVer/" docs/en/velocity/intro.md
