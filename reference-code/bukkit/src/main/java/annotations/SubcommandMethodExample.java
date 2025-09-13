@@ -1,22 +1,26 @@
 package annotations;
 
+import dev.jorel.commandapi.annotations.Permission;
+import dev.jorel.commandapi.annotations.Subcommand;
+import dev.jorel.commandapi.annotations.arguments.AEntitySelectorArgument;
+import dev.jorel.commandapi.annotations.arguments.AStringArgument;
+import org.bukkit.entity.Player;
+
 import static annotations.WarpCommand.warps;
 
 class SubcommandMethodExample {
     // #region subcommandMethodExample
-    @dev.jorel.commandapi.annotations.Subcommand("create")
-    @dev.jorel.commandapi.annotations.Permission("warps.create")
-    public static void createWarp(org.bukkit.entity.Player player, @dev.jorel.commandapi.annotations.arguments.AStringArgument String warpName) {
+    @Subcommand("create")
+    @Permission("warps.create")
+    public static void createWarp(Player player, @AStringArgument String warpName) {
         warps.put(warpName, player.getLocation());
     }
     // #endregion subcommandMethodExample
 
     // #region subcommandAliasesMethodExample
-    @dev.jorel.commandapi.annotations.Subcommand({"teleport", "tp"})
-    public static void teleport(org.bukkit.entity.Player player, @dev.jorel.commandapi.annotations.arguments.APlayerArgument org.bukkit.OfflinePlayer target) {
-        if (target.isOnline() && target instanceof org.bukkit.entity.Player onlineTarget) {
-            player.teleport(onlineTarget);
-        }
+    @Subcommand({"teleport", "tp"})
+    public static void teleport(Player player, @AEntitySelectorArgument.OnePlayer Player target) {
+        player.teleport(target);
     }
     // #endregion subcommandAliasesMethodExample
 }

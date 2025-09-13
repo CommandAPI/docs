@@ -2,8 +2,8 @@ package createcommands.arguments.types;
 
 import de.tr7zw.changeme.nbtapi.NBTContainer;
 import dev.jorel.commandapi.CommandAPI;
-import dev.jorel.commandapi.CommandAPIBukkitConfig;
 import dev.jorel.commandapi.CommandAPICommand;
+import dev.jorel.commandapi.CommandAPISpigotConfig;
 import dev.jorel.commandapi.arguments.NBTCompoundArgument;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -13,7 +13,7 @@ class NBTArguments {
             // #region hookNbtAPIExample
             @Override
             public void onLoad() {
-                CommandAPI.onLoad(new CommandAPIBukkitConfig(this)
+                CommandAPI.onLoad(new CommandAPISpigotConfig(this)
                     .initializeNBTAPI(NBTContainer.class, NBTContainer::new)
                 );
             }

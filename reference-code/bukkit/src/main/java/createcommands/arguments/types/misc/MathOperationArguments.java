@@ -1,9 +1,9 @@
 package createcommands.arguments.types.misc;
 
 import dev.jorel.commandapi.CommandAPICommand;
+import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.arguments.IntegerArgument;
 import dev.jorel.commandapi.arguments.MathOperationArgument;
-import dev.jorel.commandapi.arguments.PlayerArgument;
 import dev.jorel.commandapi.wrappers.MathOperation;
 import org.bukkit.entity.Player;
 
@@ -11,7 +11,7 @@ class MathOperationArguments {
     static {
         // #region mathOperationArgumentsExample
         new CommandAPICommand("changelevel")
-            .withArguments(new PlayerArgument("player"))
+            .withArguments(new EntitySelectorArgument.OnePlayer("player"))
             .withArguments(new MathOperationArgument("operation"))
             .withArguments(new IntegerArgument("value"))
             .executes((sender, args) -> {

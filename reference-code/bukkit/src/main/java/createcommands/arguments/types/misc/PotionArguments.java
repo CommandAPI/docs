@@ -1,8 +1,8 @@
 package createcommands.arguments.types.misc;
 
 import dev.jorel.commandapi.CommandAPICommand;
+import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.arguments.IntegerArgument;
-import dev.jorel.commandapi.arguments.PlayerArgument;
 import dev.jorel.commandapi.arguments.PotionEffectArgument;
 import dev.jorel.commandapi.arguments.TimeArgument;
 import org.bukkit.NamespacedKey;
@@ -14,7 +14,7 @@ class PotionArguments {
     static {
         // #region potionEffectArgumentsExample
         new CommandAPICommand("potion")
-            .withArguments(new PlayerArgument("target"))
+            .withArguments(new EntitySelectorArgument.OnePlayer("target"))
             .withArguments(new PotionEffectArgument("potion"))
             .withArguments(new TimeArgument("duration"))
             .withArguments(new IntegerArgument("strength"))
@@ -32,7 +32,7 @@ class PotionArguments {
 
         // #region potionEffectArgumentsNamespacedKeyExample
         new CommandAPICommand("potion")
-            .withArguments(new PlayerArgument("target"))
+            .withArguments(new EntitySelectorArgument.OnePlayer("target"))
             .withArguments(new PotionEffectArgument.NamespacedKey("potion"))
             .withArguments(new TimeArgument("duration"))
             .withArguments(new IntegerArgument("strength"))

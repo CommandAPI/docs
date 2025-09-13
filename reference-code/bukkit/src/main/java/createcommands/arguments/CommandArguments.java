@@ -4,7 +4,6 @@ import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.arguments.GreedyStringArgument;
 import dev.jorel.commandapi.arguments.IntegerArgument;
-import dev.jorel.commandapi.arguments.PlayerArgument;
 import dev.jorel.commandapi.arguments.StringArgument;
 import org.bukkit.entity.Player;
 
@@ -14,8 +13,8 @@ class CommandArguments {
         new CommandAPICommand("mycommand")
             .withArguments(new StringArgument("name"))
             .withArguments(new IntegerArgument("amount"))
-            .withOptionalArguments(new PlayerArgument("player"))
-            .withOptionalArguments(new PlayerArgument("target"))
+            .withOptionalArguments(new EntitySelectorArgument.OnePlayer("player"))
+            .withOptionalArguments(new EntitySelectorArgument.OnePlayer("target"))
             .withOptionalArguments(new GreedyStringArgument("message"))
             .executesPlayer((player, args) -> {
                 String name = (String) args.get(0); // Access arguments by index
@@ -40,7 +39,7 @@ class CommandArguments {
 
         // #region getUncheckedExample
         new CommandAPICommand("mycommand")
-            .withArguments(new PlayerArgument("player"))
+            .withArguments(new EntitySelectorArgument.OnePlayer("player"))
             .executesPlayer((player, args) -> {
                 Player p = args.getUnchecked("player");
                 // Do whatever with the player
@@ -51,8 +50,8 @@ class CommandArguments {
         // #region getByArgumentExample
         StringArgument nameArgument = new StringArgument("name");
         IntegerArgument amountArgument = new IntegerArgument("amount");
-        PlayerArgument playerArgument = new PlayerArgument("player");
-        PlayerArgument targetArgument = new PlayerArgument("target");
+        EntitySelectorArgument.OnePlayer playerArgument = new EntitySelectorArgument.OnePlayer("player");
+        EntitySelectorArgument.OnePlayer targetArgument = new EntitySelectorArgument.OnePlayer("target");
         GreedyStringArgument messageArgument = new GreedyStringArgument("message");
 
         new CommandAPICommand("mycommand")

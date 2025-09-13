@@ -1,16 +1,16 @@
 package createcommands.arguments;
 
 import dev.jorel.commandapi.CommandAPICommand;
+import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.arguments.GreedyStringArgument;
 import dev.jorel.commandapi.arguments.IntegerArgument;
-import dev.jorel.commandapi.arguments.PlayerArgument;
 import org.bukkit.entity.Player;
 
 class ListedArguments {
     static {
         // #region listedArgumentsExample
         new CommandAPICommand("mycommand")
-            .withArguments(new PlayerArgument("player"))
+            .withArguments(new EntitySelectorArgument.OnePlayer("player"))
             .withArguments(new IntegerArgument("value").setListed(false))
             .withArguments(new GreedyStringArgument("message"))
             .executes((sender, args) -> {

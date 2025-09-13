@@ -4,7 +4,7 @@ import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.ChatArgument;
 import dev.jorel.commandapi.arguments.ChatColorArgument;
 import dev.jorel.commandapi.arguments.ChatComponentArgument;
-import dev.jorel.commandapi.arguments.PlayerArgument;
+import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -27,7 +27,7 @@ class SpigotChatArguments {
 
         // #region setPagesExample
         new CommandAPICommand("makebook")
-            .withArguments(new PlayerArgument("player"))
+            .withArguments(new EntitySelectorArgument.OnePlayer("player"))
             .withArguments(new ChatComponentArgument("contents"))
             .executes((sender, args) -> {
                 Player player = (Player) args.get("player");

@@ -3,7 +3,7 @@ package createcommands.arguments.types;
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.ArgumentSuggestions;
 import dev.jorel.commandapi.arguments.CommandArgument;
-import dev.jorel.commandapi.arguments.PlayerArgument;
+import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.arguments.SuggestionsBranch;
 import dev.jorel.commandapi.wrappers.CommandResult;
 import org.bukkit.Bukkit;
@@ -14,7 +14,7 @@ class CommandArguments {
     static {
         // #region sudoCommandExample
         new CommandAPICommand("sudo")
-            .withArguments(new PlayerArgument("target"))
+            .withArguments(new EntitySelectorArgument.OnePlayer("target"))
             .withArguments(new CommandArgument("command"))
             .executes((sender, args) -> {
                 Player target = (Player) args.get("target");

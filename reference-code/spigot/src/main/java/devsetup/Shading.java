@@ -3,13 +3,14 @@ package devsetup;
 import dev.jorel.commandapi.CommandAPI;
 import dev.jorel.commandapi.CommandAPIBukkitConfig;
 import dev.jorel.commandapi.CommandAPICommand;
+import dev.jorel.commandapi.CommandAPISpigotConfig;
 import org.bukkit.plugin.java.JavaPlugin;
 
 class Shading {
     static {
         JavaPlugin plugin = null;
         // #region bukkitConfigExample
-        CommandAPI.onLoad(new CommandAPIBukkitConfig(plugin).silentLogs(true));
+        CommandAPI.onLoad(new CommandAPISpigotConfig(plugin).silentLogs(true));
         // #endregion bukkitConfigExample
     }
 
@@ -17,7 +18,7 @@ class Shading {
     class MyPlugin extends JavaPlugin {
         @Override
         public void onLoad() {
-            CommandAPI.onLoad(new CommandAPIBukkitConfig(this).verboseOutput(true)); // Load with verbose output
+            CommandAPI.onLoad(new CommandAPISpigotConfig(this).verboseOutput(true)); // Load with verbose output
 
             new CommandAPICommand("ping")
                 .executes((sender, args) -> {

@@ -1,24 +1,25 @@
 package createcommands.arguments.types.chat;
 
 import dev.jorel.commandapi.CommandAPICommand;
-import dev.jorel.commandapi.arguments.AdventureChatArgument;
-import dev.jorel.commandapi.arguments.AdventureChatColorArgument;
-import dev.jorel.commandapi.arguments.AdventureChatComponentArgument;
-import dev.jorel.commandapi.arguments.PlayerArgument;
+import dev.jorel.commandapi.arguments.ChatArgument;
+import dev.jorel.commandapi.arguments.ChatColorArgument;
+import dev.jorel.commandapi.arguments.ChatComponentArgument;
+import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.arguments.StringArgument;
 import dev.jorel.commandapi.arguments.TextArgument;
+import net.kyori.adventure.chat.ChatType;
+import net.kyori.adventure.chat.SignedMessage;
 import net.kyori.adventure.inventory.Book;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Bukkit;
-import org.bukkit.Server;
 import org.bukkit.entity.Player;
 
 class AdventureChatArguments {
     static {
         // #region namedTextColorExample
         new CommandAPICommand("namecolor")
-            .withArguments(new AdventureChatColorArgument("chatcolor"))
+            .withArguments(new ChatColorArgument("chatcolor"))
             .executesPlayer((player, args) -> {
                 NamedTextColor color = (NamedTextColor) args.get("chatcolor");
                 player.displayName(Component.text().color(color).append(Component.text(player.getName())).build());
@@ -28,10 +29,10 @@ class AdventureChatArguments {
 
         // #region componentExample
         new CommandAPICommand("showbook")
-            .withArguments(new PlayerArgument("target"))
+            .withArguments(new EntitySelectorArgument.OnePlayer("target"))
             .withArguments(new TextArgument("title"))
             .withArguments(new StringArgument("author"))
-            .withArguments(new AdventureChatComponentArgument("contents"))
+            .withArguments(new ChatComponentArgument("contents"))
             .executes((sender, args) -> {
                 Player target = (Player) args.get("target");
                 String title = (String) args.get("title");
@@ -47,13 +48,12 @@ class AdventureChatArguments {
 
         // #region chatArgumentExample
         new CommandAPICommand("pbroadcast")
-            .withArguments(new AdventureChatArgument("message"))
+            .withArguments(new ChatArgument("message"))
             .executes((sender, args) -> {
-                Component message = (Component) args.get("message");
+                SignedMessage message = (SignedMessage) args.get("message");
 
-                // Broadcast the message to everyone with broadcast permissions.
-                Bukkit.getServer().broadcast(message, Server.BROADCAST_CHANNEL_USERS);
-                Bukkit.getServer().broadcast(message);
+                // Sends the message as if it was sent by a player
+                Bukkit.getServer().sendMessage(message, ChatType.CHAT.bind(Component.text(sender.getName())));
             })
             .register();
         // #endregion chatArgumentExample

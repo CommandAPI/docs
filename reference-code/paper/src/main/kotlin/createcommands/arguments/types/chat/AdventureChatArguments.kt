@@ -92,7 +92,7 @@ fun adventureChatArgumentsDSL() {
         playerExecutor { sender, args ->
             val message = args["message"] as Component
 
-            // Broadcast the message to everyone with broadcast permissions.
+            // Sends the message as if it was sent by a player
             Bukkit.getServer().sendMessage(message, ChatType.CHAT.bind(Component.text(sender.name)))
         }
     }

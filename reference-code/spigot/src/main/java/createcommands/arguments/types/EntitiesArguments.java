@@ -2,20 +2,21 @@ package createcommands.arguments.types;
 
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.Argument;
-import dev.jorel.commandapi.arguments.AsyncOfflinePlayerArgument;
+import dev.jorel.commandapi.arguments.AsyncPlayerProfileArgument;
 import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.arguments.EntityTypeArgument;
 import dev.jorel.commandapi.arguments.IntegerArgument;
-import dev.jorel.commandapi.arguments.PlayerArgument;
+import dev.jorel.commandapi.arguments.PlayerProfileArgument;
 import dev.jorel.commandapi.arguments.SafeSuggestions;
 import dev.jorel.commandapi.executors.CommandArguments;
 import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.profile.PlayerProfile;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 class EntitiesArguments {
@@ -38,9 +39,9 @@ class EntitiesArguments {
         // #endregion entitySelectorArgumentExample
 
         // #region buildNoSelectorSuggestions
-        Argument<?> noSelectorSuggestions = new PlayerArgument("target")
+        Argument<?> noSelectorSuggestions = new PlayerProfileArgument("target")
             .replaceSafeSuggestions(SafeSuggestions.suggest(info ->
-                Bukkit.getOnlinePlayers().toArray(new Player[0])
+                Bukkit.getOnlinePlayers().stream().map(Player::getPlayerProfile).toArray(PlayerProfile[]::new)
             ));
         // #endregion buildNoSelectorSuggestions
 
@@ -56,15 +57,15 @@ class EntitiesArguments {
 
         // #region playedBeforeArgumentExample
         new CommandAPICommand("playedbefore")
-            .withArguments(new AsyncOfflinePlayerArgument("player"))
+            .withArguments(new AsyncPlayerProfileArgument("player"))
             .executes((sender, args) -> {
-                CompletableFuture<OfflinePlayer> player = (CompletableFuture<OfflinePlayer>) args.get("player");
+                CompletableFuture<List<PlayerProfile>> profiles = (CompletableFuture<List<PlayerProfile>>) args.get("player");
 
                 // Directly sends a message to the sender, indicating that the command is running to prevent confusion
                 sender.sendMessage("Checking if the player has played before...");
 
-                player.thenAccept(offlinePlayer -> {
-                    if (offlinePlayer.hasPlayedBefore()) {
+                profiles.thenAccept(profileList -> {
+                    if (Bukkit.getOfflinePlayer(profileList.getFirst().getUniqueId()).hasPlayedBefore()) {
                         sender.sendMessage("Player has played before");
                     } else {
                         sender.sendMessage("Player has never played before");

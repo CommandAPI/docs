@@ -1,8 +1,8 @@
 package createcommands.arguments;
 
 import dev.jorel.commandapi.CommandAPICommand;
+import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.arguments.IntegerArgument;
-import dev.jorel.commandapi.arguments.PlayerArgument;
 import dev.jorel.commandapi.arguments.StringArgument;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -11,7 +11,7 @@ class OptionalArguments {
     static {
         // #region simpleOptionalArgumentsExample
         new CommandAPICommand("sayhi")
-            .withOptionalArguments(new PlayerArgument("target"))
+            .withOptionalArguments(new EntitySelectorArgument.OnePlayer("target"))
             .executesPlayer((player, args) -> {
                 Player target = (Player) args.get("target");
                 if (target != null) {
@@ -25,7 +25,7 @@ class OptionalArguments {
 
         // #region getOptionalExample
         new CommandAPICommand("sayhi")
-            .withOptionalArguments(new PlayerArgument("target"))
+            .withOptionalArguments(new EntitySelectorArgument.OnePlayer("target"))
             .executesPlayer((player, args) -> {
                 Player target = (Player) args.getOptional("target").orElse(player);
                 target.sendMessage("Hi!");
@@ -36,7 +36,7 @@ class OptionalArguments {
         // #region argumentsAfterOptionalArgumentsExample
         new CommandAPICommand("rate")
             .withOptionalArguments(new StringArgument("topic").combineWith(new IntegerArgument("rating", 0, 10)))
-            .withOptionalArguments(new PlayerArgument("target"))
+            .withOptionalArguments(new EntitySelectorArgument.OnePlayer("target"))
             .executes((sender, args) -> {
                 String topic = (String) args.get("topic");
                 if (topic == null) {

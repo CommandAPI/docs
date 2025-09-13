@@ -2,7 +2,7 @@ package createcommands.arguments.types.misc;
 
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.AdvancementArgument;
-import dev.jorel.commandapi.arguments.PlayerArgument;
+import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import org.bukkit.advancement.Advancement;
 import org.bukkit.advancement.AdvancementProgress;
 import org.bukkit.entity.Player;
@@ -11,7 +11,7 @@ class AdvancementArguments {
     static {
         // #region advancementArgumentsExample
         new CommandAPICommand("award")
-            .withArguments(new PlayerArgument("player"))
+            .withArguments(new EntitySelectorArgument.OnePlayer("player"))
             .withArguments(new AdvancementArgument("advancement"))
             .executes((sender, args) -> {
                 Player target = (Player) args.get("player");

@@ -7,8 +7,8 @@ import dev.jorel.commandapi.IStringTooltip;
 import dev.jorel.commandapi.StringTooltip;
 import dev.jorel.commandapi.arguments.Argument;
 import dev.jorel.commandapi.arguments.ArgumentSuggestions;
+import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.arguments.LocationArgument;
-import dev.jorel.commandapi.arguments.PlayerArgument;
 import dev.jorel.commandapi.arguments.SafeSuggestions;
 import dev.jorel.commandapi.arguments.StringArgument;
 import org.bukkit.Location;
@@ -34,7 +34,7 @@ class Tooltips {
                 }
             ))
         );
-        arguments.add(new PlayerArgument("target"));
+        arguments.add(new EntitySelectorArgument.OnePlayer("target"));
         // #endregion createArgumentsWithTooltips
 
         // #region registerEmoteCommand

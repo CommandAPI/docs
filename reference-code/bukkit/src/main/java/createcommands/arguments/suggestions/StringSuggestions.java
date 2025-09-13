@@ -3,9 +3,9 @@ package createcommands.arguments.suggestions;
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.Argument;
 import dev.jorel.commandapi.arguments.ArgumentSuggestions;
+import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.arguments.GreedyStringArgument;
 import dev.jorel.commandapi.arguments.IntegerArgument;
-import dev.jorel.commandapi.arguments.PlayerArgument;
 import dev.jorel.commandapi.arguments.StringArgument;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
@@ -59,7 +59,7 @@ class StringSuggestions {
     {
         // #region createFriendCommand
         List<Argument<?>> arguments = new ArrayList<>();
-        arguments.add(new PlayerArgument("friend").replaceSuggestions(
+        arguments.add(new EntitySelectorArgument.OnePlayer("friend").replaceSuggestions(
             ArgumentSuggestions.strings(info ->
                 Friends.getFriends(info.sender())
             ))
@@ -82,7 +82,7 @@ class StringSuggestions {
         // Replace the suggestions for the PlayerArgument.
         // info.sender() refers to the command sender that is running this command
         // info.previousArgs() refers to the Object[] of previously declared arguments (in this case, the IntegerArgument radius)
-        commandArgs.add(new PlayerArgument("target").replaceSuggestions(
+        commandArgs.add(new EntitySelectorArgument.OnePlayer("target").replaceSuggestions(
             ArgumentSuggestions.strings(info -> {
 
                 // Cast the first argument (radius, which is an IntegerArgument) to get its value

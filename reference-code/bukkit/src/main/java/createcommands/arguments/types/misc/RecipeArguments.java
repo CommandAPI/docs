@@ -1,7 +1,7 @@
 package createcommands.arguments.types.misc;
 
 import dev.jorel.commandapi.CommandAPICommand;
-import dev.jorel.commandapi.arguments.PlayerArgument;
+import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.arguments.RecipeArgument;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ComplexRecipe;
@@ -20,7 +20,7 @@ class RecipeArguments {
 
         // #region getKeyExample
         new CommandAPICommand("unlockrecipe")
-            .withArguments(new PlayerArgument("player"))
+            .withArguments(new EntitySelectorArgument.OnePlayer("player"))
             .withArguments(new RecipeArgument("recipe"))
             .executes((sender, args) -> {
                 Player target = (Player) args.get("player");

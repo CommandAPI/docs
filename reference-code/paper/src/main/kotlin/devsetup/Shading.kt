@@ -7,13 +7,12 @@ import dev.jorel.commandapi.CommandAPIPaperConfig
 import dev.jorel.commandapi.executors.CommandExecutor
 import org.bukkit.plugin.java.JavaPlugin
 
-class Shading : JavaPlugin() {
-    val plugin: JavaPlugin = this
-    fun shading() {
-        // #region bukkitConfigExample
-        CommandAPI.onLoad(CommandAPIPaperConfig(plugin.pluginMeta, plugin).silentLogs(true))
-        // #endregion bukkitConfigExample
-    }
+class KotlinShadingPlugin : JavaPlugin()
+fun shading() {
+    val plugin: JavaPlugin = KotlinShadingPlugin()
+    // #region bukkitConfigExample
+    CommandAPI.onLoad(CommandAPIPaperConfig(plugin.pluginMeta, plugin).silentLogs(true))
+    // #endregion bukkitConfigExample
 }
 
 // #region shadingExample
