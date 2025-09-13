@@ -88,7 +88,7 @@ The annotations for arguments are really simple, there are just two things you n
 
 $$\begin{align}
 \texttt{StringArgument}&\xrightarrow{A}\texttt{@AStringArgument}\\\\
-\texttt{PlayerArgument}&\xrightarrow{A}\texttt{@APlayerArgument}\\\\
+\texttt{IntegerArgument}&\xrightarrow{A}\texttt{@AIntegerArgument}\\\\
 \texttt{AdvancementArgument}&\xrightarrow{A}\texttt{@AAdvancementArgument}\\\\
 &\hspace{0.75em}\vdots
 \end{align}$$

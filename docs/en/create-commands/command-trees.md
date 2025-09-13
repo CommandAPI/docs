@@ -67,7 +67,7 @@ Say we want to take our `/sayhi` command from above and also have an argument wh
 /sayhi <target> - Says "Hi!" to a target player
 ```
 
-We can do this by adding a `PlayerArgument` to our command. As described above, to add this argument, we must use the `then()` method:
+We can do this by adding an `EntitySelectorArgument.OnePlayer` to our command. As described above, to add this argument, we must use the `then()` method:
 
 :::tabs
 ===Java
@@ -76,7 +76,7 @@ We can do this by adding a `PlayerArgument` to our command. As described above, 
 <<< @/../reference-code/bukkit/src/main/kotlin/createcommands/CommandTrees.kt#commandTreesExample
 :::
 
-In this example, we have our normal `/sayhi` command using the `executes()` method. We then add a new argument (a new "branch" in our "tree"), the `PlayerArgument`, using the `then()` method. **We want to make this branch executable, so we also use the `executes()` method _on the argument itself_**. To register the full command tree (which includes both `/sayhi` and `/sayhi <target>`), we call `register()` on the `CommandTree` object.
+In this example, we have our normal `/sayhi` command using the `executes()` method. We then add a new argument (a new "branch" in our "tree"), the `EntitySelectorArgument.OnePlayer`, using the `then()` method. **We want to make this branch executable, so we also use the `executes()` method _on the argument itself_**. To register the full command tree (which includes both `/sayhi` and `/sayhi <target>`), we call `register()` on the `CommandTree` object.
 
 ::::
 

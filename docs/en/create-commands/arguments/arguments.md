@@ -22,8 +22,8 @@ Adding arguments for registration is simple:
 // Create a List
 List<Argument> arguments = new ArrayList<>();
 
-// Add an argument with the node "target", which is a PlayerArgument
-arguments.add(new PlayerArgument("target"));
+// Add an argument with the node "target", which is a EntitySelectorArgument.OnePlayer
+arguments.add(new EntitySelectorArgument.OnePlayer("target"));
 ```
 
 The String value is the node that is registered into Minecraft's internal command graph. This name is also used as a prompt that is shown to a player when they are entering the command.
@@ -118,9 +118,8 @@ The type to cast each argument (declared in the `dev.jorel.commandapi.arguments`
 |                                                             [`NBTCompoundArgument<T>`](./types/nbt-arguments) | The cast type changes depending on whether you're shading the CommandAPI or using the CommandAPI as a plugin:<br /><ul><li>Shading:<br />`T` (implemented yourself)</li><br /><li>Plugin:<br />`dev.jorel.commandapi.nbtapi.NBTContainer`</li></ul> |
 |                              [`ObjectiveArgument`](./types/scoreboard/objective-arguments#objective-argument) | `org.bukkit.scoreboard.Objective`                                                                                                                                                                                                                   |
 |             [`ObjectiveCriteriaArgument`](./types/scoreboard/objective-arguments#objective-criteria-argument) | `String`                                                                                                                                                                                                                                            |
-|                                  [`OfflinePlayerArgument`](./types/entities-arguments#offlineplayer-argument) | `org.bukkit.OfflinePlayer`                                                                                                                                                                                                                          |
 |                                                         [`ParticleArgument`](./types/misc/particle-arguments) | `dev.jorel.commandapi.wrappers.ParticleData`                                                                                                                                                                                                        |
-|                                                [`PlayerArgument`](./types/entities-arguments#player-argument) | `org.bukkit.entity.Player`                                                                                                                                                                                                                          |
+|                                  [`PlayerProfileArgument`](./types/entities-arguments#playerprofile-argument) | `org.bukkit.entity.Player`                                                                                                                                                                                                                          |
 |                                                       [`PotionEffectArgument`](./types/misc/potion-arguments) | `org.bukkit.potion.PotionEffectType`                                                                                                                                                                                                                |
 |                                         [`PotionEffectArgument.NamespacedKey`](./types/misc/potion-arguments) | `org.bukkit.NamespacedKey`                                                                                                                                                                                                                          |
 |                                                             [`RecipeArgument`](./types/misc/recipe-arguments) | The cast type changes depending on your Minecraft version:<br><ul><li>Version 1.14.4 and below:<br />`org.bukkit.inventory.Recipe`</li><br /><li>1.15 and above:<br />`org.bukkit.inventory.ComplexRecipe` </li></ul>                               |

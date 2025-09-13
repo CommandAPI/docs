@@ -79,7 +79,7 @@ We first declare the command as normal. Nothing fancy is going on here:
 <<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Permissions.kt#argumentPermissionExampleStep1
 :::
 
-Now we declare our command with arguments. We use a `PlayerArgument` and apply the permission _to the argument_. After that, we register our command as normal:
+Now we declare our command with arguments. We use a `EntitySelectorArgument.OnePlayer` and apply the permission _to the argument_. After that, we register our command as normal:
 
 :::tabs
 ===Java

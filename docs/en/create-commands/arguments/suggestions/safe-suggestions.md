@@ -66,9 +66,8 @@ The list of supported arguments are displayed in the following table. The parame
 |                              [`MathOperationArgument`](../types/misc/mathoperation-arguments) | `dev.jorel.commandapi.wrappers.MathOperation`  |
 |                                               [`NBTCompoundArgument`](../types/nbt-arguments) | `de.tr7zw.nbtapi.NBTContainer`                 |
 |             [`ObjectiveArgument`](../types/scoreboard/objective-arguments#objective-argument) | **`org.bukkit.scoreboard.Objective`**          |
-|                        [`OfflinePlayerArgument`](../types/entities-arguments#player-argument) | `org.bukkit.OfflinePlayer`                     |
 |                                        [`ParticleArgument`](../types/misc/particle-arguments) | `org.bukkit.Particle`                          |
-|                               [`PlayerArgument`](../types/entities-arguments#player-argument) | `org.bukkit.entity.Player`                     |
+|                 [`PlayerProfileArgument`](../types/entities-arguments#playerprofile-argument) | `org.bukkit.entity.Player`                     |
 |                                      [`PotionEffectArgument`](../types/misc/potion-arguments) | `org.bukkit.potion.PotionEffectType`           |
 |                                            [`RecipeArgument`](../types/misc/recipe-arguments) | `org.bukkit.inventory.Recipe`                  |
 |                                    [`RotationArgument`](../types/position/rotation-arguments) | `dev.jorel.commandapi.wrappers.Rotation`       |
