@@ -147,11 +147,11 @@ To implement that, we create a command that uses a `MapArgument` and use `Player
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/MapArguments.java#mapArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/MapArguments.java#mapArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/MapArguments.kt#mapArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/MapArguments.kt#mapArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/MapArguments.kt#mapArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/MapArguments.kt#mapArgumentsExampleDSL
 :::
 
 :::danger Developer's Note:

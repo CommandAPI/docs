@@ -31,11 +31,11 @@ Let's also say that in our implementation of this command, we don't actually per
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/ListedArguments.java#listedArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/ListedArguments.java#listedArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/ListedArguments.kt#listedArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/ListedArguments.kt#listedArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/ListedArguments.kt#listedArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/ListedArguments.kt#listedArgumentsExampleDSL
 :::
 
 In this scenario, the argument `<value>` is not present in the [`CommandArguments args`](./command-arguments) for the executor.

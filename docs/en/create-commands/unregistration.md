@@ -64,9 +64,9 @@ Since this command exists in the Bukkit CommandMap, we'll need to use `CommandAP
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterBukkitExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Unregistration.java#unregisterBukkitExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterBukkitExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Unregistration.kt#unregisterBukkitExample
 :::
 
 With this plugin, executing `/version` or `/bukkit:version` will give the unknown command message. Note that aliases like `/ver` and its namespaced version `/bukkit:ver` will still work. To remove aliases as well, you need to unregister each as its own command. For, `/ver`, that would mean calling `CommandAPIBukkit.unregister("ver", true, true)`.
@@ -79,9 +79,9 @@ Since this command exists in the Vanilla CommandDispatcher, we can use `CommandA
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterVanillaExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Unregistration.java#unregisterVanillaExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterVanillaExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Unregistration.kt#unregisterVanillaExample
 :::
 
 With this code, executing `/gamemode` will give the unknown command exception as expected. However, even though `unregisterNamespaces` was `false`, `/minecraft:gamemode` can also not be run. This happens because Vanilla commands are given their namespace in step 6, after our plugin has removed `/gamemode`.
@@ -94,9 +94,9 @@ To replace a command, first unregister the original command, then register a new
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterVanillaAndReplaceExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Unregistration.java#unregisterVanillaAndReplaceExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterVanillaAndReplaceExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Unregistration.kt#unregisterVanillaAndReplaceExample
 :::
 
 Now, when `/gamemode` is executed, it will use the new implementation defined using the CommandAPI.
@@ -119,9 +119,9 @@ Since plugin commands are stored in the Bukkit CommandMap, we need to use `Comma
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterPluginExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Unregistration.java#unregisterPluginExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterPluginExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Unregistration.kt#unregisterPluginExample
 :::
 
 Executing `/luckperms` will work as normal, but `/luckperms:luckperms` will give the unknown command message.
@@ -164,9 +164,9 @@ In summary, we will unregister the `/break` command in our plugin's `onEnable`. 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterCommandAPIExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Unregistration.java#unregisterCommandAPIExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterCommandAPIExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Unregistration.kt#unregisterCommandAPIExample
 :::
 
 Now, when you try to execute `/break`, you will just get the unknown command message as if it never existed.
@@ -181,9 +181,9 @@ Since `/help` is in the Bukkit CommandMap, we need to use `CommandAPIBukkit#unre
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterBukkitHelpExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Unregistration.java#unregisterBukkitHelpExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterBukkitHelpExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Unregistration.kt#unregisterBukkitHelpExample
 :::
 
 Funnily, if you try to execute `/help`, the server will still tell you: `Unknown command. Type "/help" for help.`. Luckily, `unregisterNamespaces` was `false`, so you can still use `/bukkit:help` to figure out your problem.
@@ -200,9 +200,9 @@ Finally, `unregisterNamespaces` should be `false`, and since that's the default 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterVanillaNamespaceOnlyExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Unregistration.java#unregisterVanillaNamespaceOnlyExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterVanillaNamespaceOnlyExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Unregistration.kt#unregisterVanillaNamespaceOnlyExample
 :::
 
 With this code, `/gamemode` will execute as normal, but `/minecraft:gamemode` will give the unknown command message.
@@ -213,9 +213,9 @@ Doing the opposite action here -- only unregistering `/gamemode` but keeping `/m
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterDelayedVanillaBadExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Unregistration.java#unregisterDelayedVanillaBadExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterDelayedVanillaBadExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Unregistration.kt#unregisterDelayedVanillaBadExample
 :::
 
 The expected outcome of this code is that `/minecraft:gamemode` would work as expected, and `/gamemode` would give the command not found message. However, that is only true for the player's commands. If you try to use `/minecraft:gamemode` in the console, it *will not work* properly. Specifically, while you can tab-complete the command's label, `minecraft:gamemode` the command's arguments will not have any suggestions. If you try to execute `/minecraft:gamemode` in the console, it will always tell you your command is unknown or incomplete.
@@ -224,9 +224,9 @@ The main point is that if you ever try to unregister a Vanilla command after the
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterDelayedVanillaGoodExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Unregistration.java#unregisterDelayedVanillaGoodExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterDelayedVanillaGoodExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Unregistration.kt#unregisterDelayedVanillaGoodExample
 :::
 
 ::::

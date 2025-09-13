@@ -30,11 +30,11 @@ And we can set the biome of the current chunk as expected:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/BiomeArguments.java#biomeArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/BiomeArguments.java#biomeArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/BiomeArguments.kt#biomeArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/BiomeArguments.kt#biomeArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/BiomeArguments.kt#biomeArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/BiomeArguments.kt#biomeArgumentsExampleDSL
 :::
 
 ::::

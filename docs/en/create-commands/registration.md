@@ -15,9 +15,9 @@ I think the easiest way to explain it is with an example:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Registration.java#registrationExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Registration.java#registrationExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Registration.kt#registrationExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Registration.kt#registrationExample
 :::
 
 - First, we create a new `CommandAPICommand`, with the name of the command that the sender must enter to run it.

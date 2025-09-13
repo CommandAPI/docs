@@ -78,11 +78,11 @@ In this example, we want to be able to run any arbitrary command, so we will sim
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/CommandArguments.java#sudoCommandExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/CommandArguments.java#sudoCommandExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/CommandArguments.kt#sudoCommandExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/CommandArguments.kt#sudoCommandExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/CommandArguments.kt#sudoCommandExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/CommandArguments.kt#sudoCommandExampleDSL
 :::
 
 ::::
@@ -122,27 +122,27 @@ We can implement our `/tp` branch using the `SuggestionsBranch.suggest()` method
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/CommandArguments.java#suggestionBranchesStep1
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/CommandArguments.java#suggestionBranchesStep1
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/CommandArguments.kt#suggestionBranchesStep1
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/CommandArguments.kt#suggestionBranchesStep1
 :::
 
 For the `/give` branch, we can use a similar thing, but we need to tell the CommandArgument that the `/give` command branches into "diamond" and "dirt" suggestions. We can do this by using the `.branch()` method to add a new nested list of suggestions:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/CommandArguments.java#suggestionBranchesStep2
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/CommandArguments.java#suggestionBranchesStep2
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/CommandArguments.kt#suggestionBranchesStep2
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/CommandArguments.kt#suggestionBranchesStep2
 :::
 
 Adding everything together, we get this fully completed CommandArgument:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/CommandArguments.java#suggestionBranchesStep3
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/CommandArguments.java#suggestionBranchesStep3
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/CommandArguments.kt#suggestionBranchesStep3
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/CommandArguments.kt#suggestionBranchesStep3
 :::
 
 ::::

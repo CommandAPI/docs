@@ -45,11 +45,11 @@ Note how we use `..9` to represent nine or fewer deaths (since ranges are inclus
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/scoreboard/ScoreboardArguments.java#scoreHolderArgumentExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/scoreboard/ScoreboardArguments.java#scoreHolderArgumentExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/scoreboard/ScoreboardArguments.kt#scoreHolderArgumentExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/scoreboard/ScoreboardArguments.kt#scoreHolderArgumentExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/scoreboard/ScoreboardArguments.kt#scoreHolderArgumentExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/scoreboard/ScoreboardArguments.kt#scoreHolderArgumentExampleDSL
 :::
 
 ::::
@@ -128,11 +128,11 @@ We implement this simply by using the `ScoreboardSlotArgument` as our argument, 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/scoreboard/ScoreboardArguments.java#scoreboardSlotArgumentExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/scoreboard/ScoreboardArguments.java#scoreboardSlotArgumentExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/scoreboard/ScoreboardArguments.kt#scoreboardSlotArgumentExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/scoreboard/ScoreboardArguments.kt#scoreboardSlotArgumentExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/scoreboard/ScoreboardArguments.kt#scoreboardSlotArgumentExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/scoreboard/ScoreboardArguments.kt#scoreboardSlotArgumentExampleDSL
 :::
 
 ::::

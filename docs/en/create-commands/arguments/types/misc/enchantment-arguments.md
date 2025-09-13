@@ -24,11 +24,11 @@ Since most enchantment levels range between 1 and 5, we will also make use of th
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/EnchantmentArguments.java#enchantmentArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/EnchantmentArguments.java#enchantmentArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/EnchantmentArguments.kt#enchantmentArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/EnchantmentArguments.kt#enchantmentArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/EnchantmentArguments.kt#enchantmentArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/EnchantmentArguments.kt#enchantmentArgumentsExampleDSL
 :::
 
 ::::

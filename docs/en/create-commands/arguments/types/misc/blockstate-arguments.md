@@ -30,11 +30,11 @@ And then we can simply set our block using `setBlockData()`:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/BlockStateArguments.java#blockStateArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/BlockStateArguments.java#blockStateArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/BlockStateArguments.kt#blockStateArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/BlockStateArguments.kt#blockStateArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/BlockStateArguments.kt#blockStateArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/BlockStateArguments.kt#blockStateArgumentsExampleDSL
 :::
 
 ::::

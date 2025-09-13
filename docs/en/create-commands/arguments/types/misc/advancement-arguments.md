@@ -24,11 +24,11 @@ Since we require a player, we will use the `PlayerArgument` for this example. Gi
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/AdvancementArguments.java#advancementArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/AdvancementArguments.java#advancementArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/AdvancementArguments.kt#advancementArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/AdvancementArguments.kt#advancementArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/AdvancementArguments.kt#advancementArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/AdvancementArguments.kt#advancementArgumentsExampleDSL
 :::
 
 ::::

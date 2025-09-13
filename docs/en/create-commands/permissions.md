@@ -33,18 +33,18 @@ Say we created a command `/god` that sets a player as being invulnerable. Since 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Permissions.java#withPermissionExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Permissions.java#withPermissionExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Permissions.kt#withPermissionExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Permissions.kt#withPermissionExample
 :::
 
 As stated above, it is possible to assign a permission using a String instead of using `CommandPermission.fromString()`:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Permissions.java#withStringPermissionExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Permissions.java#withStringPermissionExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Permissions.kt#withStringPermissionExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Permissions.kt#withStringPermissionExample
 :::
 
 ::::
@@ -74,18 +74,18 @@ We first declare the command as normal. Nothing fancy is going on here:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Permissions.java#argumentPermissionExampleStep1
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Permissions.java#argumentPermissionExampleStep1
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Permissions.kt#argumentPermissionExampleStep1
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Permissions.kt#argumentPermissionExampleStep1
 :::
 
 Now we declare our command with arguments. We use a `PlayerArgument` and apply the permission _to the argument_. After that, we register our command as normal:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Permissions.java#argumentPermissionExampleStep2
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Permissions.java#argumentPermissionExampleStep2
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Permissions.kt#argumentPermissionExampleStep2
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Permissions.kt#argumentPermissionExampleStep2
 :::
 
 ::::
@@ -121,9 +121,9 @@ We first declare the command as normal. Nothing fancy is going on here:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Permissions.java#childBasedPermissionExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Permissions.java#childBasedPermissionExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Permissions.kt#childBasedPermissionExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Permissions.kt#childBasedPermissionExample
 :::
 
 In our **plugin.yml** we can also set up our permissions, for example...

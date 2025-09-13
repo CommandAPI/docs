@@ -22,11 +22,11 @@ To do this, given a team we want to use the `setAllowFriendlyFire(boolean)` func
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/scoreboard/TeamArguments.java#teamArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/scoreboard/TeamArguments.java#teamArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/scoreboard/TeamArguments.kt#teamArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/scoreboard/TeamArguments.kt#teamArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/scoreboard/TeamArguments.kt#teamArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/scoreboard/TeamArguments.kt#teamArgumentsExampleDSL
 :::
 
 ::::

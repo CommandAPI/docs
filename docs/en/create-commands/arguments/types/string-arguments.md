@@ -92,11 +92,11 @@ This would be ideal for a greedy string, since it can consume all text after the
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/StringsArguments.java#greedyStringArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/StringsArguments.java#greedyStringArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/StringsArguments.kt#greedyStringArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/StringsArguments.kt#greedyStringArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/StringsArguments.kt#greedyStringArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/StringsArguments.kt#greedyStringArgumentsExampleDSL
 :::
 
 Any text entered after the `<target>` argument would be sent to the player. For example, the command could be used as follows:

@@ -24,11 +24,11 @@ We ensure that the location provided is a container (such as a chest or shulkerb
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/LootTableArguments.java#lootTableArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/LootTableArguments.java#lootTableArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/LootTableArguments.kt#lootTableArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/LootTableArguments.kt#lootTableArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/LootTableArguments.kt#lootTableArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/LootTableArguments.kt#lootTableArgumentsExampleDSL
 :::
 
 ::::

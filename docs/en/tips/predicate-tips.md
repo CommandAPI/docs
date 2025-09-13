@@ -12,18 +12,18 @@ In our [example for creating a party system](../create-commands/requirements#exa
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/tips/PredicateTips.java#exampleStep1
+<<< @/../reference-code/bukkit/src/main/java/tips/PredicateTips.java#exampleStep1
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/tips/PredicateTips.kt#exampleStep1
+<<< @/../reference-code/bukkit/src/main/kotlin/tips/PredicateTips.kt#exampleStep1
 :::
 
 And for our party teleportation command, we had the following code:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/tips/PredicateTips.java#exampleStep2
+<<< @/../reference-code/bukkit/src/main/java/tips/PredicateTips.java#exampleStep2
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/tips/PredicateTips.kt#exampleStep2
+<<< @/../reference-code/bukkit/src/main/kotlin/tips/PredicateTips.kt#exampleStep2
 :::
 
 
@@ -31,9 +31,9 @@ We can simplify this code by declaring the predicate:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/tips/PredicateTips.java#exampleStep3
+<<< @/../reference-code/bukkit/src/main/java/tips/PredicateTips.java#exampleStep3
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/tips/PredicateTips.kt#exampleStep3
+<<< @/../reference-code/bukkit/src/main/kotlin/tips/PredicateTips.kt#exampleStep3
 :::
 
 
@@ -41,9 +41,9 @@ Now, we can use the predicate `testIfPlayerHasParty` in our code for creating a 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/tips/PredicateTips.java#exampleStep4
+<<< @/../reference-code/bukkit/src/main/java/tips/PredicateTips.java#exampleStep4
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/tips/PredicateTips.kt#exampleStep4
+<<< @/../reference-code/bukkit/src/main/kotlin/tips/PredicateTips.kt#exampleStep4
 :::
 
 
@@ -51,7 +51,7 @@ And we can use it again for our code for teleporting to party members:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/tips/PredicateTips.java#exampleStep5
+<<< @/../reference-code/bukkit/src/main/java/tips/PredicateTips.java#exampleStep5
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/tips/PredicateTips.kt#exampleStep5
+<<< @/../reference-code/bukkit/src/main/kotlin/tips/PredicateTips.kt#exampleStep5
 :::

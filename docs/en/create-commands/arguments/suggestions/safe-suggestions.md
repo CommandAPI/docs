@@ -121,18 +121,18 @@ To do this, we first register our custom items:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerCustomItem
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerCustomItem
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerCustomItem
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerCustomItem
 :::
 
 Once we've done that, we can now include them in our command registration. To do this, we use `replaceSafeSuggestions(recipes)` and then register our command as normal:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerCommandWithSafeSuggestions
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerCommandWithSafeSuggestions
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerCommandWithSafeSuggestions
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerCommandWithSafeSuggestions
 :::
 
 ::::
@@ -149,27 +149,27 @@ Now say that we don't want non-op players to spawn bosses. To do this, we'll cre
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createForbiddenMobsList
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createForbiddenMobsList
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createForbiddenMobsList
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createForbiddenMobsList
 :::
 
 We then use our safe arguments to return an `EntityType[]` as the list of values that are suggested to the player. In this example, we use the `sender()` method to determine if the sender has permissions to view the suggestions:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createSafeArguments
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createSafeArguments
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createSafeArguments
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createSafeArguments
 :::
 
 Now we register our command as normal:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerSpawnMobCommand
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerSpawnMobCommand
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerSpawnMobCommand
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerSpawnMobCommand
 :::
 
 ::::
@@ -186,18 +186,18 @@ Now, we don't want to remove a potion effect that doesn't exist on a player, so 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createSafePotionEffectArguments
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createSafePotionEffectArguments
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createSafePotionEffectArguments
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createSafePotionEffectArguments
 :::
 
 And then we can register our command as normal:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerRemoveEffectCommand
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerRemoveEffectCommand
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerRemoveEffectCommand
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerRemoveEffectCommand
 :::
 
 ::::

@@ -24,7 +24,7 @@ To be able to access arguments by using delegated properties, your variable name
 
 :::tabs
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/kotlindsl/DelegatedProperties.kt#delegatedPropertiesExample
+<<< @/../reference-code/bukkit/src/main/kotlin/kotlindsl/DelegatedProperties.kt#delegatedPropertiesExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/kotlindsl/DelegatedProperties.kt#delegatedPropertiesExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/kotlindsl/DelegatedProperties.kt#delegatedPropertiesExampleDSL
 :::

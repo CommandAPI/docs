@@ -68,11 +68,11 @@ We make use of the `ArgumentSuggestions.stringsAsync` method to provide asynchro
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/AsyncSuggestions.java#asyncSuggestionsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/AsyncSuggestions.java#asyncSuggestionsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/AsyncSuggestions.kt#asyncSuggestionsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/AsyncSuggestions.kt#asyncSuggestionsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/AsyncSuggestions.kt#asyncSuggestionsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/AsyncSuggestions.kt#asyncSuggestionsExampleDSL
 :::
 
 ::::

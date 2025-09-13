@@ -32,29 +32,29 @@ The CommandAPI is very flexible when it comes to registering arguments, and lets
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/Arguments.java#registerArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/Arguments.java#registerArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsExampleDSL
 :::
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/Arguments.java#registerArgumentsVarargExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/Arguments.java#registerArgumentsVarargExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsVarargExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsVarargExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsVarargExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsVarargExampleDSL
 :::
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/Arguments.java#registerArgumentsListExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/Arguments.java#registerArgumentsListExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsListExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsListExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsListExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/Arguments.kt#registerArgumentsListExampleDSL
 :::
 
 ## Argument Casting
@@ -63,11 +63,11 @@ To access arguments, they have to be casted to the type that the argument repres
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/Arguments.java#argumentCastExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/Arguments.java#argumentCastExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/Arguments.kt#argumentCastExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/Arguments.kt#argumentCastExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/Arguments.kt#argumentCastExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/Arguments.kt#argumentCastExampleDSL
 :::
 
 The type to cast each argument (declared in the `dev.jorel.commandapi.arguments` package) is listed below:

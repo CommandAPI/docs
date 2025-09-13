@@ -32,11 +32,11 @@ To do this, we'll use the rotation from the `RotationArgument` and select an ent
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/position/RotationArguments.java#rotationArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/position/RotationArguments.java#rotationArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/position/RotationArguments.kt#rotationArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/position/RotationArguments.kt#rotationArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/position/RotationArguments.kt#rotationArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/position/RotationArguments.kt#rotationArgumentsExampleDSL
 :::
 
 Note how the head pose requires an `EulerAngle` as opposed to a pitch and yaw. To account for this, we convert our rotation (which is in degrees) into an `EulerAngle` in radians.

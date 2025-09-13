@@ -34,11 +34,11 @@ For that, we’re going to register a command `/sayhi`. To add optional argument
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/OptionalArguments.java#simpleOptionalArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/OptionalArguments.java#simpleOptionalArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#simpleOptionalArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#simpleOptionalArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#simpleOptionalArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#simpleOptionalArgumentsExampleDSL
 :::
 
 
@@ -103,11 +103,11 @@ This is how the `getOptional` method is being implemented:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/OptionalArguments.java#getOptionalExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/OptionalArguments.java#getOptionalExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#getOptionalExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#getOptionalExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#getOptionalExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#getOptionalExampleDSL
 :::
 
 ::::
@@ -176,11 +176,11 @@ To implement that structure, we make use of the `combineWith` method to make the
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/OptionalArguments.java#argumentsAfterOptionalArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/OptionalArguments.java#argumentsAfterOptionalArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#argumentsAfterOptionalArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#argumentsAfterOptionalArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#argumentsAfterOptionalArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#argumentsAfterOptionalArgumentsExampleDSL
 :::
 
 ::::

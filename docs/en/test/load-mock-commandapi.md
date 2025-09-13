@@ -26,7 +26,7 @@ Loads the CommandAPI Plugin after applying the given consumer. This allows confi
 
 To change, for example, the `missing-executor-implementation` message while running tests, you can use the method `CommandAPIBukkitConfig#missingExecutorImplementationMessage` when the `configureSettings` callback is run:
 
-<<< @/../reference-code/src/test/java/test/LoadMockCommandAPI.java#loadMockCommandAPIExample
+<<< @/../reference-code/bukkit/src/test/java/test/LoadMockCommandAPI.java#loadMockCommandAPIExample
 
 :::
 
@@ -40,4 +40,4 @@ By default, the testing environment will load `MockCommandAPIBukkit` as the Comm
 
 In the short term, you can also try to avoid an `UnimplementedMethodException` by implementing the required method yourself. Simply create a class that extends `MockCommandAPIBukkit` and override the required method with an appropriate implementation. Before each test where you want to use your custom implementation, make sure to call `CommandAPIVersionHandler#usePlatformImplementation` to let the CommandAPI know what it should load.
 
-<<< @/../reference-code/src/test/java/test/LoadMockCommandAPI.java#loadCustomCommandAPIPlatformImplementationExample
+<<< @/../reference-code/bukkit/src/test/java/test/LoadMockCommandAPI.java#loadCustomCommandAPIPlatformImplementationExample

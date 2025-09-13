@@ -29,9 +29,9 @@ Therefore, to gracefully handle this with a proper error message, we use one of 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/executors/HandleFailures.java#handleFailuresExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/executors/HandleFailures.java#handleFailuresExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/HandleFailures.kt#handleFailuresExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/HandleFailures.kt#handleFailuresExample
 :::
 
 ::::

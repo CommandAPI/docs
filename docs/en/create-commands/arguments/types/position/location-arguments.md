@@ -41,9 +41,9 @@ Say you use the following constructor, which sets `centerPosition` to `true`:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/position/LocationArguments.java#centerPositionExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/position/LocationArguments.java#centerPositionExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/position/LocationArguments.kt#centerPositionExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/position/LocationArguments.kt#centerPositionExample
 :::
 
 **Integer positions are centered**
@@ -80,9 +80,9 @@ Say you use the following constructor, which sets `centerPosition` to `false`:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/position/LocationArguments.java#doNotCenterPositionExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/position/LocationArguments.java#doNotCenterPositionExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/position/LocationArguments.kt#doNotCenterPositionExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/position/LocationArguments.kt#doNotCenterPositionExample
 :::
 
 **Integer positions are not centered**
@@ -113,11 +113,11 @@ Simply put, given the coordinates provided to the command, "break" the block by 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/position/LocationArguments.java#breakCommandExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/position/LocationArguments.java#breakCommandExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/position/LocationArguments.kt#breakCommandExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/position/LocationArguments.kt#breakCommandExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/position/LocationArguments.kt#breakCommandExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/position/LocationArguments.kt#breakCommandExampleDSL
 :::
 
 ::::

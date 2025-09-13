@@ -60,12 +60,12 @@ dependencies {
 The CommandAPI requires two steps: loading and enabling. We will perform these steps in Velocity's loading stages, construction and initialization. These two stages are explained in [their documentation](https://docs.papermc.io/velocity/dev/api-basics#a-word-of-caution).
 We will perform the CommandAPI's loading step in the construction phase first:
 
-<<< @/../reference-code/src/main/java/velocity/Intro.java#loadCommandAPIExample
+<<< @/../reference-code/velocity/src/main/java/velocity/Intro.java#loadCommandAPIExample
 
 Next, we want to utilise Velocity's `ProxyInitializeEvent` to perform the CommandAPI's enabling step:
 
 
-<<< @/../reference-code/src/main/java/velocity/Intro.java#enableCommandAPIExample
+<<< @/../reference-code/velocity/src/main/java/velocity/Intro.java#enableCommandAPIExample
 
 ## Current limitations
 
@@ -99,9 +99,9 @@ To accomplish that, we register the command like this:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/velocity/Intro.java#registerCommandExample
+<<< @/../reference-code/velocity/src/main/java/velocity/Intro.java#registerCommandExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/velocity/Intro.kt#registerCommandExample
+<<< @/../reference-code/velocity/src/main/kotlin/velocity/Intro.kt#registerCommandExample
 :::
 
 ::::

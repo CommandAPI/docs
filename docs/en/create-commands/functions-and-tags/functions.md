@@ -37,9 +37,9 @@ Say we have a command `/killall` that simply kills all entities in all worlds on
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/functionsandtags/Functions.java#functionsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/functionsandtags/Functions.java#functionsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/functionsandtags/Functions.kt#functionsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/functionsandtags/Functions.kt#functionsExample
 :::
 
 ::::

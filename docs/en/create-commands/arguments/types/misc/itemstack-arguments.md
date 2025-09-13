@@ -24,11 +24,11 @@ With this syntax, we can easily create our command:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/ItemStackArguments.java#itemStackArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/ItemStackArguments.java#itemStackArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/ItemStackArguments.kt#itemStackArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/ItemStackArguments.kt#itemStackArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/ItemStackArguments.kt#itemStackArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/ItemStackArguments.kt#itemStackArgumentsExampleDSL
 :::
 
 ::::

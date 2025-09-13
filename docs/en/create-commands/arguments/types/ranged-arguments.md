@@ -59,11 +59,11 @@ Now, we simply create our arguments using `IntegerRangeArgument` for our range a
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/RangedArguments.java#rangedArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/RangedArguments.java#rangedArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/RangedArguments.kt#rangedArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/RangedArguments.kt#rangedArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/RangedArguments.kt#rangedArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/RangedArguments.kt#rangedArgumentsExampleDSL
 :::
 
 ::::

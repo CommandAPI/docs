@@ -73,16 +73,34 @@ public class CommandAPISpigotConfig extends CommandAPIBukkitConfig {
 ```
 :::
 
-In order to create a `CommandAPIPaperConfig` or a `CommandAPISpigotConfig` object, you must give it a reference to your `JavaPlugin` instance. The CommandAPI always uses this to register events, so it is required when loading the CommandAPI on Bukkit. There are also platform-specific features, such as the `hook-paper-reload` configuration option on Paper, which may be configured using a `CommandAPIPaperConfig` instance.
+<div class="paper">
 
-For example, to load the CommandAPI on Bukkit with all logging disabled, you can use the following:
+In order to create a `CommandAPIPaperConfig` object, you must give it a reference to your `PluginMeta` and a `LifecycleEventOwner` instance, meaning either a `JavaPlugin` or `BootstrapContext` instance. The CommandAPI always uses this to register events, so it is required when loading the CommandAPI on Paper.
+
+For example, to load the CommandAPI on Paper with all logging disabled, you can use the following:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/devsetup/Shading.java#bukkitConfigExample
+<<< @/../reference-code/paper/src/main/java/devsetup/Shading.java#bukkitConfigExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/devsetup/Shading.kt#bukkitConfigExample
+<<< @/../reference-code/paper/src/main/kotlin/devsetup/Shading.kt#bukkitConfigExample
 :::
+
+</div>
+<div class="spigot">
+
+In order to create a `CommandAPISpigotConfig` object, you must give it a reference to your `JavaPlugin` instance. The CommandAPI always uses this to register events, so it is required when loading the CommandAPI on Spigot.
+
+For example, to load the CommandAPI on Spigot with all logging disabled, you can use the following:
+
+:::tabs
+===Java
+<<< @/../reference-code/spigot/src/main/java/devsetup/Shading.java#bukkitConfigExample
+===Kotlin
+<<< @/../reference-code/spigot/src/main/kotlin/devsetup/Shading.kt#bukkitConfigExample
+:::
+
+</div>
 
 ### Enabling & Disabling
 
@@ -92,12 +110,26 @@ The `onDisable()` method disables the CommandAPI gracefully. This should be plac
 
 :::tip Example – Setting up the CommandAPI in your plugin
 
+<div class="paper">
+
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/devsetup/Shading.java#shadingExample
+<<< @/../reference-code/paper/src/main/java/devsetup/Shading.java#shadingExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/devsetup/Shading.kt#shadingExample
+<<< @/../reference-code/paper/src/main/kotlin/devsetup/Shading.kt#shadingExample
 :::
+
+</div>
+<div class="spigot">
+
+:::tabs
+===Java
+<<< @/../reference-code/spigot/src/main/java/devsetup/Shading.java#shadingExample
+===Kotlin
+<<< @/../reference-code/spigot/src/main/kotlin/devsetup/Shading.kt#shadingExample
+:::
+
+</div>
 
 ## A note about relocating
 

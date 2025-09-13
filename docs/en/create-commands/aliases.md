@@ -16,11 +16,11 @@ In this example, we register the command `/getpos` that returns the command send
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Aliases.java#aliasesExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Aliases.java#aliasesExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Aliases.kt#aliasesExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Aliases.kt#aliasesExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/Aliases.kt#aliasesExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Aliases.kt#aliasesExampleDSL
 :::
 
 ::::

@@ -26,22 +26,22 @@ In this example, we utilize some of the other arguments that we've described ear
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/PotionArguments.java#potionEffectArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/PotionArguments.java#potionEffectArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/PotionArguments.kt#potionEffectArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/PotionArguments.kt#potionEffectArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/PotionArguments.kt#potionEffectArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/PotionArguments.kt#potionEffectArgumentsExampleDSL
 :::
 
 #### Use `PotionEffectArgument.NamespacedKey`
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/PotionArguments.java#potionEffectArgumentsNamespacedKeyExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/PotionArguments.java#potionEffectArgumentsNamespacedKeyExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/PotionArguments.kt#potionEffectArgumentsNamespacedKeyExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/PotionArguments.kt#potionEffectArgumentsNamespacedKeyExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/PotionArguments.kt#potionEffectArgumentsNamespacedKeyExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/PotionArguments.kt#potionEffectArgumentsNamespacedKeyExampleDSL
 :::
 
 ::::

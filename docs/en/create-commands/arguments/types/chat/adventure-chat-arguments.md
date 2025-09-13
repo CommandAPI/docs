@@ -38,11 +38,11 @@ We then use the `ChatColorArgument` to change the player's name color:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/chat/AdventureChatArguments.java#namedTextColorExample
+<<< @/../reference-code/paper/src/main/java/createcommands/arguments/types/chat/AdventureChatArguments.java#namedTextColorExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/AdventureChatArguments.kt#namedTextColorExample
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/chat/AdventureChatArguments.kt#namedTextColorExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/AdventureChatArguments.kt#namedTextColorExampleDSL
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/chat/AdventureChatArguments.kt#namedTextColorExampleDSL
 :::
 
 ::::
@@ -63,11 +63,11 @@ We can construct a book using the Adventure API's `Book.book(Component, Componen
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/chat/AdventureChatArguments.java#componentExample
+<<< @/../reference-code/paper/src/main/java/createcommands/arguments/types/chat/AdventureChatArguments.java#componentExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/AdventureChatArguments.kt#componentExample
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/chat/AdventureChatArguments.kt#componentExample
 ===KotlinDSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/AdventureChatArguments.kt#componentExampleDSL
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/chat/AdventureChatArguments.kt#componentExampleDSL
 :::
 
 ::::
@@ -88,11 +88,11 @@ To broadcast an Adventure `Component` to all players on the server, we have to u
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/chat/AdventureChatArguments.java#chatArgumentExample
+<<< @/../reference-code/paper/src/main/java/createcommands/arguments/types/chat/AdventureChatArguments.java#chatArgumentExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/AdventureChatArguments.kt#chatArgumentExample
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/chat/AdventureChatArguments.kt#chatArgumentExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/AdventureChatArguments.kt#chatArgumentExampleDSL
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/chat/AdventureChatArguments.kt#chatArgumentExampleDSL
 
 :::
 

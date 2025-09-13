@@ -64,11 +64,11 @@ As with any command, we declare our arguments, cast them properly, and then we w
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/MathOperationArguments.java#mathOperationArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/MathOperationArguments.java#mathOperationArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/MathOperationArguments.kt#mathOperationArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/MathOperationArguments.kt#mathOperationArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/MathOperationArguments.kt#mathOperationArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/MathOperationArguments.kt#mathOperationArgumentsExampleDSL
 :::
 
 There are various applications for the `changelevel` command based on what the user inputs. For example:
