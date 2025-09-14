@@ -321,8 +321,8 @@ onMounted(() => {
 .tip .maven,
 .tip .paper,
 .tip .spigot {
-    color: var(--vt-c-text-code);
+    //color: var(--vt-c-text-code);
     /* transition: color 0.5s; */
-    font-weight: 600;
+    //font-weight: 600;
 }
 </style>
