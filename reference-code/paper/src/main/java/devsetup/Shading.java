@@ -10,7 +10,7 @@ class Shading {
     static {
         JavaPlugin plugin = null;
         // #region bukkitConfigExample
-        CommandAPI.onLoad(new CommandAPIPaperConfig<>(plugin.getPluginMeta(), plugin).silentLogs(true));
+        CommandAPI.onLoad(new CommandAPIPaperConfig(plugin).silentLogs(true));
         // #endregion bukkitConfigExample
     }
 
@@ -18,7 +18,7 @@ class Shading {
     class MyPlugin extends JavaPlugin {
         @Override
         public void onLoad() {
-            CommandAPI.onLoad(new CommandAPIPaperConfig<>(this.getPluginMeta(), this).verboseOutput(true)); // Load with verbose output
+            CommandAPI.onLoad(new CommandAPIPaperConfig(this).verboseOutput(true)); // Load with verbose output
 
             new CommandAPICommand("ping")
                 .executes((sender, args) -> {

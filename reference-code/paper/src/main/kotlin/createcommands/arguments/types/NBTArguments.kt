@@ -14,7 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin
 val nbtArguments = object : JavaPlugin() {
     // #region hookNbtAPIExample
     override fun onLoad() {
-        CommandAPI.onLoad(CommandAPIPaperConfig(this.pluginMeta, this)
+        CommandAPI.onLoad(CommandAPIPaperConfig(this)
             .initializeNBTAPI(NBTContainer::class.java, ::NBTContainer)
         )
     }
