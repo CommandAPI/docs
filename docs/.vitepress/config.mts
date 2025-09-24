@@ -113,11 +113,6 @@ const vitepressOptions: UserConfig = {
                 }]
             }).then(_ => {
             })
-            shiki.loadLanguage({
-                name: 'diff',
-                scopeName: 'source.diff'
-            }).then(_ => {
-            })
         },
         config: ( md) => {
             tabsPlugin(md);
