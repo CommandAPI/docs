@@ -8,7 +8,7 @@ authors:
 
 # Ranged arguments
 
-![A float range argument command with the argument "0.5.3.5" entered](/images/arguments/floatrange.png)
+![A float range argument command with the argument "0.5.3.5" entered](/images/arguments/doublerange.png)
 
 Ranged arguments allow players to provide a range between two numbers, all within a single argument. The CommandAPI provides two ranged arguments, `IntegerRangeArgument` for ranges with only integer values, and `DoubleRangeArgument` for ranged with potential floating point values.
 
