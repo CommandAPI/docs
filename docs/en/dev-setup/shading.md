@@ -33,47 +33,29 @@ If you want to handle reloading, the CommandAPI has minimal support for it with 
 
 The `onLoad(CommandAPIConfig)` method initializes the CommandAPI's loading sequence. This must be called _before_ you start to access the CommandAPI and must be placed in your plugin's `onLoad()` method. The argument `CommandAPIConfig` is used to configure how the CommandAPI works. The `CommandAPIConfig` class has the following parameters which let you set how the CommandAPI works similar to the `config.yml`, which is described [here](../user-setup/config).
 
-```java
-public class CommandAPIConfig {
-    CommandAPIConfig verboseOutput(boolean value); // Enables verbose logging
-    CommandAPIConfig silentLogs(boolean value);    // Disables ALL logging (except errors)
-    CommandAPIConfig dispatcherFile(File file); // If not null, the CommandAPI will create a JSON file with Brigadier's command tree
-    CommandAPIConfig setNamespace(String namespace); // The namespace to use when the CommandAPI registers a command
-}
-```
-
 The `CommandAPIConfig` class follows a typical builder pattern (without you having to run `.build()` at the end), which lets you easily construct configuration instances.
 
-However, the `CommandAPIConfig` class is abstract and can’t be used to configure the CommandAPI directly. Instead, you must use a subclass of `CommandAPIConfig` that corresponds to the platform you’re developing for. For example, when developing for a Bukkit-based server, you should use the `CommandAPIPaperConfig` or the `CommandAPISpigotConfig` class.
-
-<!-- TODO: Add tabs and explanations for other platforms -->
-
-:::tabs
-===Bukkit
-```java
-public abstract class CommandAPIBukkitConfig extends CommandAPIConfig {
-    CommandAPIBukkitConfig fallbackToLatestNMS(boolean fallbackToLatestNMS); // Whether the CommandAPI should fall back to the latest NMS version if no implementation for the current version was found
-    CommandAPIBukkitConfig missingExecutorImplementationMessage(String value); // Set message to display when executor implementation is missing
-    <T> CommandAPIConfig initializeNBTAPI(Class<T> nbtContainerClass, Function<Object, T> nbtContainerConstructor); // Initializes hooks with an NBT API. See NBT arguments documentation page for more info
-}
-```
-===Paper
-```java
-public class CommandAPIPaperConfig extends CommandAPIBukkitConfig {
-    CommandAPIPaperConfig(LifecycleEventOwner lifecycleEventOwner);
-}
-```
-===Spigot
-```java
-public class CommandAPISpigotConfig extends CommandAPIBukkitConfig {
-    CommandAPISpigotConfig(JavaPlugin plugin);
-
-    CommandAPISpigotConfig skipReloadDatapacks(boolean skip); // Whether the CommandAPI should reload datapacks on server load
-}
-```
-:::
-
 <div class="paper">
+
+However, the `CommandAPIConfig` class is abstract and can’t be used to configure the CommandAPI directly. Instead, you must use a subclass of `CommandAPIConfig` that corresponds to the platform you’re developing for. For example, when developing for a Paper server, you should use the `CommandAPIPaperConfig` class.
+
+```java
+public class CommandAPIPaperConfig {
+    // Create a new config object
+    CommandAPIPaperConfig(PluginMeta pluginMeta, LifecycleEventOwner lifecycleEventOwner);
+    
+    // General CommandAPI configuration
+    CommandAPIPaperConfig verboseOutput(boolean value); // Enables verbose logging
+    CommandAPIPaperConfig silentLogs(boolean value);    // Disables ALL logging (except errors)
+    CommandAPIPaperConfig dispatcherFile(File file); // If not null, the CommandAPI will create a JSON file with Brigadier's command tree
+    CommandAPIPaperConfig setNamespace(String namespace); // The namespace to use when the CommandAPI registers a command
+    
+    // General CommandAPI configuration for Bukkit-based servers
+    CommandAPIPaperConfig fallbackToLatestNMS(boolean fallbackToLatestNMS); // Whether the CommandAPI should fall back to the latest NMS version if no implementation for the current version was found
+    CommandAPIPaperConfig missingExecutorImplementationMessage(String value); // Set message to display when executor implementation is missing
+    <T> CommandAPIPaperConfig initializeNBTAPI(Class<T> nbtContainerClass, Function<Object, T> nbtContainerConstructor); // Initializes hooks with an NBT API. See NBT arguments documentation page for more info
+}
+```
 
 In order to create a `CommandAPIPaperConfig` object, you must give it a reference to your `PluginMeta` and a `LifecycleEventOwner` instance, meaning either a `JavaPlugin` or `BootstrapContext` instance. The CommandAPI always uses this to register events, so it is required when loading the CommandAPI on Paper.
 
@@ -89,6 +71,29 @@ For example, to load the CommandAPI on Paper with all logging disabled, you can 
 </div>
 <div class="spigot">
 
+However, the `CommandAPIConfig` class is abstract and can’t be used to configure the CommandAPI directly. Instead, you must use a subclass of `CommandAPIConfig` that corresponds to the platform you’re developing for. For example, when developing for a Spigot server, you should use the `CommandAPISpigotConfig` class.
+
+```java
+public class CommandAPISpigotConfig {
+    // Create a new config object
+    CommandAPISpigotConfig(JavaPlugin plugin);
+    
+    // General CommandAPI configuration
+    CommandAPISpigotConfig verboseOutput(boolean value); // Enables verbose logging
+    CommandAPISpigotConfig silentLogs(boolean value);    // Disables ALL logging (except errors)
+    CommandAPISpigotConfig dispatcherFile(File file); // If not null, the CommandAPI will create a JSON file with Brigadier's command tree
+    CommandAPISpigotConfig setNamespace(String namespace); // The namespace to use when the CommandAPI registers a command
+    
+    // General CommandAPI configuration for Bukkit-based servers
+    CommandAPISpigotConfig fallbackToLatestNMS(boolean fallbackToLatestNMS); // Whether the CommandAPI should fall back to the latest NMS version if no implementation for the current version was found
+    CommandAPISpigotConfig missingExecutorImplementationMessage(String value); // Set message to display when executor implementation is missing
+    <T> CommandAPISpigotConfig initializeNBTAPI(Class<T> nbtContainerClass, Function<Object, T> nbtContainerConstructor); // Initializes hooks with an NBT API. See NBT arguments documentation page for more info
+    
+    // Spigot-specific configuration
+    CommandAPISpigotConfig skipReloadDatapacks(boolean skip); // Whether the CommandAPI should reload datapacks on server load
+}
+```
+
 In order to create a `CommandAPISpigotConfig` object, you must give it a reference to your `JavaPlugin` instance. The CommandAPI always uses this to register events, so it is required when loading the CommandAPI on Spigot.
 
 For example, to load the CommandAPI on Spigot with all logging disabled, you can use the following:
@@ -101,6 +106,8 @@ For example, to load the CommandAPI on Spigot with all logging disabled, you can
 :::
 
 </div>
+
+<!-- TODO: Add tabs and explanations for other platforms -->
 
 ### Enabling & Disabling
 

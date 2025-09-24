@@ -43,7 +43,7 @@ The `DoubleRange` class has the following methods:
 class DoubleRange {
     public double getLowerBound();
     public double getUpperBound();
-    public boolean isInRange(float);
+    public boolean isInRange(double);
 }
 ```
 

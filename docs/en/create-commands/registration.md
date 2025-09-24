@@ -210,7 +210,7 @@ Places where you can register commands are listed below:
 | When to load                         | What to do                                                                                                                     |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
 | `bootstrap(BootstrapContext)` method | Register commands to be used in Minecraft functions ([see the Function section for more info](./functions-and-tags/functions)) |
-| `onLoad()`/`onEnable()` method       | Register regular commands not available in datapacks by default                                                                |
+| `onLoad()`/`onEnable()` method       | Register regular commands not available in datapacks                                                                           |
 
 </div>
 <div class="spigot">

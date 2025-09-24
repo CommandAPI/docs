@@ -5,7 +5,7 @@ echo "New version:"
 read -r newVer
 
 # Update CommandAPI dependency versions
-sed -i "s/commandApiVersion=\"$oldVer\"/commandApiVersion\"$newVer\"/" reference-code/gradle.properties
+sed -i "s/commandApiVersion=$oldVer/commandApiVersion$newVer/" reference-code/gradle.properties
 
 # Update CommandAPI version in documentation files (Maven)
 sed -i "s/<version>$oldVer<\/version>/<version>$newVer<\/version>/" docs/en/dev-setup/annotations.md
