@@ -31,9 +31,7 @@ If you want to handle reloading, the CommandAPI has minimal support for it with 
 
 ### Loading
 
-The `onLoad(CommandAPIConfig)` method initializes the CommandAPI's loading sequence. This must be called _before_ you start to access the CommandAPI and must be placed in your plugin's `onLoad()` method. The argument `CommandAPIConfig` is used to configure how the CommandAPI works. The `CommandAPIConfig` class has the following parameters which let you set how the CommandAPI works similar to the `config.yml`, which is described [here](../user-setup/config).
-
-The `CommandAPIConfig` class follows a typical builder pattern (without you having to run `.build()` at the end), which lets you easily construct configuration instances.
+The `onLoad(CommandAPIConfig)` method initializes the CommandAPI. This must be called _before_ you access any other CommandAPI features. The `CommandAPIConfig` argument is used to configure how the CommandAPI works, similar to the `config.yml`. The `CommandAPIConfig` class follows a builder pattern, with methods for each option in the `config.yml`, which are listed and described [here](../user-setup/config).
 
 <div class="paper">
 

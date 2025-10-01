@@ -219,6 +219,8 @@ Places where you can register commands are listed below:
 |--------------------------------|-----------------------------------------------------------------|
 | `onLoad()`/`onEnable()` method | Register regular commands not available in datapacks by default |
 
+If you want your command to be accessible in Minecraft functions, make sure the [datapack reload](../user-setup/config#skip-initial-datapack-reload) process is set to `false`.
+
 </div>
 
-The CommandAPI does support registering commands outside of these methods while the server is running. Commands registered after the server is done loading _should_ work the same as commands registered in `onLoad()`/`onEnable()`.
+The CommandAPI does support registering commands anytime after the server is done loading. Commands registered while the server is running _should_ work the same as commands registered in `onLoad()`/`onEnable()`.
