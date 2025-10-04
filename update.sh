@@ -23,8 +23,10 @@ sed -i "s/dev.jorel:commandapi-paper-shade:$oldVer/dev.jorel:commandapi-paper-sh
 sed -i "s/dev.jorel:commandapi-spigot-shade:$oldVer/dev.jorel:commandapi-spigot-shade:$newVer/" docs/en/dev-setup/shading.md
 sed -i "s/dev.jorel:commandapi-kotlin-paper:$oldVer/dev.jorel:commandapi-kotlin-paper:$newVer/" docs/en/kotlin-dsl/intro.md
 sed -i "s/dev.jorel:commandapi-kotlin-spigot:$oldVer/dev.jorel:commandapi-kotlin-spigot:$newVer/" docs/en/kotlin-dsl/intro.md
-sed -i "s/dev.jorel:commandapi-bukkit-test-toolkit:$oldVer/dev.jorel:commandapi-bukkit-test-toolkit:$newVer/" docs/en/test/setup.md
-sed -i "s/dev.jorel:commandapi-bukkit-core:$oldVer/dev.jorel:commandapi-bukkit-core:$newVer/" docs/en/test/setup.md
+sed -i "s/dev.jorel:commandapi-paper-core:$oldVer/dev.jorel:commandapi-paper-core:$newVer/" docs/en/test/setup.md
+sed -i "s/dev.jorel:commandapi-paper-test-toolkit:$oldVer/dev.jorel:commandapi-paper-test-toolkit:$newVer/" docs/en/test/setup.md
+sed -i "s/dev.jorel:commandapi-spigot-core:$oldVer/dev.jorel:commandapi-spigot-core:$newVer/" docs/en/test/setup.md
+sed -i "s/dev.jorel:commandapi-spigot-test-toolkit:$oldVer/dev.jorel:commandapi-spigot-test-toolkit:$newVer/" docs/en/test/setup.md
 sed -i "s/dev.jorel:commandapi-velocity-shade:$oldVer/dev.jorel:commandapi-velocity-shade:$newVer/" docs/en/velocity/intro.md
 
 # Possible manual updates

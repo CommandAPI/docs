@@ -163,7 +163,7 @@ Add the CommandAPI shade dependency:
     <dependency>
         <groupId>dev.jorel</groupId>
         <artifactId>commandapi-spigot-shade</artifactId>
-        <version>11.0.0-SNAPSHOT</version>
+        <version>11.0.0</version>
     </dependency>
 </dependencies>
 ```
@@ -176,7 +176,7 @@ Add the CommandAPI shade dependency:
     <dependency>
         <groupId>dev.jorel</groupId>
         <artifactId>commandapi-paper-shade</artifactId>
-        <version>11.0.0-SNAPSHOT</version>
+        <version>11.0.0</version>
     </dependency>
 </dependencies>
 ```
@@ -273,7 +273,7 @@ Next, we declare our dependencies:
 
 ```groovy
 dependencies {
-    implementation "dev.jorel:commandapi-spigot-shade:11.0.0-SNAPSHOT"
+    implementation "dev.jorel:commandapi-spigot-shade:11.0.0"
 }
 ```
 
@@ -282,7 +282,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "dev.jorel:commandapi-paper-shade:11.0.0-SNAPSHOT"
+    implementation "dev.jorel:commandapi-paper-shade:11.0.0"
 }
 ```
 
@@ -293,7 +293,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("dev.jorel:commandapi-spigot-shade:11.0.0-SNAPSHOT")
+    implementation("dev.jorel:commandapi-spigot-shade:11.0.0")
 }
 ```
 
@@ -302,7 +302,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("dev.jorel:commandapi-paper-shade:11.0.0-SNAPSHOT")
+    implementation("dev.jorel:commandapi-paper-shade:11.0.0")
 }
 ```
 

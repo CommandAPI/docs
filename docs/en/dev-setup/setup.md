@@ -53,7 +53,7 @@ If you've never used a build system before, I highly recommend it! It makes it e
       <dependency>
           <groupId>dev.jorel</groupId>
           <artifactId>commandapi-paper-core</artifactId>
-          <version>11.0.0-SNAPSHOT</version>
+          <version>11.0.0</version>
           <scope>provided</scope>
       </dependency>
   </dependencies>
@@ -67,7 +67,7 @@ If you've never used a build system before, I highly recommend it! It makes it e
       <dependency>
           <groupId>dev.jorel</groupId>
           <artifactId>commandapi-spigot-core</artifactId>
-          <version>11.0.0-SNAPSHOT</version>
+          <version>11.0.0</version>
           <scope>provided</scope>
       </dependency>
   </dependencies>
@@ -110,7 +110,7 @@ If you've never used a build system before, I highly recommend it! It makes it e
   
   ```groovy
   dependencies {
-      compileOnly "dev.jorel:commandapi-paper-core:11.0.0-SNAPSHOT"
+      compileOnly "dev.jorel:commandapi-paper-core:11.0.0"
   }
   ```
   
@@ -119,7 +119,7 @@ If you've never used a build system before, I highly recommend it! It makes it e
 
   ```groovy
   dependencies {
-      compileOnly "dev.jorel:commandapi-spigot-core:11.0.0-SNAPSHOT"
+      compileOnly "dev.jorel:commandapi-spigot-core:11.0.0"
   }
   ```
   
@@ -132,7 +132,7 @@ If you've never used a build system before, I highly recommend it! It makes it e
 
   ```kotlin
   dependencies {
-      compileOnly("dev.jorel:commandapi-paper-core:11.0.0-SNAPSHOT")
+      compileOnly("dev.jorel:commandapi-paper-core:11.0.0")
   }
   ```
   
@@ -141,7 +141,7 @@ If you've never used a build system before, I highly recommend it! It makes it e
   
   ```kotlin
   dependencies {
-      compileOnly("dev.jorel:commandapi-spigot-core:11.0.0-SNAPSHOT")
+      compileOnly("dev.jorel:commandapi-spigot-core:11.0.0")
   }
   ```
   

@@ -31,7 +31,7 @@ When you add the dependencies for MockBukkit and `commandapi-paper-test-toolkit`
     <dependency>
         <groupId>dev.jorel</groupId>
         <artifactId>commandapi-paper-test-toolkit</artifactId>
-        <version>11.0.0-SNAPSHOT</version>
+        <version>11.0.0</version>
         <scope>test</scope>
     </dependency>
 
@@ -39,7 +39,7 @@ When you add the dependencies for MockBukkit and `commandapi-paper-test-toolkit`
     <dependency>
         <groupId>dev.jorel</groupId>
         <artifactId>commandapi-paper-core</artifactId>
-        <version>11.0.0-SNAPSHOT</version>
+        <version>11.0.0</version>
         <scope>provided</scope>
     </dependency>
 
@@ -71,10 +71,10 @@ dependencies {
     // See https://github.com/MockBukkit/MockBukkit?tab=readme-ov-file#mag-usage for latest version
     testImplementation 'org.mockbukkit.mockbukkit:mockbukkit-v1.21:4.72.8'
 
-    testImplementation 'dev.jorel:commandapi-paper-test-toolkit:11.0.0-SNAPSHOT'
+    testImplementation 'dev.jorel:commandapi-paper-test-toolkit:11.0.0'
 
     // May also be the shade dependency
-    compileOnly 'dev.jorel:commandapi-paper-core:11.0.0-SNAPSHOT'
+    compileOnly 'dev.jorel:commandapi-paper-core:11.0.0'
 
     compileOnly 'io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT'
 
@@ -91,10 +91,10 @@ dependencies {
     // See https://github.com/MockBukkit/MockBukkit?tab=readme-ov-file#mag-usage for latest version
     testImplementation("org.mockbukkit.mockbukkit:mockbukkit-v1.21:4.72.8")
 
-    testImplementation("dev.jorel:commandapi-paper-test-toolkit:11.0.0-SNAPSHOT")
+    testImplementation("dev.jorel:commandapi-paper-test-toolkit:11.0.0")
 
     // May also be the shade dependency
-    compileOnly("dev.jorel:commandapi-paper-core:11.0.0-SNAPSHOT")
+    compileOnly("dev.jorel:commandapi-paper-core:11.0.0")
 
     compileOnly("io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT")
 
@@ -128,7 +128,7 @@ When you add the dependencies for MockBukkit and `commandapi-spigot-test-toolkit
     <dependency>
         <groupId>dev.jorel</groupId>
         <artifactId>commandapi-spigot-test-toolkit</artifactId>
-        <version>11.0.0-SNAPSHOT</version>
+        <version>11.0.0</version>
         <scope>test</scope>
     </dependency>
 
@@ -136,7 +136,7 @@ When you add the dependencies for MockBukkit and `commandapi-spigot-test-toolkit
     <dependency>
         <groupId>dev.jorel</groupId>
         <artifactId>commandapi-spigot-core</artifactId>
-        <version>11.0.0-SNAPSHOT</version>
+        <version>11.0.0</version>
         <scope>provided</scope>
     </dependency>
 
@@ -168,10 +168,10 @@ dependencies {
     // See https://github.com/MockBukkit/MockBukkit?tab=readme-ov-file#mag-usage for latest version
     testImplementation 'org.mockbukkit.mockbukkit:mockbukkit-v1.21:4.72.8'
 
-    testImplementation 'dev.jorel:commandapi-spigot-test-toolkit:11.0.0-SNAPSHOT'
+    testImplementation 'dev.jorel:commandapi-spigot-test-toolkit:11.0.0'
 
     // May also be the shade dependency
-    compileOnly 'dev.jorel:commandapi-spigot-core:11.0.0-SNAPSHOT'
+    compileOnly 'dev.jorel:commandapi-spigot-core:11.0.0'
 
     compileOnly 'org.spigotmc:spigot-api:1.21.8-R0.1-SNAPSHOT'
 
@@ -188,10 +188,10 @@ dependencies {
     // See https://github.com/MockBukkit/MockBukkit?tab=readme-ov-file#mag-usage for latest version
     testImplementation("org.mockbukkit.mockbukkit:mockbukkit-v1.21:4.72.8")
 
-    testImplementation("dev.jorel:commandapi-spigot-test-toolkit:11.0.0-SNAPSHOT")
+    testImplementation("dev.jorel:commandapi-spigot-test-toolkit:11.0.0")
 
     // May also be the shade dependency
-    compileOnly("dev.jorel:commandapi-spigot-core:11.0.0-SNAPSHOT")
+    compileOnly("dev.jorel:commandapi-spigot-core:11.0.0")
 
     compileOnly("org.spigotmc:spigot-api:1.21.8-R0.1-SNAPSHOT")
 
