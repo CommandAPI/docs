@@ -52,11 +52,11 @@ As you can see, this command takes no arguments. This is fine, since our "argume
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/executors/NativeSender.java#breakCommandExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/executors/NativeSender.java#breakCommandExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/NativeSender.kt#breakCommandExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/NativeSender.kt#breakCommandExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/NativeSender.kt#breakCommandExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/NativeSender.kt#breakCommandExampleDSL
 :::
 
 This can now be used via the following command examples:
@@ -81,9 +81,9 @@ This `CommandSender` will work the same as any other `NativeProxyCommandSender` 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/executors/NativeSender.java#constructorExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/executors/NativeSender.java#constructorExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/NativeSender.kt#constructorExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/NativeSender.kt#constructorExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/NativeSender.kt#constructorExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/NativeSender.kt#constructorExampleDSL
 :::

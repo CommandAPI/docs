@@ -37,11 +37,11 @@ We first retrieve the keys from the configuration file using the typical Bukkit 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/PrimitiveArguments.java#primitiveArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/PrimitiveArguments.java#primitiveArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/PrimitiveArguments.kt#primitiveArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/PrimitiveArguments.kt#primitiveArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/PrimitiveArguments.kt#primitiveArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/PrimitiveArguments.kt#primitiveArgumentsExampleDSL
 :::
 
 ::::

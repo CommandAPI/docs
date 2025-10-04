@@ -48,9 +48,9 @@ The `run()` method runs the function. The command executor that runs this functi
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/functionsandtags/FunctionWrapperRef.java#runExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/functionsandtags/FunctionWrapperRef.java#runExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/functionsandtags/FunctionWrapperRef.kt#runExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/functionsandtags/FunctionWrapperRef.kt#runExample
 :::
 
 ### `runAs(Entity)`

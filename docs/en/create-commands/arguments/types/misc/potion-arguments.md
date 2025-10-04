@@ -20,28 +20,28 @@ Say we wanted to have a command that gives a player a potion effect. For this co
 /potion <target> <potion> <duration> <strength>
 ```
 
-In this example, we utilize some of the other arguments that we've described earlier, such as the `PlayerArgument` and `TimeArgument`. Since duration for the `PotionEffect` constructor is in ticks, this is perfectly fit for the `TimeArgument`, which is represented in ticks.
+In this example, we utilize some of the other arguments that we've described earlier, such as the `EntitySelectorArgument.OnePlayer` and `TimeArgument`. Since duration for the `PotionEffect` constructor is in ticks, this is perfectly fit for the `TimeArgument`, which is represented in ticks.
 
 #### Use `PotionEffectArgument`
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/PotionArguments.java#potionEffectArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/PotionArguments.java#potionEffectArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/PotionArguments.kt#potionEffectArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/PotionArguments.kt#potionEffectArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/PotionArguments.kt#potionEffectArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/PotionArguments.kt#potionEffectArgumentsExampleDSL
 :::
 
 #### Use `PotionEffectArgument.NamespacedKey`
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/PotionArguments.java#potionEffectArgumentsNamespacedKeyExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/PotionArguments.java#potionEffectArgumentsNamespacedKeyExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/PotionArguments.kt#potionEffectArgumentsNamespacedKeyExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/PotionArguments.kt#potionEffectArgumentsNamespacedKeyExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/PotionArguments.kt#potionEffectArgumentsNamespacedKeyExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/PotionArguments.kt#potionEffectArgumentsNamespacedKeyExampleDSL
 :::
 
 ::::

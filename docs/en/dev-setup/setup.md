@@ -1,6 +1,6 @@
 ---
 order: 1
-preferences: ["build-system"]
+preferences: ["build-system", "paper-spigot"]
 authors:
   - JorelAli
   - DerEchtePilz
@@ -46,16 +46,34 @@ If you've never used a build system before, I highly recommend it! It makes it e
 
 - Add the dependency to your `pom.xml`:
 
+  <div class="paper">
+
   ```xml
   <dependencies>
       <dependency>
           <groupId>dev.jorel</groupId>
-          <artifactId>commandapi-bukkit-core</artifactId>
-          <version>10.1.2</version>
+          <artifactId>commandapi-paper-core</artifactId>
+          <version>11.0.0</version>
           <scope>provided</scope>
       </dependency>
   </dependencies>
   ```
+
+  </div>
+  <div class="spigot">
+
+  ```xml
+  <dependencies>
+      <dependency>
+          <groupId>dev.jorel</groupId>
+          <artifactId>commandapi-spigot-core</artifactId>
+          <version>11.0.0</version>
+          <scope>provided</scope>
+      </dependency>
+  </dependencies>
+  ```
+
+  </div>
 
 </div>
 <div class="gradle">
@@ -88,21 +106,46 @@ If you've never used a build system before, I highly recommend it! It makes it e
 
   <div class="groovy">
 
+  <div class="paper">
+  
   ```groovy
   dependencies {
-      compileOnly "dev.jorel:commandapi-bukkit-core:10.1.2"
+      compileOnly "dev.jorel:commandapi-paper-core:11.0.0"
+  }
+  ```
+  
+  </div> 
+  <div class="spigot">
+
+  ```groovy
+  dependencies {
+      compileOnly "dev.jorel:commandapi-spigot-core:11.0.0"
   }
   ```
   
   </div>
+  
+  </div>
   <div class="kts">
   
+  <div class="paper">
+
   ```kotlin
   dependencies {
-      compileOnly("dev.jorel:commandapi-bukkit-core:10.1.2")
+      compileOnly("dev.jorel:commandapi-paper-core:11.0.0")
   }
   ```
   
+  </div>
+  <div class="spigot">
+  
+  ```kotlin
+  dependencies {
+      compileOnly("dev.jorel:commandapi-spigot-core:11.0.0")
+  }
+  ```
+  
+  </div>
   </div>
 
 </div>

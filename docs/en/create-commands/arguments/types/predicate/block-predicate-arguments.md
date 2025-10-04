@@ -29,9 +29,9 @@ First, we declare our arguments. We want to use the `BlockPredicateArgument` sin
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/predicate/BlockPredicateArguments.java#useBlockStateArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/predicate/BlockPredicateArguments.java#useBlockStateArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/predicate/BlockPredicateArguments.kt#useBlockStateArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/predicate/BlockPredicateArguments.kt#useBlockStateArgumentsExample
 :::
 
 We then register our `/replace` command. First, we parse the arguments making sure to cast to `Predicate<Block>` and `BlockData` (and not `BlockState`). After that, we use a few simple for loops to find the blocks within a radius sphere from the player.
@@ -42,11 +42,11 @@ Lastly, we register our command as normal using the `register()` method.
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/predicate/BlockPredicateArguments.java#blockPredicateArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/predicate/BlockPredicateArguments.java#blockPredicateArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/predicate/BlockPredicateArguments.kt#blockPredicateArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/predicate/BlockPredicateArguments.kt#blockPredicateArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/predicate/BlockPredicateArguments.kt#blockPredicateArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/predicate/BlockPredicateArguments.kt#blockPredicateArgumentsExampleDSL
 :::
 
 ::::

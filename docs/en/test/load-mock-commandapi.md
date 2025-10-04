@@ -1,5 +1,6 @@
 ---
 order: 3
+preferences: ["paper-spigot"]
 authors:
   - willkroboth
 ---
@@ -16,19 +17,40 @@ MockCommandAPIPlugin load()
 
 Loads the CommandAPI Plugin in the test environment. Works exactly the same as `MockBukkit.load(MockCommandAPIPlugin.class)`.
 
+<div class="paper">
+
 ```java
-MockCommandAPIPlugin load(Consumer<CommandAPIBukkitConfig> configureSettings)
+MockCommandAPIPlugin load(Consumer<CommandAPIPaperConfig> configureSettings)
 ```
 
-Loads the CommandAPI Plugin after applying the given consumer. This allows configuring any setting from the [config.yml](../user-setup/config#configuration-settings) using the methods provided by [CommandAPIBukkitConfig](../dev-setup/shading#loading).
+Loads the CommandAPI Plugin after applying the given consumer. This allows configuring any setting from the [config.yml](../user-setup/config#configuration-settings) using the methods provided by [CommandAPIPaperConfig](../dev-setup/shading#loading).
 
 :::tip Example - Loading test CommandAPI with settings
 
-To change, for example, the `missing-executor-implementation` message while running tests, you can use the method `CommandAPIBukkitConfig#missingExecutorImplementationMessage` when the `configureSettings` callback is run:
+To change, for example, the `missing-executor-implementation` message while running tests, you can use the method `CommandAPIPaperConfig#missingExecutorImplementationMessage` when the `configureSettings` callback is run:
 
-<<< @/../reference-code/src/test/java/test/LoadMockCommandAPI.java#loadMockCommandAPIExample
+<<< @/../reference-code/paper/src/test/java/test/LoadMockCommandAPI.java#loadMockCommandAPIExample
 
 :::
+
+</div>
+<div class="spigot">
+
+```java
+MockCommandAPIPlugin load(Consumer<CommandAPISpigotConfig> configureSettings)
+```
+
+Loads the CommandAPI Plugin after applying the given consumer. This allows configuring any setting from the [config.yml](../user-setup/config#configuration-settings) using the methods provided by [CommandAPISpigotConfig](../dev-setup/shading#loading).
+
+:::tip Example - Loading test CommandAPI with settings
+
+To change, for example, the `missing-executor-implementation` message while running tests, you can use the method `CommandAPISpigotConfig#missingExecutorImplementationMessage` when the `configureSettings` callback is run:
+
+<<< @/../reference-code/spigot/src/test/java/test/LoadMockCommandAPI.java#loadMockCommandAPIExample
+
+:::
+
+</div>
 
 ## Shaded Dependency
 
@@ -36,8 +58,22 @@ If your plugin shades the CommandAPI, the CommandAPI will automatically load as 
 
 ## Loading a custom CommandAPI platform implementation
 
-By default, the testing environment will load `MockCommandAPIBukkit` as the CommandAPI platform object. This works for basic tests, but many methods in `MockCommandAPIBukkit` are not yet implemented and just throw an `UnimplementedMethodException`. This may cause your tests to fail if your code relies on any of these methods. If you see an `UnimplementedMethodException`, please tell us about it with a [GitHub Issue](https://github.com/CommandAPI/CommandAPI/issues) or a message in the CommandAPI Discord so we can get it solved for everyone.
 
-In the short term, you can also try to avoid an `UnimplementedMethodException` by implementing the required method yourself. Simply create a class that extends `MockCommandAPIBukkit` and override the required method with an appropriate implementation. Before each test where you want to use your custom implementation, make sure to call `CommandAPIVersionHandler#usePlatformImplementation` to let the CommandAPI know what it should load.
+<div class="paper">
 
-<<< @/../reference-code/src/test/java/test/LoadMockCommandAPI.java#loadCustomCommandAPIPlatformImplementationExample
+By default, the testing environment will load `MockCommandAPIPaper` and `MockPaperNMS` as the CommandAPI platform object. This works for basic tests, but many methods in `MockPaperNMS` are not yet implemented and just throw an `UnimplementedMethodException`. This may cause your tests to fail if your code relies on any of these methods. If you see an `UnimplementedMethodException`, please tell us about it with a [GitHub Issue](https://github.com/CommandAPI/CommandAPI/issues) or a message in the CommandAPI Discord so we can get it solved for everyone.
+
+In the short term, you can also try to avoid an `UnimplementedMethodException` by implementing the required method yourself. Simply create a class that extends `MockCommandAPIPaper` or `MockPaperNMS` and override the required method with an appropriate implementation. Before each test where you want to use your custom implementation, make sure to call `CommandAPIVersionHandler#usePlatformImplementation` to let the CommandAPI know what it should load.
+
+<<< @/../reference-code/paper/src/test/java/test/LoadMockCommandAPI.java#loadCustomCommandAPIPlatformImplementationExample
+
+</div>
+<div class="spigot">
+
+By default, the testing environment will load `MockCommandAPISpigot` as the CommandAPI platform object. This works for basic tests, but many methods in `MockCommandAPISpigot` are not yet implemented and just throw an `UnimplementedMethodException`. This may cause your tests to fail if your code relies on any of these methods. If you see an `UnimplementedMethodException`, please tell us about it with a [GitHub Issue](https://github.com/CommandAPI/CommandAPI/issues) or a message in the CommandAPI Discord so we can get it solved for everyone.
+
+In the short term, you can also try to avoid an `UnimplementedMethodException` by implementing the required method yourself. Simply create a class that extends `MockCommandAPISpigot` and override the required method with an appropriate implementation. Before each test where you want to use your custom implementation, make sure to call `CommandAPIVersionHandler#usePlatformImplementation` to let the CommandAPI know what it should load.
+
+<<< @/../reference-code/spigot/src/test/java/test/LoadMockCommandAPI.java#loadCustomCommandAPIPlatformImplementationExample
+
+</div>

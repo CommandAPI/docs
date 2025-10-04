@@ -114,7 +114,7 @@ const vitepressOptions: UserConfig = {
             }).then(_ => {
             })
         },
-        config: (md) => {
+        config: ( md) => {
             tabsPlugin(md);
             injectUpgradingPartsPlugin(md);
             mermaidSpaceConverter(md);

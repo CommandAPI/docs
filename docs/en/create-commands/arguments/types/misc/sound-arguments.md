@@ -42,22 +42,22 @@ This command simply plays the provided sound to the current player:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/SoundArguments.java#soundArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/SoundArguments.java#soundArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/SoundArguments.kt#soundArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/SoundArguments.kt#soundArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/SoundArguments.kt#soundArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/SoundArguments.kt#soundArgumentsExampleDSL
 :::
 
 #### Use `SoundArgument.NamespacedKey`
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/SoundArguments.java#soundArgumentsNamespacedKeyExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/SoundArguments.java#soundArgumentsNamespacedKeyExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/SoundArguments.kt#soundArgumentsNamespacedKeyExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/SoundArguments.kt#soundArgumentsNamespacedKeyExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/SoundArguments.kt#soundArgumentsNamespacedKeyExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/SoundArguments.kt#soundArgumentsNamespacedKeyExampleDSL
 :::
 
 ::::

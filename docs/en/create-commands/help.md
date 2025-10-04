@@ -53,22 +53,22 @@ In this simple example, we implement the above screenshot's help topic. We regis
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Help.java#helpExampleStep1
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Help.java#helpExampleStep1
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Help.kt#helpExampleStep1
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Help.kt#helpExampleStep1
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/Help.kt#helpExampleStep1DSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Help.kt#helpExampleStep1DSL
 :::
 
 We could also register this command using the `withHelp` method instead:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Help.java#helpExampleStep2
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Help.java#helpExampleStep2
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Help.kt#helpExampleStep2
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Help.kt#helpExampleStep2
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/Help.kt#helpExampleStep2DSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Help.kt#helpExampleStep2DSL
 :::
 
 ::::
@@ -87,18 +87,18 @@ In this example, we implement locale-specific help so players can see help in th
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Help.java#helpTopicExampleStep1
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Help.java#helpTopicExampleStep1
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Help.kt#helpTopicExampleStep1
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Help.kt#helpTopicExampleStep1
 :::
 
 We then add our new `HelpTopic` to the command using the `withHelp` method:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Help.java#helpTopicExampleStep2
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Help.java#helpTopicExampleStep2
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Help.kt#helpTopicExampleStep2
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Help.kt#helpTopicExampleStep2
 :::
 
 ::::

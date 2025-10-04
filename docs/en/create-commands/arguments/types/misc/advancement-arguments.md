@@ -20,15 +20,15 @@ Say we want to award a player an advancement. First, we need the syntax that our
 /award <player> <advancement>
 ```
 
-Since we require a player, we will use the `PlayerArgument` for this example. Given a player, we can simply get the `AdvancementProgress` for that player, and then award the criteria required to fully complete the provided advancement.
+Since we require a player, we will use the `EntitySelectorArgument.OnePlayer` for this example. Given a player, we can simply get the `AdvancementProgress` for that player, and then award the criteria required to fully complete the provided advancement.
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/AdvancementArguments.java#advancementArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/AdvancementArguments.java#advancementArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/AdvancementArguments.kt#advancementArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/AdvancementArguments.kt#advancementArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/AdvancementArguments.kt#advancementArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/AdvancementArguments.kt#advancementArgumentsExampleDSL
 :::
 
 ::::

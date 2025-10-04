@@ -8,9 +8,9 @@ authors:
 
 # Ranged arguments
 
-![A float range argument command with the argument "0.5.3.5" entered](/images/arguments/floatrange.png)
+![A float range argument command with the argument "0.5.3.5" entered](/images/arguments/doublerange.png)
 
-Ranged arguments allow players to provide a range between two numbers, all within a single argument. The CommandAPI provides two ranged arguments, `IntegerRangeArgument` for ranges with only integer values, and `FloatRangeArgument` for ranged with potential floating point values.
+Ranged arguments allow players to provide a range between two numbers, all within a single argument. The CommandAPI provides two ranged arguments, `IntegerRangeArgument` for ranges with only integer values, and `DoubleRangeArgument` for ranged with potential floating point values.
 
 These consist of values such as:
 
@@ -23,9 +23,9 @@ These consist of values such as:
 
 This allows you to let users define a range of values, which can be used to limit a value, such as the number of players in a region or for a random number generator.
 
-## The IntegerRange & FloatRange class
+## The IntegerRange & DoubleRange class
 
-The CommandAPI returns an `IntegerRange` from the `IntegerRangeArgument`, and a `FloatRange` from the `FloatRangeArgument`, which represents the upper and lower bounds of the numbers provided by the command sender, as well as a method to check if a number is within that range.
+The CommandAPI returns an `IntegerRange` from the `IntegerRangeArgument`, and a `DoubleRange` from the `DoubleRangeArgument`, which represents the upper and lower bounds of the numbers provided by the command sender, as well as a method to check if a number is within that range.
 
 The `IntegerRange` class has the following methods:
 
@@ -37,13 +37,13 @@ class IntegerRange {
 }
 ```
 
-The `FloatRange` class has the following methods:
+The `DoubleRange` class has the following methods:
 
 ```java
-class FloatRange {
-    public float getLowerBound();
-    public float getUpperBound();
-    public boolean isInRange(float);
+class DoubleRange {
+    public double getLowerBound();
+    public double getUpperBound();
+    public boolean isInRange(double);
 }
 ```
 
@@ -59,11 +59,11 @@ Now, we simply create our arguments using `IntegerRangeArgument` for our range a
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/RangedArguments.java#rangedArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/RangedArguments.java#rangedArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/RangedArguments.kt#rangedArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/RangedArguments.kt#rangedArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/RangedArguments.kt#rangedArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/RangedArguments.kt#rangedArgumentsExampleDSL
 :::
 
 ::::

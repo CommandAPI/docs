@@ -1,5 +1,6 @@
 ---
 order: 11
+preferences: ["paper-spigot"]
 authors:
   - JorelAli
   - willkroboth
@@ -36,12 +37,26 @@ Say we want to use the [NBT API](https://www.spigotmc.org/resources/nbt-api.7939
 
 Now, we can configure the CommandAPI using the `CommandAPI.onLoad()` method to use the `NBTContainer` class, and the [`NBTContainer` constructor that takes in an `Object`](https://tr7zw.github.io/Item-NBT-API/v2-api/de/tr7zw/changeme/nbtapi/NBTContainer.html#NBTContainer-java.lang.Object-):
 
+<div class="paper">
+
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/NBTArguments.java#hookNbtAPIExample
+<<< @/../reference-code/paper/src/main/java/createcommands/arguments/types/NBTArguments.java#hookNbtAPIExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/NBTArguments.kt#hookNbtAPIExample
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/NBTArguments.kt#hookNbtAPIExample
 :::
+
+</div>
+<div class="spigot">
+
+:::tabs
+===Java
+<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/types/NBTArguments.java#hookNbtAPIExample
+===Kotlin
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/NBTArguments.kt#hookNbtAPIExample
+:::
+
+</div>
 
 > _Confused with the `::new` syntax? Read more about method references to a constructor [here](https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html)._
 
@@ -53,19 +68,35 @@ We're now able to use the `NBTContainer` as our implemented type for the `NBTCom
 
 Since the underlying implementation of the `NBTCompoundArgument` can change (e.g. `NBTContainer` if you're using the NBT API), the type of your NBT compound implementation has to be declared in angle brackets.
 
+<div class="paper">
+
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/NBTArguments.java#nbtCompoundArgumentsExample
+<<< @/../reference-code/paper/src/main/java/createcommands/arguments/types/NBTArguments.java#nbtCompoundArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/NBTArguments.kt#nbtCompoundArgumentsExample
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/NBTArguments.kt#nbtCompoundArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/NBTArguments.kt#nbtCompoundArgumentsExampleDSL
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/NBTArguments.kt#nbtCompoundArgumentsExampleDSL
 :::
+
+</div>
+<div class="spigot">
+
+:::tabs
+===Java
+<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/types/NBTArguments.java#nbtCompoundArgumentsExample
+===Kotlin
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/NBTArguments.kt#nbtCompoundArgumentsExample
+===Kotlin DSL
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/NBTArguments.kt#nbtCompoundArgumentsExampleDSL
+:::
+
+</div>
 
 ::::
 
 :::info
 
-If you believe you can supply a suitable example for this page, feel free to send an example [on the CommandAPI issues page!](https://github.com/CommandAPI/CommandAPI/issues/new/choose)
+If you believe you can supply a suitable example for this page, feel free to send an example [on the CommandAPI issues page!](https://github.com/CommandAPI/docs/issues/new/)
 
 :::

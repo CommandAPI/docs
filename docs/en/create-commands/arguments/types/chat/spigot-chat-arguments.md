@@ -26,11 +26,11 @@ We then use the `ChatColorArgument` to change the player's name color:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/chat/SpigotChatArguments.java#chatColorArgumentExample
+<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/types/chat/SpigotChatArguments.java#chatColorArgumentExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#chatColorArgumentExample
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#chatColorArgumentExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#chatColorArgumentExampleDSL
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#chatColorArgumentExampleDSL
 :::
 
 ::::
@@ -116,11 +116,11 @@ Now we can create our book command. We use the player as the main target by usin
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/chat/SpigotChatArguments.java#setPagesExample
+<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/types/chat/SpigotChatArguments.java#setPagesExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#setPagesExample
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#setPagesExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#setPagesExampleDSL
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#setPagesExampleDSL
 :::
 
 ::::
@@ -153,11 +153,11 @@ _Bob_ would receive the message "Hello Bob", whereas _Michael_ would receive the
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/chat/SpigotChatArguments.java#chatArgumentExample
+<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/types/chat/SpigotChatArguments.java#chatArgumentExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#chatArgumentExample
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#chatArgumentExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#chatArgumentExampleDSL
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/chat/SpigotChatArguments.kt#chatArgumentExampleDSL
 :::
 
 ::::

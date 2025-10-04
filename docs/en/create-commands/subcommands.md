@@ -38,44 +38,44 @@ We can implement this by creating a `CommandAPICommand` with the command name `a
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Subcommands.java#subcommandsExampleStep1
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Subcommands.java#subcommandsExampleStep1
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Subcommands.kt#subcommandsExampleStep1
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Subcommands.kt#subcommandsExampleStep1
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/Subcommands.kt#subcommandsExampleStep1DSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Subcommands.kt#subcommandsExampleStep1DSL
 :::
 
 Similarly, we have another part `remove <permission> <groupName>`. We can declare this similar to our `add` command. Once we've done that, we can now join everything up together. Here, we create a command `group` which adds the two other subcommands:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Subcommands.java#subcommandsExampleStep2
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Subcommands.java#subcommandsExampleStep2
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Subcommands.kt#subcommandsExampleStep2
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Subcommands.kt#subcommandsExampleStep2
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/Subcommands.kt#subcommandsExampleStep2DSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Subcommands.kt#subcommandsExampleStep2DSL
 :::
 
 Finally, we can link everything up together to the `perm` command and register the whole thing together:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Subcommands.java#subcommandsExampleStep3
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Subcommands.java#subcommandsExampleStep3
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Subcommands.kt#subcommandsExampleStep3
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Subcommands.kt#subcommandsExampleStep3
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/Subcommands.kt#subcommandsExampleStep3DSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Subcommands.kt#subcommandsExampleStep3DSL
 :::
 
 Another, more intuitive method, is to shove everything in one go without creating lots of variables all over the place:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Subcommands.java#subcommandsFullExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Subcommands.java#subcommandsFullExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Subcommands.kt#subcommandsFullExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Subcommands.kt#subcommandsFullExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/Subcommands.kt#subcommandsFullExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Subcommands.kt#subcommandsFullExampleDSL
 :::
 
 ::::

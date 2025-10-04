@@ -1,5 +1,6 @@
 ---
 order: 16
+preferences: ["paper-spigot"]
 authors:
   - DerEchtePilz
   - JorelAli
@@ -84,21 +85,47 @@ These fields are as follows:
 
 Say we want to create an argument to represent the list of available worlds on the server. We want to have an argument which always returns a Bukkit `World` object as the result. Here, we create a method `worldArgument()` that returns our custom argument that returns a `World`. First, we retrieve our `String[]` of world names to be used for our suggestions. We then write our custom argument that creates a `World` object from the input (in this case, we simply convert the input to a `World` using `Bukkit.getWorld(String)`). We perform error handling before returning our result:
 
+<div class="paper">
+
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/CustomArguments.java#declareCustomArgumentsExample
+<<< @/../reference-code/paper/src/main/java/createcommands/arguments/types/CustomArguments.java#declareCustomArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/CustomArguments.kt#declareCustomArgumentsExample
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/CustomArguments.kt#declareCustomArgumentsExample
 :::
+
+</div>
+<div class="spigot">
+
+:::tabs
+===Java
+<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/types/CustomArguments.java#declareCustomArgumentsExample
+===Kotlin
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/CustomArguments.kt#declareCustomArgumentsExample
+:::
+
+</div>
 
 In our error handling step, we check if the world is equal to null (since the `Bukkit.getWorld(String)` is `@Nullable`). To handle this case, we throw a `CustomArgumentException` with an error from a `MessageBuilder`. The `CustomArgumentException` has various static factory methods tailored to your desired printing method, so a message builder isn't required each time:
 
+<div class="paper">
+
 ```java
-CustomArgumentException fromBaseComponents(BaseComponent[] errorMessage);
 CustomArgumentException fromString(String errorMessage);
-CustomArgumentException fromAdventureComponent(Component errorMessage);
+CustomArgumentException fromAdventureComponent(ComponentLike errorMessage);
 CustomArgumentException fromMessageBuilder(MessageBuilder errorMessage);
 ```
+
+</div>
+<div class="spigot">
+
+```java
+CustomArgumentException fromString(String errorMessage);
+CustomArgumentException fromBaseComponents(BaseComponent[] errorMessage);
+CustomArgumentException fromMessageBuilder(MessageBuilder errorMessage);
+```
+
+</div>
 
 We can use our custom argument like any other argument. Say we wanted to write a command to teleport to a specific world. We will create a command of the following syntax:
 
@@ -108,14 +135,30 @@ We can use our custom argument like any other argument. Say we wanted to write a
 
 Since we have defined the method `worldArgument()` which automatically generates our argument, we can use it as follows:
 
+<div class="paper">
+
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/CustomArguments.java#useCustomArgumentsExample
+<<< @/../reference-code/paper/src/main/java/createcommands/arguments/types/CustomArguments.java#useCustomArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/CustomArguments.kt#useCustomArgumentsExample
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/CustomArguments.kt#useCustomArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/CustomArguments.kt#useCustomArgumentsExampleDSL
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/CustomArguments.kt#useCustomArgumentsExampleDSL
 :::
+
+</div>
+<div class="spigot">
+
+:::tabs
+===Java
+<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/types/CustomArguments.java#useCustomArgumentsExample
+===Kotlin
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/CustomArguments.kt#useCustomArgumentsExample
+===Kotlin DSL
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/CustomArguments.kt#useCustomArgumentsExampleDSL
+:::
+
+</div>
 
 By using a `CustomArgument` (as opposed to a simple `StringArgument` and replacing its suggestions), we are able to provide a much more powerful form of error handling (automatically handled inside the argument), and we can reuse this argument for other commands.
 

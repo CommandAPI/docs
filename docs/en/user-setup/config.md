@@ -1,5 +1,6 @@
 ---
 order: 2
+preferences: ["paper-spigot"]
 authors:
   - DerEchtePilz
   - JorelAli
@@ -15,6 +16,8 @@ The CommandAPI has a few configuration options to change how it functions. These
 The default `config.yml` is shown below:
 
 ::: details **config.yml**
+
+<div class="paper">
 
 ```yaml
 # Verbose outputs (default: false)
@@ -42,27 +45,74 @@ messages:
 # setting this to "false" will improve command registration performance.
 create-dispatcher-json: false
 
-# Use latest version (default: false)
-# If "true", the CommandAPI will use the latest available NMS implementation
-# when the CommandAPI is used. This avoids all checks to see if the latest NMS
-# implementation is actually compatible with the current Minecraft version.
-use-latest-nms-version: false
+# Fallback to latest version (default: true)
+# If "true", the CommandAPI will fall back to the latest available NMS
+# implementation when the CommandAPI is used and no implementation for the
+# current Minecraft version was found.
+fallback-to-latest-nms: true
 
-# Be lenient with version checks when loading for new minor Minecraft versions (default: false)
-# If "true", the CommandAPI loads NMS implementations for potentially unsupported Minecraft versions.
-# For example, this setting may allow updating from 1.21.1 to 1.21.2 as only the minor version is changing
-# but will not allow an update from 1.21.2 to 1.22.
-# Keep in mind that implementations may vary and actually updating the CommandAPI might be necessary.
-be-lenient-for-minor-versions: false
+# Skips the initial datapack reload when the server loads (default: true)
+# If "true", the CommandAPI will not reload datapacks when the server has finished
+# loading. Datapacks will still be reloaded if performed manually when "hook-paper-reload"
+# is set to "true" and /minecraft:reload is run.
+skip-initial-datapack-reload: true
 
 # Hook into Paper's ServerResourcesReloadedEvent (default: false)
-# If "true", and the CommandAPI detects it is running on a Paper server, it will
-# hook into Paper's ServerResourcesReloadedEvent to detect when /minecraft:reload is run.
-# This allows the CommandAPI to automatically call its custom datapack-reloading
+# If "true", the CommandAPI will hook into Paper's ServerResourcesReloadedEvent to detect when
+# /minecraft:reload is run. This allows the CommandAPI to automatically call its custom datapack-reloading
 # function which allows CommandAPI commands to be used in datapacks.
-# If you set this to false, CommandAPI commands may not work inside datapacks after
-# reloading datapacks.
 hook-paper-reload: false
+
+# Plugins to convert (default: [])
+# Controls the list of plugins to process for command conversion.
+plugins-to-convert: []
+
+# Other commands to convert (default: [])
+# A list of other commands to convert. This should be used for commands which
+# are not declared in a plugin.yml file.
+other-commands-to-convert: []
+
+# Skip sender proxy (default: [])
+# Determines whether the proxy sender should be skipped when converting a
+# command. If you are having issues with plugin command conversion, add the
+# plugin to this list.
+skip-sender-proxy: []
+```
+
+</div>
+<div class="spigot">
+
+```yaml
+# Verbose outputs (default: false)
+# If "true", outputs command registration and unregistration logs in the console
+verbose-outputs: false
+
+# Silent logs (default: false)
+# If "true", turns off all logging from the CommandAPI, except for errors.
+silent-logs: false
+
+# Messages
+# Controls messages that the CommandAPI displays to players
+messages:
+
+    # Missing executor implementation (default: "This command has no implementations for %s")
+    # The message to display to senders when a command has no executor. Available
+    # parameters are:
+    #   %s - the executor class (lowercase)
+    #   %S - the executor class (normal case)
+    missing-executor-implementation: This command has no implementations for %s
+
+# Create dispatcher JSON (default: false)
+# If "true", the CommandAPI creates a command_registration.json file showing the
+# mapping of registered commands. This is designed to be used by developers -
+# setting this to "false" will improve command registration performance.
+create-dispatcher-json: false
+
+# Fallback to latest version (default: false)
+# If "true", the CommandAPI will fall back to the latest available NMS
+# implementation when the CommandAPI is used and no implementation for the
+# current Minecraft version was found.
+fallback-to-latest-nms: false
 
 # Skips the initial datapack reload when the server loads (default: true)
 # If "true", the CommandAPI will not reload datapacks when the server has finished
@@ -86,6 +136,7 @@ other-commands-to-convert: []
 skip-sender-proxy: []
 ```
 
+</div>
 :::
 
 ## Configuration settings
@@ -157,59 +208,86 @@ create-dispatcher-json: false
 create-dispatcher-json: true
 ```
 
-### `use-latest-nms-version`
+### `fallback-to-latest-nms`
 
-Controls whether the CommandAPI should use the latest NMS implementation for command registration and execution.
+Controls whether the CommandAPI should use the latest NMS implementation for command registration and execution if no matching CommandAPI implementation for the version used is found.
 
 This setting can be used to run the CommandAPI on Minecraft versions higher than it can support. For example, if the CommandAPI supports Minecraft 1.18 and Minecraft 1.18.1 comes out, you can use this to enable support for 1.18.1 before an official CommandAPI release comes out that supports 1.18.1.
 
-:::danger
+<div class="paper">
 
-This feature is very experimental and should only be used if you know what you’re doing. In almost every case, it is better to wait for an official CommandAPI release that supports the latest version of Minecraft. Using `use-latest-nms-version` is _not_ guaranteed to work and can cause unexpected side effects!
+:::warning
 
-:::
-
-**Default value**
-
-```yaml
-use-latest-nms-version: false
-```
-
-**Example value**
-
-```yaml
-use-latest-nms-version: true
-```
-
-### `be-lenient-for-minor-versions`
-
-Controls whether the CommandAPI should be more lenient when updating to a new Minecraft version.
-
-Similar to the [`use-latest-nms-version`](#use-latest-nms-version) setting, this can allow the CommandAPI to run on a version higher than it officially supports. As an example, this setting can allow updating to 1.21.2 from 1.21.1 but doesn't allow updating to 1.22 from 1.21.2.
-
-:::danger
-
-Take the warning from the [`use-latest-nms-version`](#use-latest-nms-version) and apply it here too. This is _not_ guaranteed to work either and also may cause unexpected side effects.
+Using `fallback-to-latest-nms` is _not_ guaranteed to work and can cause unexpected side effects! However, since we expect very few major breaking changes, we decided to set this value to `true` by default.
 
 :::
 
 **Default value**
 
 ```yaml
-be-lenient-for-minor-versions: false
+fallback-to-latest-nms: true
 ```
 
 **Example value**
 
 ```yaml
-be-lenient-for-minor-versions: true
+fallback-to-latest-nms: false
 ```
+
+</div>
+<div class="spigot">
+
+:::danger
+
+This feature is very experimental and should only be used if you know what you’re doing. In almost every case, it is better to wait for an official CommandAPI release that supports the latest version of Minecraft. Using `fallback-to-latest-nms` is _not_ guaranteed to work and can cause unexpected side effects!
+
+:::
+
+**Default value**
+
+```yaml
+fallback-to-latest-nms: false
+```
+
+**Example value**
+
+```yaml
+fallback-to-latest-nms: true
+```
+
+</div>
+
+### `skip-initial-datapack-reload`
+
+Controls whether the CommandAPI should perform its initial datapack reload when the server has finished loading.
+
+If set to `false`, the CommandAPI reloads all datapacks in a similar fashion to `/minecraft:reload` in order to propagate CommandAPI commands into datapack functions and tags. This operation may cause a slight delay to server startup and is not necessary if you aren’t using datapacks or functions that use CommandAPI commands.
+
+<div class="paper">
+
+Note that datapacks will still be reloaded if performed manually when `hook-paper-reload` is set to `true` and you run `/minecraft:reload`.
+
+</div>
+
+**Default value**
+
+```yaml
+skip-initial-datapack-reload: true
+```
+
+**Example value**
+
+```yaml
+skip-initial-datapack-reload: false
+```
+
+<div class="paper">
 
 ### `hook-paper-reload`
 
 Controls whether the CommandAPI hooks into the Paper-exclusive `ServerResourcesReloadedEvent` when available.
 
-When the CommandAPI detects it is running on a Paper-based server, this config option controls if the CommandAPI hooks into the `ServerResourcesReloadedEvent`, which triggers when `/minecraft:reload` is run. During this event, the CommandAPI runs a custom datapack reloading sequence that helps commands registered with the CommandAPI work within datapacks. See [Reloading datapacks](../internal/internal#reloading-datapacks) for more information on this process.
+When the CommandAPI detects it is running on a Paper-based server, this config option controls if the CommandAPI hooks into the `ServerResourcesReloadedEvent`, which triggers when `/minecraft:reload` is run. During this event, the CommandAPI runs a custom datapack reloading sequence that helps commands registered with the CommandAPI work within datapacks. See [Reloading datapacks](../internal/internal.md#reloading-datapacks) for more information on this process.
 
 By default, this value is set to `false` and the CommandAPI will not hook into the `ServerResourcesReloadedEvent`. If you want, you can set this to `true`, and the CommandAPI will hook into this event.
 
@@ -225,25 +303,7 @@ hook-paper-reload: false
 hook-paper-reload: true
 ```
 
-### `skip-initial-datapack-reload`
-
-Controls whether the CommandAPI should perform its initial datapack reload when the server has finished loading.
-
-If set to `false`, the CommandAPI reloads all datapacks in a similar fashion to `/minecraft:reload` in order to propagate CommandAPI commands into datapack functions and tags. This operation may cause a slight delay to server startup and is not necessary if you aren’t using datapacks or functions that use CommandAPI commands.
-
-Note that datapacks will still be reloaded if performed manually when `hook-paper-reload` is set to `true` and you run `/minecraft:reload`.
-
-**Default value**
-
-```yaml
-skip-initial-datapack-reload: true
-```
-
-**Example value**
-
-```yaml
-skip-initial-datapack-reload: false
-```
+</div>
 
 ### `plugins-to-convert`
 

@@ -42,9 +42,9 @@ For this command, we'll use a `GreedyStringArgument` as if we were making a gene
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/internal/BrigadierSuggestions.java#emojiCommandExample
+<<< @/../reference-code/bukkit/src/main/java/internal/BrigadierSuggestions.java#emojiCommandExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/internal/BrigadierSuggestions.kt#emojiCommandExample
+<<< @/../reference-code/bukkit/src/main/kotlin/internal/BrigadierSuggestions.kt#emojiCommandExample
 :::
 
 In this example, we simply create the `GreedyStringArgument` and use `replaceSuggestions()` to specify our suggestion rules. We create an offset using the current builder to make suggestions start at the last character (the current builder start `builder.getStart()` and the current length of what the user has already typed `info.currentArg().length()`). Finally, we build the suggestions with `builder.buildFuture()` and then register our command as normal.
@@ -67,9 +67,9 @@ For this command, we'll use a `GreedyStringArgument` because that allows users t
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/internal/BrigadierSuggestions.java#commandArgumentsExampleStep1
+<<< @/../reference-code/bukkit/src/main/java/internal/BrigadierSuggestions.java#commandArgumentsExampleStep1
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/internal/BrigadierSuggestions.kt#commandArgumentsExampleStep1
+<<< @/../reference-code/bukkit/src/main/kotlin/internal/BrigadierSuggestions.kt#commandArgumentsExampleStep1
 :::
 
 There's a lot to unpack there, but it's generally split up into four key sections:
@@ -92,9 +92,9 @@ We use the command suggestions declared above by using the `replaceSuggestions` 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/internal/BrigadierSuggestions.java#commandArgumentsExampleStep2
+<<< @/../reference-code/bukkit/src/main/java/internal/BrigadierSuggestions.java#commandArgumentsExampleStep2
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/internal/BrigadierSuggestions.kt#commandArgumentsExampleStep2
+<<< @/../reference-code/bukkit/src/main/kotlin/internal/BrigadierSuggestions.kt#commandArgumentsExampleStep2
 :::
 
 ::::

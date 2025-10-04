@@ -109,9 +109,9 @@ This is how these commands are implemented:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/CommandArguments.java#getArgExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/CommandArguments.java#getArgExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/CommandArguments.kt#getArgExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/CommandArguments.kt#getArgExample
 :::
 
 ::::
@@ -168,9 +168,9 @@ We want to find out which entity selector is being used when the command is exec
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/CommandArguments.java#getRawExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/CommandArguments.java#getRawExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/CommandArguments.kt#getRawExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/CommandArguments.kt#getRawExample
 :::
 
 ::::
@@ -229,9 +229,9 @@ Here, we don't actually want to cast the argument, so we use unsafe arguments to
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/CommandArguments.java#getUncheckedExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/CommandArguments.java#getUncheckedExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/CommandArguments.kt#getUncheckedExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/CommandArguments.kt#getUncheckedExample
 :::
 
 ::::
@@ -290,9 +290,9 @@ To visualize this, we want to implement the command from [Access arguments by no
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/CommandArguments.java#getByArgumentExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/CommandArguments.java#getByArgumentExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/CommandArguments.kt#getByArgumentExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/CommandArguments.kt#getByArgumentExample
 :::
 
 ::::

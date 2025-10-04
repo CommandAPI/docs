@@ -24,11 +24,11 @@ As such, we easily implement it by specifying the `RecipeArgument`, casting it a
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/RecipeArguments.java#getResultExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/RecipeArguments.java#getResultExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/RecipeArguments.kt#getResultExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/RecipeArguments.kt#getResultExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/RecipeArguments.kt#getResultExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/RecipeArguments.kt#getResultExampleDSL
 :::
 
 ::::
@@ -45,11 +45,11 @@ This is then implemented trivially as follows:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/RecipeArguments.java#getKeyExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/RecipeArguments.java#getKeyExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/RecipeArguments.kt#getKeyExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/RecipeArguments.kt#getKeyExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/RecipeArguments.kt#getKeyExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/RecipeArguments.kt#getKeyExampleDSL
 :::
 
 ::::

@@ -1,6 +1,6 @@
 ---
 order: 1
-preferences: ["build-system"]
+preferences: ["build-system", "paper-spigot"]
 authors:
   - JorelAli
   - willkroboth
@@ -15,21 +15,37 @@ This DSL provides many methods to easily add arguments to your command structure
 
 ## Installing the DSL
 
-To install the DSL, you need to add the `commandapi-bukkit-kotlin` dependency into your `pom.xml` or your `build.gradle`, making sure to specify the server flavor you are developing for:
+To install the DSL, you need to add the Kotlin DSL dependency into your build script, making sure to specify the server flavor you are developing for:
 
 ### Adding the dependency
 
 <div class="maven">
+<div class="paper">
 
 ```xml
 <dependencies>
     <dependency>
         <groupId>dev.jorel</groupId>
-        <artifactId>commandapi-bukkit-kotlin</artifactId>
-        <version>10.1.2</version>
+        <artifactId>commandapi-kotlin-paper</artifactId>
+        <version>11.0.0</version>
     </dependency>
 </dependencies>
 ```
+
+</div>
+<div class="spigot">
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>dev.jorel</groupId>
+        <artifactId>commandapi-kotlin-spigot</artifactId>
+        <version>11.0.0</version>
+    </dependency>
+</dependencies>
+```
+
+</div>
 
 Next, you need to add Kotlin to your project. For this, you first need to add the dependency:
 
@@ -104,20 +120,45 @@ Next, you need to add the dependency:
 
 <div class="groovy">
 
+<div class="paper">
+
 ```groovy
 dependencies {
-    implementation "dev.jorel:commandapi-bukkit-kotlin:10.1.2"
+    implementation "dev.jorel:commandapi-kotlin-paper:11.0.0"
 }
 ```
 
 </div>
+<div class="spigot">
+
+```groovy
+dependencies {
+    implementation "dev.jorel:commandapi-kotlin-spigot:11.0.0"
+}
+```
+
+</div>
+</div>
 <div class="kts">
+
+<div class="paper">
 
 ```kotlin
 dependencies {
-    implementation("dev.jorel:commandapi-bukkit-kotlin:10.1.2")
+    implementation("dev.jorel:commandapi-kotlin-paper:11.0.0")
 }
 ```
+
+</div>
+<div class="spigot">
+
+```kotlin
+dependencies {
+    implementation("dev.jorel:commandapi-kotlin-spigot:11.0.0")
+}
+```
+
+</div>
 
 </div>
 

@@ -1,5 +1,6 @@
 ---
 order: 1
+preferences: ["paper-spigot"]
 authors:
   - DerEchtePilz
   - willkroboth
@@ -15,9 +16,9 @@ I think the easiest way to explain it is with an example:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Registration.java#registrationExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/Registration.java#registrationExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Registration.kt#registrationExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/Registration.kt#registrationExample
 :::
 
 - First, we create a new `CommandAPICommand`, with the name of the command that the sender must enter to run it.
@@ -202,11 +203,24 @@ Register the command with the provided plugin's name.
 
 ## Command loading order
 
-It is recommended to register commands in either the `onLoad()` or `onEnable()` method. With the CommandAPI, depending on whether you use `onLoad()` or `onEnable()` to load your commands depends on whether your plugin is used with Minecraft's functions:
+Places where you can register commands are listed below:
 
-| When to load        | What to do                                                                                                                     |
-|---------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| `onLoad()` method   | Register commands to be used in Minecraft functions ([see the Function section for more info](./functions-and-tags/functions)) |
-| `onEnable()` method | Register regular commands                                                                                                      |
+<div class="paper">
 
-The CommandAPI does support registering commands outside of these methods while the server is running. Commands registered after the server is done loading _should_ work the same as commands registered in `onEnable`.
+| When to load                         | What to do                                                                                                                     |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| `bootstrap(BootstrapContext)` method | Register commands to be used in Minecraft functions ([see the Function section for more info](./functions-and-tags/functions)) |
+| `onLoad()`/`onEnable()` method       | Register regular commands not available in datapacks                                                                           |
+
+</div>
+<div class="spigot">
+
+| When to load                   | What to do                                                      |
+|--------------------------------|-----------------------------------------------------------------|
+| `onLoad()`/`onEnable()` method | Register regular commands not available in datapacks by default |
+
+If you want your command to be accessible in Minecraft functions, make sure the [datapack reload](../user-setup/config#skip-initial-datapack-reload) process is set to `false`.
+
+</div>
+
+The CommandAPI does support registering commands anytime after the server is done loading. Commands registered while the server is running _should_ work the same as commands registered in `onLoad()`/`onEnable()`.

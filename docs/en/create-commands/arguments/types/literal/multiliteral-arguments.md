@@ -32,11 +32,11 @@ In this example, we'll show how to use multi literals to declare Minecraft's `/g
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/literal/MultiLiteralArguments.java#multiliteralArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/literal/MultiLiteralArguments.java#multiliteralArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/literal/MultiLiteralArguments.kt#multiliteralArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/literal/MultiLiteralArguments.kt#multiliteralArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/literal/MultiLiteralArguments.kt#multiliteralArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/literal/MultiLiteralArguments.kt#multiliteralArgumentsExampleDSL
 :::
 
 An important thing to note is that we don't have to implement a `default` case for the above `switch` statements, because the CommandAPI will only permit valid options of a `MultiLiteralArgument` to reach the executor. If the user enters an invalid option, the command doesn't run.

@@ -25,9 +25,9 @@ We can then use the following command registration:
 
 :::tabs key:dsl-usage-page
 ===CommandTree
-<<< @/../reference-code/src/main/kotlin/kotlindsl/Usage.kt#dslTreeExample
+<<< @/../reference-code/bukkit/src/main/kotlin/kotlindsl/Usage.kt#dslTreeExample
 ===CommandAPICommand
-<<< @/../reference-code/src/main/kotlin/kotlindsl/Usage.kt#dslExample
+<<< @/../reference-code/bukkit/src/main/kotlin/kotlindsl/Usage.kt#dslExample
 :::
 
 
@@ -57,7 +57,7 @@ To find out which DSL executor corresponds to "normal" executors, you can refer 
 
 ## Arguments
 
-The DSL implements almost every argument with a method. You've seen the `playerArgument()` and the `greedyStringArgument()` method in the example at the top of this page.
+The DSL implements almost every argument with a method. You've seen the `entitySelectorArgumentOnePlayer()` and the `greedyStringArgument()` method in the example at the top of this page.
 
 The way arguments are implemented is pretty straight forward: It's basically the argument class' name, but as a method. So if you wanted to use a `ItemStackArgument` in your command, you would use the `itemStackArgument()` method of the DSL.
 
@@ -91,9 +91,9 @@ To give you a general idea how you could accomplish that, the `sendMessageTo` co
 
 :::tabs key:dsl-usage-page
 ===CommandTree
-<<< @/../reference-code/src/main/kotlin/kotlindsl/Usage.kt#argumentRequirementsTreeExample
+<<< @/../reference-code/bukkit/src/main/kotlin/kotlindsl/Usage.kt#argumentRequirementsTreeExample
 ===CommandAPICommand
-<<< @/../reference-code/src/main/kotlin/kotlindsl/Usage.kt#argumentRequirementsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/kotlindsl/Usage.kt#argumentRequirementsExample
 :::
 
 Notice how you can just add the requirement in a CommandTree by adding it to the argument block where you also define the next arguments and the executor.
@@ -108,9 +108,9 @@ This works similar to how argument behaviour is modified in a CommandTree:
 
 :::tabs key:dsl-usage-page
 ===CommandTree
-<<< @/../reference-code/src/main/kotlin/kotlindsl/Usage.kt#commandRequirementsTreeExample
+<<< @/../reference-code/bukkit/src/main/kotlin/kotlindsl/Usage.kt#commandRequirementsTreeExample
 ===CommandAPICommand
-<<< @/../reference-code/src/main/kotlin/kotlindsl/Usage.kt#commandRequirementsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/kotlindsl/Usage.kt#commandRequirementsExample
 :::
 
 ## More examples
@@ -130,9 +130,9 @@ To declare an argument as optional you need to set the `optional` value to `true
 
 :::tabs key:dsl-usage-page
 ===CommandTree
-<<< @/../reference-code/src/main/kotlin/kotlindsl/Usage.kt#optionalArgumentsTreeExample
+<<< @/../reference-code/bukkit/src/main/kotlin/kotlindsl/Usage.kt#optionalArgumentsTreeExample
 ===CommandAPICommand
-<<< @/../reference-code/src/main/kotlin/kotlindsl/Usage.kt#optionalArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/kotlindsl/Usage.kt#optionalArgumentsExample
 :::
 
 ::::
@@ -151,9 +151,9 @@ You just have to use the `replaceSuggestions` method this time:
 
 :::tabs key:dsl-usage-page
 ===CommandTree
-<<< @/../reference-code/src/main/kotlin/kotlindsl/Usage.kt#replaceSuggestionsTreeExample
+<<< @/../reference-code/bukkit/src/main/kotlin/kotlindsl/Usage.kt#replaceSuggestionsTreeExample
 ===CommandAPICommand
-<<< @/../reference-code/src/main/kotlin/kotlindsl/Usage.kt#replaceSuggestionsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/kotlindsl/Usage.kt#replaceSuggestionsExample
 :::
 
 ::::

@@ -1,0 +1,25 @@
+package createcommands.arguments.types.misc;
+
+import dev.jorel.commandapi.CommandAPICommand;
+import dev.jorel.commandapi.arguments.BlockStateArgument;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockState;
+import org.bukkit.block.data.BlockData;
+
+class BlockStateArguments {
+    static {
+        // #region blockStateArgumentsExample
+        new CommandAPICommand("set")
+            .withArguments(new BlockStateArgument("block"))
+            .executesPlayer((player, args) -> {
+                BlockState blockState = (BlockState) args.get("block");
+                Block targetBlock = player.getTargetBlockExact(256);
+
+                // Set the block, along with its data
+                targetBlock.setType(blockState.getBlockData().getMaterial());
+                targetBlock.getState().setBlockData(blockState.getBlockData());
+            })
+            .register();
+        // #endregion blockStateArgumentsExample
+    }
+}

@@ -94,54 +94,54 @@ Now that we've established what we want, we can finally begin writing the code! 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/internal/BrigadierPlusCommandAPI.java#addPredicateExampleStep1
+<<< @/../reference-code/bukkit/src/main/java/internal/BrigadierPlusCommandAPI.java#addPredicateExampleStep1
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/internal/BrigadierPlusCommandAPI.kt#addPredicateExampleStep1
+<<< @/../reference-code/bukkit/src/main/kotlin/internal/BrigadierPlusCommandAPI.kt#addPredicateExampleStep1
 :::
 
 With that completed, we can now create our "argument" to this predicate. To do this, we'll use the regular declaration of arguments that we would normally use for commands. In this example, because we're computing $\frac{numerator}{denominator}$, we want our numerator to be 0 or greater and our denominator to be 1 or greater (we don't want any negative numbers or division by zero!):
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/internal/BrigadierPlusCommandAPI.java#addPredicateExampleStep2
+<<< @/../reference-code/bukkit/src/main/java/internal/BrigadierPlusCommandAPI.java#addPredicateExampleStep2
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/internal/BrigadierPlusCommandAPI.kt#addPredicateExampleStep2
+<<< @/../reference-code/bukkit/src/main/kotlin/internal/BrigadierPlusCommandAPI.kt#addPredicateExampleStep2
 :::
 
 Now we're going to get into the very nitty-gritty part - the predicate declaration. First, we'll create some variables `numerator` and `denominator` to represent the brigadier instances of these arguments. This can be handled by using the `Brigadier.argBuildOf` function:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/internal/BrigadierPlusCommandAPI.java#addPredicateExampleStep3
+<<< @/../reference-code/bukkit/src/main/java/internal/BrigadierPlusCommandAPI.java#addPredicateExampleStep3
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/internal/BrigadierPlusCommandAPI.kt#addPredicateExampleStep3
+<<< @/../reference-code/bukkit/src/main/kotlin/internal/BrigadierPlusCommandAPI.kt#addPredicateExampleStep3
 :::
 
 Now we'll define our predicate. Since this is sort of a "meta-command" (it directly affects the outcome of the `run` command), we need to use the `ArgumentBuilder`'s `fork` method. Remember that after we run this predicate, we want to link back to `execute` again, so our first argument is the `CommandNode` for `execute`, which we can get using `Brigadier.getRootNode().getChild("execute")`. Then, we can simply use `Brigadier.fromPredicate` to finish our declaration:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/internal/BrigadierPlusCommandAPI.java#addPredicateExampleStep4
+<<< @/../reference-code/bukkit/src/main/java/internal/BrigadierPlusCommandAPI.java#addPredicateExampleStep4
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/internal/BrigadierPlusCommandAPI.kt#addPredicateExampleStep4
+<<< @/../reference-code/bukkit/src/main/kotlin/internal/BrigadierPlusCommandAPI.kt#addPredicateExampleStep4
 :::
 
 Finally, we can now link everything up. We know that `numerator` comes first, **then** `denominator`, so we have to have `numerator.then(denominator)`. We also know that these arguments are the **children** of the `randomChance` literal, so we use the following code to state all of this:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/internal/BrigadierPlusCommandAPI.java#addPredicateExampleStep5
+<<< @/../reference-code/bukkit/src/main/java/internal/BrigadierPlusCommandAPI.java#addPredicateExampleStep5
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/internal/BrigadierPlusCommandAPI.kt#addPredicateExampleStep5
+<<< @/../reference-code/bukkit/src/main/kotlin/internal/BrigadierPlusCommandAPI.kt#addPredicateExampleStep5
 :::
 
 Finally, we "register" the command. In this case, we're actually just adding the `randomChance` node under `execute → if`, which we can add using the following code:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/internal/BrigadierPlusCommandAPI.java#addPredicateExampleStep6
+<<< @/../reference-code/bukkit/src/main/java/internal/BrigadierPlusCommandAPI.java#addPredicateExampleStep6
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/internal/BrigadierPlusCommandAPI.kt#addPredicateExampleStep6
+<<< @/../reference-code/bukkit/src/main/kotlin/internal/BrigadierPlusCommandAPI.kt#addPredicateExampleStep6
 :::
 
 #### Code summary
@@ -150,9 +150,9 @@ So, hopefully that wasn't too confusing! If you're still lost, here's the whole 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/internal/BrigadierPlusCommandAPI.java#addPredicateExample
+<<< @/../reference-code/bukkit/src/main/java/internal/BrigadierPlusCommandAPI.java#addPredicateExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/internal/BrigadierPlusCommandAPI.kt#addPredicateExample
+<<< @/../reference-code/bukkit/src/main/kotlin/internal/BrigadierPlusCommandAPI.kt#addPredicateExample
 :::
 
 ::::

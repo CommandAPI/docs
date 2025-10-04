@@ -45,9 +45,9 @@ As you can see, it declares three commands: `/gmc`, `/gms` and `/i`. We can now 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/utils/Conversion.java#simpleConvertExample
+<<< @/../reference-code/bukkit/src/main/java/utils/Conversion.java#simpleConvertExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/utils/Conversion.kt#simpleConvertExample
+<<< @/../reference-code/bukkit/src/main/kotlin/utils/Conversion.kt#simpleConvertExample
 :::
 
 When this is run, the commands `/gmc`, `/gm1`, `/gms` and `/i` will all be registered by the CommandAPI.
@@ -92,9 +92,9 @@ With the EssentialsX plugin, the `<speed>` value can only take numbers between 0
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/utils/Conversion.java#convertSpeedCommandExample
+<<< @/../reference-code/bukkit/src/main/java/utils/Conversion.java#convertSpeedCommandExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/utils/Conversion.kt#convertSpeedCommandExample
+<<< @/../reference-code/bukkit/src/main/kotlin/utils/Conversion.kt#convertSpeedCommandExample
 :::
 
 ![An image showing /execute run for EssentialsX's /speed command](/images/speed.gif)

@@ -30,11 +30,11 @@ Say we have a command `bigmsg` that displays a title message to all players for 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/TimeArguments.java#timeArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/TimeArguments.java#timeArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/TimeArguments.kt#timeArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/TimeArguments.kt#timeArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/TimeArguments.kt#timeArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/TimeArguments.kt#timeArgumentsExampleDSL
 :::
 
 ::::

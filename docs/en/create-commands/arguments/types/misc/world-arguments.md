@@ -24,11 +24,11 @@ Using the world from the `WorldArgument`, we can then unload the world safely us
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/WorldArguments.java#worldArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/WorldArguments.java#worldArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/WorldArguments.kt#worldArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/WorldArguments.kt#worldArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/WorldArguments.kt#worldArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/WorldArguments.kt#worldArgumentsExampleDSL
 :::
 
 ::::

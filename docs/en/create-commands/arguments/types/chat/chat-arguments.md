@@ -15,5 +15,3 @@ The CommandAPI provides a number of ways to interact with chat formatting in Min
 - **ChatComponent**: Minecraft's [Raw JSON text format](https://minecraft.wiki/w/Raw_JSON_text_format)
 
 The CommandAPI implements **ChatColor**, **Chat** and **ChatComponent** in two separate ways: [Spigot-compatible](./spigot-chat-arguments) and [Adventure-compatible](./adventure-chat-arguments). The differences between these and how to use them are described in their own relevant pages.
-
-The CommandAPI also supports Minecraft 1.19's chat preview feature. To use Minecraft 1.19's chat preview feature, information on that can be found in [Chat preview](./chat-preview).

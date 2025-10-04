@@ -23,11 +23,11 @@ We implement this with a simple for loop over the player's inventory and remove 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/predicate/ItemStackPredicateArguments.java#itemStackPredicateArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/predicate/ItemStackPredicateArguments.java#itemStackPredicateArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/predicate/ItemStackPredicateArguments.kt#itemStackPredicateArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/predicate/ItemStackPredicateArguments.kt#itemStackPredicateArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/predicate/ItemStackPredicateArguments.kt#itemStackPredicateArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/predicate/ItemStackPredicateArguments.kt#itemStackPredicateArgumentsExampleDSL
 :::
 
 ::::

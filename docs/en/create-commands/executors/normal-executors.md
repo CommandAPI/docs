@@ -41,9 +41,9 @@ We use an argument "message" to hold the message to broadcast, we provide some a
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/executors/NormalExecutors.java#broadcastExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/executors/NormalExecutors.java#broadcastExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/NormalExecutors.kt#broadcastExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/NormalExecutors.kt#broadcastExample
 :::
 
 Note how when we finish up our implementation of `.executes()`, we don't return anything. This is unlike commands in the standard Bukkit API where the `onCommand` method returns a Boolean value:
@@ -76,9 +76,9 @@ Say we wanted to create a command `/suicide`, which kills the player that execut
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/executors/NormalExecutors.java#suicideExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/executors/NormalExecutors.java#suicideExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/NormalExecutors.kt#suicideExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/NormalExecutors.kt#suicideExample
 :::
 
 ::::
@@ -93,9 +93,9 @@ Extending on the suicide example above, we could write another implementation fo
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/executors/NormalExecutors.java#differentImplExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/executors/NormalExecutors.java#differentImplExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/NormalExecutors.kt#differentImplExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/NormalExecutors.kt#differentImplExample
 :::
 
 This saves having to use `instanceof` multiple times to check the type of the `CommandSender`.
@@ -136,9 +136,9 @@ Expanding on the suicide example above, we can restrict the command to only play
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/executors/NormalExecutors.java#sameImplExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/executors/NormalExecutors.java#sameImplExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/NormalExecutors.kt#sameImplExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/NormalExecutors.kt#sameImplExample
 :::
 
 ::::

@@ -27,11 +27,11 @@ As an example, let's create a command to move an objective to a player's sidebar
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/scoreboard/ObjectiveArguments.java#objectiveArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/scoreboard/ObjectiveArguments.java#objectiveArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/scoreboard/ObjectiveArguments.kt#objectiveArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/scoreboard/ObjectiveArguments.kt#objectiveArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/scoreboard/ObjectiveArguments.kt#objectiveArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/scoreboard/ObjectiveArguments.kt#objectiveArgumentsExampleDSL
 :::
 
 ::::
@@ -52,11 +52,11 @@ To do this, we're going to take advantage of Bukkit's `Scoreboard.getObjectivesB
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/scoreboard/ObjectiveArguments.java#objectiveCriteriaArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/scoreboard/ObjectiveArguments.java#objectiveCriteriaArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/scoreboard/ObjectiveArguments.kt#objectiveCriteriaArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/scoreboard/ObjectiveArguments.kt#objectiveCriteriaArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/scoreboard/ObjectiveArguments.kt#objectiveCriteriaArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/scoreboard/ObjectiveArguments.kt#objectiveCriteriaArgumentsExampleDSL
 :::
 
 ::::

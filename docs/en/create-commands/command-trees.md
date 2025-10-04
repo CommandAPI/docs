@@ -67,16 +67,16 @@ Say we want to take our `/sayhi` command from above and also have an argument wh
 /sayhi <target> - Says "Hi!" to a target player
 ```
 
-We can do this by adding a `PlayerArgument` to our command. As described above, to add this argument, we must use the `then()` method:
+We can do this by adding an `EntitySelectorArgument.OnePlayer` to our command. As described above, to add this argument, we must use the `then()` method:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/CommandTrees.java#commandTreesExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/CommandTrees.java#commandTreesExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/CommandTrees.kt#commandTreesExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/CommandTrees.kt#commandTreesExample
 :::
 
-In this example, we have our normal `/sayhi` command using the `executes()` method. We then add a new argument (a new "branch" in our "tree"), the `PlayerArgument`, using the `then()` method. **We want to make this branch executable, so we also use the `executes()` method _on the argument itself_**. To register the full command tree (which includes both `/sayhi` and `/sayhi <target>`), we call `register()` on the `CommandTree` object.
+In this example, we have our normal `/sayhi` command using the `executes()` method. We then add a new argument (a new "branch" in our "tree"), the `EntitySelectorArgument.OnePlayer`, using the `then()` method. **We want to make this branch executable, so we also use the `executes()` method _on the argument itself_**. To register the full command tree (which includes both `/sayhi` and `/sayhi <target>`), we call `register()` on the `CommandTree` object.
 
 ::::
 
@@ -86,22 +86,22 @@ Sometimes we will need such a `CommandTree`:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/CommandTrees.java#legacyLargeArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/CommandTrees.java#legacyLargeArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/CommandTrees.kt#legacyLargeArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/CommandTrees.kt#legacyLargeArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/CommandTrees.kt#legacyLargeArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/CommandTrees.kt#legacyLargeArgumentsExampleDSL
 :::
 
 Well, there's too much indentation. We can use nested arguments to reduce the indentation levels:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/CommandTrees.java#nestedLargeArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/CommandTrees.java#nestedLargeArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/CommandTrees.kt#nestedLargeArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/CommandTrees.kt#nestedLargeArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/CommandTrees.kt#nestedLargeArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/CommandTrees.kt#nestedLargeArgumentsExampleDSL
 :::
 
 That's effectively all of the basics of command trees! We start by writing a normal command, use `executes()` to make it executable and use `then()` to add additional paths to our command. Finally, we finish up with `register()` to register our command. Below, I've included a few more examples showcasing how to design commands using command trees.
@@ -121,9 +121,9 @@ Say we wanted to create a plugin to let a user edit signs. We have a single comm
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/CommandTrees.java#signeditCommandExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/CommandTrees.java#signeditCommandExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/CommandTrees.kt#signeditCommandExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/CommandTrees.kt#signeditCommandExample
 :::
 
 ::::

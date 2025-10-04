@@ -24,9 +24,9 @@ We then implement our warp teleporting command using `replaceSuggestions()` on t
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/StringSuggestions.java#createWarpCommand
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/StringSuggestions.java#createWarpCommand
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/StringSuggestions.kt#createWarpCommand
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/StringSuggestions.kt#createWarpCommand
 :::
 
 ::::
@@ -39,7 +39,7 @@ The `strings(Function<SuggestionInfo, String[]> suggestions)` method in `Argumen
 
 ::::tip Example - Friend list by replacing suggestions
 
-Say you have a plugin which has a "friend list" for players. If you want to teleport to a friend in that list, you could use a `PlayerArgument`, which has the list of suggestions replaced with the list of friends that that player has. Since the list of friends _depends on the sender_, we can use the function to determine what our suggestions should be. Let's use the following command to teleport to a friend from our friend list:
+Say you have a plugin which has a "friend list" for players. If you want to teleport to a friend in that list, you could use a `EntitySelectorArgument.OnePlayer`, which has the list of suggestions replaced with the list of friends that that player has. Since the list of friends _depends on the sender_, we can use the function to determine what our suggestions should be. Let's use the following command to teleport to a friend from our friend list:
 
 ```mccmd
 /friendtp <friend>
@@ -49,18 +49,18 @@ Let's say we have a simple class to get the friends of a command sender:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/StringSuggestions.java#createFriendsClass
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/StringSuggestions.java#createFriendsClass
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/StringSuggestions.kt#createFriendsClass
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/StringSuggestions.kt#createFriendsClass
 :::
 
 We can then use this to generate our suggested list of friends:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/StringSuggestions.java#createFriendCommand
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/StringSuggestions.java#createFriendCommand
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/StringSuggestions.kt#createFriendCommand
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/StringSuggestions.kt#createFriendCommand
 :::
 
 ::::
@@ -105,9 +105,9 @@ When run, this command will send a message to a target player within the provide
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/suggestions/StringSuggestions.java#createLocalMessageCommand
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/StringSuggestions.java#createLocalMessageCommand
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/suggestions/StringSuggestions.kt#createLocalMessageCommand
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/StringSuggestions.kt#createLocalMessageCommand
 :::
 
 As shown in this code, we use the `previousArgs()` method access the previously declared arguments. In this example, `info.previousArgs()` will be `{ int }`, where this `int` refers to the radius. Note how this object array only has the previously declared arguments (and not for example `{ int, Player, String }`).

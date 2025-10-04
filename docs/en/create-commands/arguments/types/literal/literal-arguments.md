@@ -48,22 +48,22 @@ As an example, let's declare the literal "hello" as a valid literal for this com
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/literal/LiteralArguments.java#showLiteralArgumentsIsNotListed
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/literal/LiteralArguments.java#showLiteralArgumentsIsNotListed
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/literal/LiteralArguments.kt#showLiteralArgumentsIsNotListed
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/literal/LiteralArguments.kt#showLiteralArgumentsIsNotListed
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/literal/LiteralArguments.kt#showLiteralArgumentsIsNotListedDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/literal/LiteralArguments.kt#showLiteralArgumentsIsNotListedDSL
 :::
 
 The `LiteralArgument` class also provides the `LiteralArgument.of()` and `LiteralArgument.literal()` helper methods which can be used as an alternative way to declare literal arguments:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/literal/LiteralArguments.java#helperMethodsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/literal/LiteralArguments.java#helperMethodsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/literal/LiteralArguments.kt#helperMethodsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/literal/LiteralArguments.kt#helperMethodsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/literal/LiteralArguments.kt#helperMethodsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/literal/LiteralArguments.kt#helperMethodsExampleDSL
 :::
 
 If I were to run the following command:
@@ -82,11 +82,11 @@ This is a demonstration of how you could create a command similar to Minecraft's
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/literal/LiteralArguments.java#literalArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/literal/LiteralArguments.java#literalArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/literal/LiteralArguments.kt#literalArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/literal/LiteralArguments.kt#literalArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/literal/LiteralArguments.kt#literalArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/literal/LiteralArguments.kt#literalArgumentsExampleDSL
 :::
 
 Note how, since we don't have access to the literal from `args`, we must access the provided gamemode from elsewhere.

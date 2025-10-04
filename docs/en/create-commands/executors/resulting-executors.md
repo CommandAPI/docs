@@ -32,11 +32,11 @@ Say we want a command that returns a random number as a result. This can then be
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/executors/ResultingExecutors.java#randomResultCommandExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/executors/ResultingExecutors.java#randomResultCommandExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#randomResultCommandExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#randomResultCommandExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#randomResultCommandExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#randomResultCommandExampleDSL
 :::
 
 This returns a **success value of 1** _(Because no errors or `CommandAPI.failWithString(String)` was thrown)_ and a **result value of a random number**.
@@ -58,22 +58,22 @@ Since we're declaring commands that are to be used in `/execute`, we must ensure
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/executors/ResultingExecutors.java#randomNumberCommandExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/executors/ResultingExecutors.java#randomNumberCommandExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#randomNumberCommandExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#randomNumberCommandExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#randomNumberCommandExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#randomNumberCommandExampleDSL
 :::
 
 Now we write our implementation for `/givereward`. In this example, we use the `EntitySelectorArgument` to select a single player. We cast it to `Player` and then add the items to their inventory.
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/executors/ResultingExecutors.java#giverewardCommandExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/executors/ResultingExecutors.java#giverewardCommandExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#giverewardCommandExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#giverewardCommandExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#giverewardCommandExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/ResultingExecutors.kt#giverewardCommandExampleDSL
 :::
 
 Now that we've declared these commands, we can now use them in practice. We can use a command block to store a random number under the scoreboard score `randVal` for a player called `SomePlayer`, by executing the command `/randomnumber`. Since `/randomnumber` **returns** an integer, this value is stored in the scoreboard score:

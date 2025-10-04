@@ -137,11 +137,11 @@ To do this, we create a command with an `IntegerArgument` to specify the amount 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/ListArguments.java#listArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/ListArguments.java#listArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/ListArguments.kt#listArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/ListArguments.kt#listArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/ListArguments.kt#listArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/ListArguments.kt#listArgumentsExampleDSL
 :::
 
 ![A /multigive argument gif where a user types "/multigive 64 stone dirt cobblestone grass_block" and suggestions appear automatically. Running the command gives the player 64 stone, dirt, cobblestone and grass_block items in their hotbar](/images/arguments/listargument_multigive.gif)

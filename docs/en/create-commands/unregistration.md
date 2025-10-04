@@ -1,6 +1,8 @@
 ---
 order: 2
+preferences: ["paper-spigot"]
 authors:
+  - DerEchtePilz
   - willkroboth
   - MC-XiaoHei
 ---
@@ -17,7 +19,32 @@ CommandAPI.unregister(String commandName, boolean unregisterNamespaces);
 CommandAPIBukkit.unregister(String commandName, boolean unregisterNamespaces, boolean unregisterBukkit);
 ```
 
-To understand when and how to use these methods, you need to know a little about how Bukkit loads and sets up commands. This is basically the order of events when a Bukkit server starts:
+<div class="paper">
+
+To understand when and how to use these methods, you need to know a little about how Paper loads and sets up commands. This is basically the order of events when a Paper server starts:
+
+1. Plugins are initialized
+    - `PluginBootstrap#boostrap(BootstrapContext)` is called
+2. Vanilla commands are registered
+3. Lifecycle events for the bootstrap stage are executed
+4. Bukkit commands are placed in the Bukkit CommandMap
+    - Given the `bukkit` namespace
+5. Plugins are loaded
+    - `onLoad()` is called
+6. Plugins are enabled
+    - If a plugin uses it, then
+        - Plugin commands are read from the [`plugin.yml` file](https://www.spigotmc.org/wiki/plugin-yml/#commands) and placed in the Bukkit CommandMap
+        - Given the plugin's name as their namespace (e.g. `luckperms:lp`)
+    - `onEnable` is called
+    - Repeat for each plugin
+7. Bukkit's help command is registered
+8. Lifecycle events for the plugin stage are executed
+9. The server is done loading
+
+</div>
+<div class="spigot">
+
+To understand when and how to use these methods, you need to know a little about how Spigot loads and sets up commands. This is basically the order of events when a Spigot server starts:
 
 1. Vanilla commands are placed in the Vanilla CommandDispatcher
 2. Bukkit commands are placed in the Bukkit CommandMap
@@ -33,6 +60,8 @@ To understand when and how to use these methods, you need to know a little about
 6. Vanilla commands are added to the Bukkit CommandMap
    - Given the `minecraft` namespace (e.g. `minecraft:gamemode`)
 7. The server is done loading
+
+</div>
 
 Unregistering a command only works if it happens after the command is created. Bukkit's command system is special and has two locations where commands can exist -- either the Vanilla CommandDispatcher or the Bukkit CommandMap -- so you also need to know where your command is registered. With that in mind, here is what each of the `unregister` methods do:
 
@@ -56,48 +85,115 @@ Unregisters a command from Bukkit. As before, if `unregisterNamespaces` is `true
 
 To give a better idea of how and when to use these methods, the rest of this page documents how to unregister different types of commands.
 
+<div class="paper">
+
+::::tip Developer's Note:
+But first, let's take a look at where the CommandAPI registers commands. While you are able to call the `register()` method basically anywhere (as mentioned on the [registration page](registration.md#command-loading-order)), CommandAPI commands
+are only actually registered in two places: step 3 and step 8 of the loading sequence above.
+
+Step 3 applies if you register commands in a bootstrap context which may look something like this:
+
+:::tabs
+===Java
+<<< @/../reference-code/paper/src/main/java/createcommands/Unregistration.java#registerBootstrapExample
+===Kotlin
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/Unregistration.kt#registerBootstrapExample
+:::
+
+Note that the `CommandAPI#onLoad(CommandAPIConfig)` call is now in the `bootstrap` method.
+
+Step 8 applies if you register commands in the `JavaPlugin#onLoad()` or the `JavaPlugin#onEnable()` methods.
+
+Similarly, unregistrations are also handled in a lifecycle event which runs after the events that register commands.
+
+::::
+
+</div>
+
 ## Unregistering a Bukkit command - `/version`
 
+<div class="paper">
+
+:::tip Developer's Note:
+Paper has recently converted some commands that were Bukkit commands before to Brigadier commands. This includes the `/version` command. For demonstration's sake we'll assume it is still a Bukkit command (which still does apply to some versions).
+:::
+
+`/version` is a command provided by Bukkit. Looking at the sequence of events above, that means it is created during step 4, before plugins are loaded in step 5. Consequently, the command will exist when the unregistration event is ran after step 8. Here we'll unregister the command in `onLoad`, but the same would work in `onEnable` too.
+
+</div>
+<div class="spigot">
+
 `/version` is a command provided by Bukkit. Looking at the sequence of events above, that means it is created during step 2, before plugins are loaded in step 3. Consequently, the command will exist when our plugin's `onLoad` method is called, so we'll unregister it there. The same code will work in `onEnable` too, since step 4 is also after step 2.
+
+</div>
 
 Since this command exists in the Bukkit CommandMap, we'll need to use `CommandAPIBukkit#unregister` with `unregisterBukkit` set to `true`. We'll also remove the namespaced version -- `/bukkit:version` -- so `unregisterNamespaces` will be `true`. All together, the code looks like this:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterBukkitExample
+<<< @/../reference-code/spigot/src/main/java/createcommands/Unregistration.java#unregisterBukkitExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterBukkitExample
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/Unregistration.kt#unregisterBukkitExample
 :::
 
 With this plugin, executing `/version` or `/bukkit:version` will give the unknown command message. Note that aliases like `/ver` and its namespaced version `/bukkit:ver` will still work. To remove aliases as well, you need to unregister each as its own command. For, `/ver`, that would mean calling `CommandAPIBukkit.unregister("ver", true, true)`.
 
 ## Unregistering a Vanilla command - `/gamemode`
 
+<div class="paper">
+
+`/gamemode` is a command provided by Vanilla Minecraft. Like the [previous example](#unregistering-a-bukkit-command-version), Vanilla commands are created in step 2, before lifecycle events for the bootstrap stage are ran and plugins are loaded in step 5. For variety, we'll unregister the command in our plugin's `onEnable` -- step 6 -- but the same code would also work in `onLoad`.
+
+</div>
+<div class="spigot">
+
 `/gamemode` is a command provided by Vanilla Minecraft. Like the [previous example](#unregistering-a-bukkit-command-version), Vanilla commands are created in step 1, before plugins are loaded in step 3. For variety, we'll unregister the command in our plugin's `onEnable` -- step 4 -- but the same code would also work in `onLoad`.
+
+</div>
 
 Since this command exists in the Vanilla CommandDispatcher, we can use `CommandAPI#unregister`. That works the same as `CommandAPIBukkit#unregister` with `unregisterBukkit` set to `false`. We don't care about the namespace, so `unregisterNamespaces` will be `false`. That means we can use the simplest method, `CommandAPI.unregister(String commandName)`, since it sets `unregisterNamespaces` to `false` by default. All together, the code looks like this:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterVanillaExample
+<<< @/../reference-code/spigot/src/main/java/createcommands/Unregistration.java#unregisterVanillaExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterVanillaExample
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/Unregistration.kt#unregisterVanillaExample
 :::
+
+<div class="spigot">
 
 With this code, executing `/gamemode` will give the unknown command exception as expected. However, even though `unregisterNamespaces` was `false`, `/minecraft:gamemode` can also not be run. This happens because Vanilla commands are given their namespace in step 6, after our plugin has removed `/gamemode`.
 
 When the server starts, `/gamemode` is created in step 2 inside the Vanilla CommandDispatcher. In step 4, our plugin is enabled and we remove the `/gamemode` command from that CommandDispatcher. After all the plugins enable, step 6 moves all commands in the Vanilla CommandDispatcher to the Bukkit CommandMap and gives them the `minecraft` namespace. Since `/gamemode` doesn't exist at this point, step 6 cannot create the `/minecraft:gamemode` command. So, even though `unregisterNamespaces` was `false`, `/minecraft:gamemode` doesn't exist anyway.
 
+</div>
+
 ::::tip Example - Replacing Minecraft's `/gamemode` command
+
+<div class="paper">
+
+To replace a command, simply register a new implementation for that command. Any attempts to unregister first will result in the new implementation to also not be present.
+
+:::tabs
+===Java
+<<< @/../reference-code/paper/src/main/java/createcommands/Unregistration.java#unregisterVanillaAndReplaceExample
+===Kotlin
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/Unregistration.kt#unregisterVanillaAndReplaceExample
+:::
+
+</div>
+<div class="spigot">
 
 To replace a command, first unregister the original command, then register a new implementation for that command.
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterVanillaAndReplaceExample
+<<< @/../reference-code/spigot/src/main/java/createcommands/Unregistration.java#unregisterVanillaAndReplaceExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterVanillaAndReplaceExample
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/Unregistration.kt#unregisterVanillaAndReplaceExample
 :::
+
+</div>
 
 Now, when `/gamemode` is executed, it will use the new implementation defined using the CommandAPI.
 
@@ -105,7 +201,16 @@ Now, when `/gamemode` is executed, it will use the new implementation defined us
 
 ## Unregistering a Plugin command - `/luckperms:luckperms`
 
+<div class="paper">
+
+The `/luckperms` command is provided by the Bukkit [LuckPerms](https://luckperms.net/) plugin. Plugin commands are created during step 6, immediately before calling the `onEnable` method of the respective plugin. Since unregistrations run after step 8, it does not matter where we unregister, however here we choose to do it in the `onEnable`. We also have to make sure that our plugin is loaded after LuckPerms. The best way to make sure that happens is to add LuckPerms as a `depend` or `softdepend` in our plugin's plugin.yml. You can read more about the different between `depend` and `softdepend` in [Spigot's documentation](https://www.spigotmc.org/wiki/plugin-yml/#optional-attributes), but that will look something like this:
+
+</div>
+<div class="spigot">
+
 The `/luckperms` command is provided by the Bukkit [LuckPerms](https://luckperms.net/) plugin. Plugin commands are created during step 4, immediately before calling the `onEnable` method of the respective plugin. In this case, unregistering the command in our own plugin's `onLoad` would not work, since the command wouldn't exist yet. We also have to make sure that our `onEnable` method is called after LuckPerm's. The best way to make sure that happens is to add LuckPerms as a `depend` or `softdepend` in our plugin's plugin.yml. You can read more about the different between `depend` and `softdepend` in [Spigot's documentation](https://www.spigotmc.org/wiki/plugin-yml/#optional-attributes), but that will look something like this:
+
+</div>
 
 ```yaml
 name: MyPlugin
@@ -119,14 +224,23 @@ Since plugin commands are stored in the Bukkit CommandMap, we need to use `Comma
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterPluginExample
+<<< @/../reference-code/spigot/src/main/java/createcommands/Unregistration.java#unregisterPluginExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterPluginExample
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/Unregistration.kt#unregisterPluginExample
 :::
 
 Executing `/luckperms` will work as normal, but `/luckperms:luckperms` will give the unknown command message.
 
 ## Unregistering a CommandAPI command
+
+<div class="paper">
+
+Unregistering a command created by the CommandAPI is easy.
+
+For our example, let's say we want to unregister the `/break` command created by the [Bukkit Maven Example Project](https://github.com/CommandAPI/CommandAPI/tree/master/examples/bukkit/maven) for the CommandAPI.
+
+</div>
+<div class="spigot">
 
 Unregistering a command created by the CommandAPI is similar to both unregistering a Vanilla command and a plugin command. Like a Vanilla command, CommandAPI commands are stored in the Vanilla CommandDispatcher, so they should be unregistered with `unregisterBukkit` set to `false`. Like plugin commands, they may be created in `onEnable`, so you need to make sure your plugin is enabled after the plugin that adds the command.
 
@@ -152,7 +266,7 @@ For the ExamplePlugin, setting `verbose-outputs` to `true` gives this:
 ```log
 [Server thread/INFO]: [ExamplePlugin] Enabling ExamplePlugin v0.0.1
 [Server thread/INFO]: [CommandAPI] Registering command /break block<LocationArgument>
-[Server thread/INFO]: [CommandAPI] Registering command /myeffect target<PlayerArgument> potion<PotionEffectArgument>
+[Server thread/INFO]: [CommandAPI] Registering command /myeffect target<EntitySelectorArgument.OnePlayer> potion<PotionEffectArgument>
 [Server thread/INFO]: [CommandAPI] Registering command /nbt nbt<NBTCompoundArgument>
 ```
 
@@ -162,14 +276,18 @@ You can see that the ExamplePlugin registers its commands when `onEnable` is cal
 
 In summary, we will unregister the `/break` command in our plugin's `onEnable`. We added Example plugin to the `depend` list in our plugin.yml so that our `onEnable` method runs second. `unregisterNamespaces` and `unregisterBukkit` will be set to `false`, and those are the default values, so we can simply use `CommandAPI.unregister(String commandName)`. All together, the code looks like this:
 
+</div>
+
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterCommandAPIExample
+<<< @/../reference-code/spigot/src/main/java/createcommands/Unregistration.java#unregisterCommandAPIExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterCommandAPIExample
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/Unregistration.kt#unregisterCommandAPIExample
 :::
 
 Now, when you try to execute `/break`, you will just get the unknown command message as if it never existed.
+
+<div class="spigot">
 
 ## Special case: Unregistering Bukkit's `/help`
 
@@ -181,9 +299,9 @@ Since `/help` is in the Bukkit CommandMap, we need to use `CommandAPIBukkit#unre
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterBukkitHelpExample
+<<< @/../reference-code/spigot/src/main/java/createcommands/Unregistration.java#unregisterBukkitHelpExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterBukkitHelpExample
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/Unregistration.kt#unregisterBukkitHelpExample
 :::
 
 Funnily, if you try to execute `/help`, the server will still tell you: `Unknown command. Type "/help" for help.`. Luckily, `unregisterNamespaces` was `false`, so you can still use `/bukkit:help` to figure out your problem.
@@ -200,9 +318,9 @@ Finally, `unregisterNamespaces` should be `false`, and since that's the default 
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterVanillaNamespaceOnlyExample
+<<< @/../reference-code/spigot/src/main/java/createcommands/Unregistration.java#unregisterVanillaNamespaceOnlyExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterVanillaNamespaceOnlyExample
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/Unregistration.kt#unregisterVanillaNamespaceOnlyExample
 :::
 
 With this code, `/gamemode` will execute as normal, but `/minecraft:gamemode` will give the unknown command message.
@@ -213,9 +331,9 @@ Doing the opposite action here -- only unregistering `/gamemode` but keeping `/m
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterDelayedVanillaBadExample
+<<< @/../reference-code/spigot/src/main/java/createcommands/Unregistration.java#unregisterDelayedVanillaBadExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterDelayedVanillaBadExample
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/Unregistration.kt#unregisterDelayedVanillaBadExample
 :::
 
 The expected outcome of this code is that `/minecraft:gamemode` would work as expected, and `/gamemode` would give the command not found message. However, that is only true for the player's commands. If you try to use `/minecraft:gamemode` in the console, it *will not work* properly. Specifically, while you can tab-complete the command's label, `minecraft:gamemode` the command's arguments will not have any suggestions. If you try to execute `/minecraft:gamemode` in the console, it will always tell you your command is unknown or incomplete.
@@ -224,9 +342,11 @@ The main point is that if you ever try to unregister a Vanilla command after the
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/Unregistration.java#unregisterDelayedVanillaGoodExample
+<<< @/../reference-code/spigot/src/main/java/createcommands/Unregistration.java#unregisterDelayedVanillaGoodExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/Unregistration.kt#unregisterDelayedVanillaGoodExample
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/Unregistration.kt#unregisterDelayedVanillaGoodExample
 :::
 
 ::::
+
+</div>

@@ -16,11 +16,11 @@ Say we have a command which kills the sender of a command. This is easily implem
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/executors/ProxySender.java#simpleKillCommandExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/executors/ProxySender.java#simpleKillCommandExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/ProxySender.kt#simpleKillCommandExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/ProxySender.kt#simpleKillCommandExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/ProxySender.kt#simpleKillCommandExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/ProxySender.kt#simpleKillCommandExampleDSL
 :::
 
 But what if the sender of the command is _not_ a player? By using Minecraft's `/execute` command, we could execute the command as _any_ arbitrary entity, as shown with the command below:
@@ -33,11 +33,11 @@ To handle this case, we can use the `.executesProxy()` method to ensure that the
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/executors/ProxySender.java#proxyKillCommandExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/executors/ProxySender.java#proxyKillCommandExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/ProxySender.kt#proxyKillCommandExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/ProxySender.kt#proxyKillCommandExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/executors/ProxySender.kt#proxyKillCommandExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/executors/ProxySender.kt#proxyKillCommandExampleDSL
 :::
 
 This allows the command above to run successfully, killing all chickens it can find.

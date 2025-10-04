@@ -219,11 +219,11 @@ With this, we can simply spawn the particle using the `World.spawnParticle(Parti
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/ParticleArguments.java#withoutParticleDataExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/ParticleArguments.java#withoutParticleDataExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/ParticleArguments.kt#withoutParticleDataExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/ParticleArguments.kt#withoutParticleDataExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/ParticleArguments.kt#withoutParticleDataExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/ParticleArguments.kt#withoutParticleDataExampleDSL
 :::
 
 Running this can result in errors due to missing requirements. If you provide a particle that has additional requirements, Bukkit will throw an error and the particle will not be displayed. Instead, the example below should be used.
@@ -242,11 +242,11 @@ In this case, we'll use the `World.spawnParticle(Particle particle, Location loc
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/types/misc/ParticleArguments.java#withParticleDataExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/misc/ParticleArguments.java#withParticleDataExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/ParticleArguments.kt#withParticleDataExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/ParticleArguments.kt#withParticleDataExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/types/misc/ParticleArguments.kt#withParticleDataExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/misc/ParticleArguments.kt#withParticleDataExampleDSL
 :::
 
 This can be used with commands such as:

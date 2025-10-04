@@ -34,11 +34,11 @@ For that, we’re going to register a command `/sayhi`. To add optional argument
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/OptionalArguments.java#simpleOptionalArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/OptionalArguments.java#simpleOptionalArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#simpleOptionalArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#simpleOptionalArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#simpleOptionalArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#simpleOptionalArgumentsExampleDSL
 :::
 
 
@@ -65,12 +65,12 @@ When using the `withOptionalArguments` method it might be interesting to know th
 
 ```java
 new CommandAPICommand("optional")
-    .withOptionalArguments(new PlayerArgument("target"))
+    .withOptionalArguments(new EntitySelectorArgument.OnePlayer("target"))
 ```
 
 ```java
 new CommandAPICommand("optional")
-    .withArguments(new PlayerArgument("target").setOptional(true))
+    .withArguments(new EntitySelectorArgument.OnePlayer("target").setOptional(true))
 ```
 
 However, calling `withOptionalArguments` is safer because it makes sure that the argument is optional because of that internal call.
@@ -103,11 +103,11 @@ This is how the `getOptional` method is being implemented:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/OptionalArguments.java#getOptionalExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/OptionalArguments.java#getOptionalExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#getOptionalExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#getOptionalExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#getOptionalExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#getOptionalExampleDSL
 :::
 
 ::::
@@ -131,7 +131,7 @@ At this point, your command is basically done.
 Any attempt to add a required argument will result in an `OptionalArgumentException`.
 However, this is where the `combineWith` method comes in.
 This method allows you to combine arguments.
-Let's say you have an optional `StringArgument` (here simplified to `A`) and you want a required `PlayerArgument` (here simplified to `B`).
+Let's say you have an optional `StringArgument` (here simplified to `A`) and you want a required `EntitySelectorArgument.OnePlayer` (here simplified to `B`).
 Argument `B` should only be required if argument `A` is given.
 To implement that logic, we’re going to use the `combineWith` method so that we have this syntax:
 
@@ -144,7 +144,7 @@ This does two things:
 1. When checking optional argument constraints the argument `B` will be ignored so the `OptionalArgumentException` will not be thrown
 2. It allows you to define additional optional arguments afterwards which can only be entered if argument `B` has been entered
 
-This is how you would add another optional `PlayerArgument` (here simplified to `C`):
+This is how you would add another optional `EntitySelectorArgument.OnePlayer` (here simplified to `C`):
 
 ```java
 new CommandAPICommand("mycommand")
@@ -176,11 +176,11 @@ To implement that structure, we make use of the `combineWith` method to make the
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/arguments/OptionalArguments.java#argumentsAfterOptionalArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/OptionalArguments.java#argumentsAfterOptionalArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#argumentsAfterOptionalArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#argumentsAfterOptionalArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#argumentsAfterOptionalArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/OptionalArguments.kt#argumentsAfterOptionalArgumentsExampleDSL
 :::
 
 ::::

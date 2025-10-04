@@ -1,6 +1,6 @@
 ---
 order: 2
-preferences: ["build-system", "mapping"]
+preferences: ["build-system", "paper-spigot"]
 authors:
   - JorelAli
   - DerEchtePilz
@@ -31,47 +31,81 @@ If you want to handle reloading, the CommandAPI has minimal support for it with 
 
 ### Loading
 
-The `onLoad(CommandAPIConfig)` method initializes the CommandAPI's loading sequence. This must be called _before_ you start to access the CommandAPI and must be placed in your plugin's `onLoad()` method. The argument `CommandAPIConfig` is used to configure how the CommandAPI works. The `CommandAPIConfig` class has the following parameters which let you set how the CommandAPI works similar to the `config.yml`, which is described [here](../user-setup/config).
+The `onLoad(CommandAPIConfig)` method initializes the CommandAPI. This must be called _before_ you access any other CommandAPI features. The `CommandAPIConfig` argument is used to configure how the CommandAPI works, similar to the `config.yml`. The `CommandAPIConfig` class follows a builder pattern, with methods for each option in the `config.yml`, which are listed and described [here](../user-setup/config).
+
+<div class="paper">
+
+However, the `CommandAPIConfig` class is abstract and can’t be used to configure the CommandAPI directly. Instead, you must use a subclass of `CommandAPIConfig` that corresponds to the platform you’re developing for. For example, when developing for a Paper server, you should use the `CommandAPIPaperConfig` class.
 
 ```java
-public class CommandAPIConfig {
-    CommandAPIConfig verboseOutput(boolean value); // Enables verbose logging
-    CommandAPIConfig silentLogs(boolean value);    // Disables ALL logging (except errors)
-    CommandAPIConfig useLatestNMSVersion(boolean value); // Whether the latest NMS implementation should be used or not
-    CommandAPIConfig beLenientForMinorVersions(boolean value); // Whether the CommandAPI should be more lenient with minor Minecraft versions
-    CommandAPIConfig missingExecutorImplementationMessage(String value); // Set message to display when executor implementation is missing
-    CommandAPIConfig dispatcherFile(File file); // If not null, the CommandAPI will create a JSON file with Brigadier's command tree
-    CommandAPIConfig setNamespace(String namespace); // The namespace to use when the CommandAPI registers a command
-
-    <T> CommandAPIConfig initializeNBTAPI(Class<T> nbtContainerClass, Function<Object, T> nbtContainerConstructor); // Initializes hooks with an NBT API. See NBT arguments documentation page for more info
+public class CommandAPIPaperConfig {
+    // Create a new config object
+    CommandAPIPaperConfig(PluginMeta pluginMeta, LifecycleEventOwner lifecycleEventOwner);
+    
+    // General CommandAPI configuration
+    CommandAPIPaperConfig verboseOutput(boolean value); // Enables verbose logging
+    CommandAPIPaperConfig silentLogs(boolean value);    // Disables ALL logging (except errors)
+    CommandAPIPaperConfig dispatcherFile(File file); // If not null, the CommandAPI will create a JSON file with Brigadier's command tree
+    CommandAPIPaperConfig setNamespace(String namespace); // The namespace to use when the CommandAPI registers a command
+    
+    // General CommandAPI configuration for Bukkit-based servers
+    CommandAPIPaperConfig fallbackToLatestNMS(boolean fallbackToLatestNMS); // Whether the CommandAPI should fall back to the latest NMS version if no implementation for the current version was found
+    CommandAPIPaperConfig missingExecutorImplementationMessage(String value); // Set message to display when executor implementation is missing
+    <T> CommandAPIPaperConfig initializeNBTAPI(Class<T> nbtContainerClass, Function<Object, T> nbtContainerConstructor); // Initializes hooks with an NBT API. See NBT arguments documentation page for more info
 }
 ```
 
-The `CommandAPIConfig` class follows a typical builder pattern (without you having to run `.build()` at the end), which lets you easily construct configuration instances.
+In order to create a `CommandAPIPaperConfig` object, you must give it a reference to a `LifecycleEventOwner` instance, meaning either a `JavaPlugin` or `BootstrapContext` instance. The CommandAPI always uses this to register commands and events, so it is required when loading the CommandAPI on Paper.
 
-However, the `CommandAPIConfig` class is abstract and can’t be used to configure the CommandAPI directly. Instead, you must use a subclass of `CommandAPIConfig` that corresponds to the platform you’re developing for. For example, when developing for Bukkit, you should use the `CommandAPIBukkitConfig` class.
-
-<!-- TODO: Add tabs and explanations for other platforms -->
-
-```java
-public class CommandAPIBukkitConfig extends CommandAPIConfig {
-    CommandAPIBukkitConfig(JavaPlugin plugin);
-
-    CommandAPIBukkitConfig shouldHookPaperReload(boolean hooked); // Whether the CommandAPI should hook into the Paper-exclusive ServerResourcesReloadedEvent
-    CommandAPIBukkitConfig skipReloadDatapacks(boolean skip); // Whether the CommandAPI should reload datapacks on server load
-}
-```
-
-In order to create a `CommandAPIBukkitConfig` object, you must give it a reference to your `JavaPlugin` instance. The CommandAPI always uses this to register events, so it is required when loading the CommandAPI on Bukkit. There are also Bukkit-specific features, such as the `hook-paper-reload` configuration option, which may be configured using a `CommandAPIBukkitConfig` instance.
-
-For example, to load the CommandAPI on Bukkit with all logging disabled, you can use the following:
+For example, to load the CommandAPI on Paper with all logging disabled, you can use the following:
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/devsetup/Shading.java#bukkitConfigExample
+<<< @/../reference-code/paper/src/main/java/devsetup/Shading.java#bukkitConfigExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/devsetup/Shading.kt#bukkitConfigExample
+<<< @/../reference-code/paper/src/main/kotlin/devsetup/Shading.kt#bukkitConfigExample
 :::
+
+</div>
+<div class="spigot">
+
+However, the `CommandAPIConfig` class is abstract and can’t be used to configure the CommandAPI directly. Instead, you must use a subclass of `CommandAPIConfig` that corresponds to the platform you’re developing for. For example, when developing for a Spigot server, you should use the `CommandAPISpigotConfig` class.
+
+```java
+public class CommandAPISpigotConfig {
+    // Create a new config object
+    CommandAPISpigotConfig(JavaPlugin plugin);
+    
+    // General CommandAPI configuration
+    CommandAPISpigotConfig verboseOutput(boolean value); // Enables verbose logging
+    CommandAPISpigotConfig silentLogs(boolean value);    // Disables ALL logging (except errors)
+    CommandAPISpigotConfig dispatcherFile(File file); // If not null, the CommandAPI will create a JSON file with Brigadier's command tree
+    CommandAPISpigotConfig setNamespace(String namespace); // The namespace to use when the CommandAPI registers a command
+    
+    // General CommandAPI configuration for Bukkit-based servers
+    CommandAPISpigotConfig fallbackToLatestNMS(boolean fallbackToLatestNMS); // Whether the CommandAPI should fall back to the latest NMS version if no implementation for the current version was found
+    CommandAPISpigotConfig missingExecutorImplementationMessage(String value); // Set message to display when executor implementation is missing
+    <T> CommandAPISpigotConfig initializeNBTAPI(Class<T> nbtContainerClass, Function<Object, T> nbtContainerConstructor); // Initializes hooks with an NBT API. See NBT arguments documentation page for more info
+    
+    // Spigot-specific configuration
+    CommandAPISpigotConfig skipReloadDatapacks(boolean skip); // Whether the CommandAPI should reload datapacks on server load
+}
+```
+
+In order to create a `CommandAPISpigotConfig` object, you must give it a reference to your `JavaPlugin` instance. The CommandAPI always uses this to register events, so it is required when loading the CommandAPI on Spigot.
+
+For example, to load the CommandAPI on Spigot with all logging disabled, you can use the following:
+
+:::tabs
+===Java
+<<< @/../reference-code/spigot/src/main/java/devsetup/Shading.java#bukkitConfigExample
+===Kotlin
+<<< @/../reference-code/spigot/src/main/kotlin/devsetup/Shading.kt#bukkitConfigExample
+:::
+
+</div>
+
+<!-- TODO: Add tabs and explanations for other platforms -->
 
 ### Enabling & Disabling
 
@@ -81,12 +115,28 @@ The `onDisable()` method disables the CommandAPI gracefully. This should be plac
 
 :::tip Example – Setting up the CommandAPI in your plugin
 
+<div>
+<div class="paper">
+
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/devsetup/Shading.java#shadingExample
+<<< @/../reference-code/paper/src/main/java/devsetup/Shading.java#shadingExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/devsetup/Shading.kt#shadingExample
+<<< @/../reference-code/paper/src/main/kotlin/devsetup/Shading.kt#shadingExample
 :::
+
+</div>
+<div class="spigot">
+
+:::tabs
+===Java
+<<< @/../reference-code/spigot/src/main/java/devsetup/Shading.java#shadingExample
+===Kotlin
+<<< @/../reference-code/spigot/src/main/kotlin/devsetup/Shading.kt#shadingExample
+:::
+
+</div>
+</div>
 
 ## A note about relocating
 
@@ -106,29 +156,31 @@ To shade the CommandAPI into a maven project, you'll need to use the `commandapi
 
 Add the CommandAPI shade dependency:
 
-<div class="reobf">
+<div class="spigot">
 
 ```xml
 <dependencies>
     <dependency>
         <groupId>dev.jorel</groupId>
-        <artifactId>commandapi-bukkit-shade</artifactId>
-        <version>10.1.2</version>
+        <artifactId>commandapi-spigot-shade</artifactId>
+        <version>11.0.0</version>
     </dependency>
 </dependencies>
 ```
+
 </div>
-<div class="mojmap">
+<div class="paper">
 
 ```xml
 <dependencies>
     <dependency>
         <groupId>dev.jorel</groupId>
-        <artifactId>commandapi-bukkit-shade-mojang-mapped</artifactId>
-        <version>10.1.2</version>
+        <artifactId>commandapi-paper-shade</artifactId>
+        <version>11.0.0</version>
     </dependency>
 </dependencies>
 ```
+
 </div>
 
 You can shade the CommandAPI easily by adding the `maven-shade-plugin` to your build sequence:
@@ -217,39 +269,43 @@ repositories {
 Next, we declare our dependencies:
 
 <div class="groovy">
-<div class="reobf">
+<div class="spigot">
 
 ```groovy
 dependencies {
-    implementation "dev.jorel:commandapi-bukkit-shade:10.1.2"
+    implementation "dev.jorel:commandapi-spigot-shade:11.0.0"
 }
 ```
+
 </div>
-<div class="mojmap">
+<div class="paper">
 
 ```groovy
 dependencies {
-    implementation "dev.jorel:commandapi-bukkit-shade-mojang-mapped:10.1.2"
+    implementation "dev.jorel:commandapi-paper-shade:11.0.0"
 }
 ```
+
 </div>
 </div>
 <div class="kts">
-<div class="reobf">
+<div class="spigot">
 
 ```kotlin
 dependencies {
-    implementation("dev.jorel:commandapi-bukkit-shade:10.1.2")
+    implementation("dev.jorel:commandapi-spigot-shade:11.0.0")
 }
 ```
+
 </div>
-<div class="mojmap">
+<div class="paper">
 
 ```kotlin
 dependencies {
-    implementation("dev.jorel:commandapi-bukkit-shade-mojang-mapped:10.1.2")
+    implementation("dev.jorel:commandapi-paper-shade:11.0.0")
 }
 ```
+
 </div>
 </div>
 

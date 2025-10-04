@@ -26,11 +26,11 @@ When provided with a function, it will execute that function. If instead a tag i
 
 :::tabs
 ===Java
-<<< @/../reference-code/src/main/java/createcommands/functionsandtags/FunctionArguments.java#functionArgumentsExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/functionsandtags/FunctionArguments.java#functionArgumentsExample
 ===Kotlin
-<<< @/../reference-code/src/main/kotlin/createcommands/functionsandtags/FunctionArguments.kt#functionArgumentsExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/functionsandtags/FunctionArguments.kt#functionArgumentsExample
 ===Kotlin DSL
-<<< @/../reference-code/src/main/kotlin/createcommands/functionsandtags/FunctionArguments.kt#functionArgumentsExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/functionsandtags/FunctionArguments.kt#functionArgumentsExampleDSL
 :::
 
 ::::

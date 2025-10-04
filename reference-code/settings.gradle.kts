@@ -3,3 +3,7 @@
  */
 
 rootProject.name = "reference-code"
+include("bukkit")
+include("paper")
+include("spigot")
+include("velocity")
