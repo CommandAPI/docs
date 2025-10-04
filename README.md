@@ -14,6 +14,12 @@ yarn install
 yarn docs:build
 ```
 
+### View website changes locally
+
+```bash
+yarn docs:dev
+```
+
 ### Verify reference code
 
 ```bash

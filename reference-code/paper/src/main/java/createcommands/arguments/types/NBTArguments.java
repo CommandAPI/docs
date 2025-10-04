@@ -14,7 +14,7 @@ class NBTArguments {
             // #region hookNbtAPIExample
             @Override
             public void onLoad() {
-                CommandAPI.onLoad(new CommandAPIPaperConfig<>(this.getPluginMeta(), this)
+                CommandAPI.onLoad(new CommandAPIPaperConfig(this)
                     .initializeNBTAPI(NBTContainer.class, NBTContainer::new)
                 );
             }

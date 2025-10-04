@@ -45,7 +45,7 @@ dependencies {
     compileOnly("de.tr7zw:item-nbt-api:$nbtApiVersion")
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
     testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
-    testImplementation("com.github.seeseemelk:MockBukkit-v1.21:$mockBukkitVersion")
+    testImplementation("org.mockbukkit.mockbukkit:mockbukkit-v1.21:$mockBukkitVersion")
     compileOnly("com.mojang:brigadier:$brigadierVersion")
     compileOnly("com.mojang:authlib:$authlibVersion")
 }

@@ -10,7 +10,9 @@ val commandApiVersion: String by project
 val spigotVersion: String by project
 
 dependencies {
-    compileOnly("dev.jorel:commandapi-spigot-core:$commandApiVersion")
-    compileOnly("dev.jorel:commandapi-kotlin-spigot:$commandApiVersion")
-    compileOnly("org.spigotmc:spigot-api:$spigotVersion")
+    implementation("dev.jorel:commandapi-spigot-core:$commandApiVersion")
+    implementation("dev.jorel:commandapi-kotlin-spigot:$commandApiVersion")
+    implementation("org.spigotmc:spigot-api:$spigotVersion")
+
+    testImplementation("dev.jorel:commandapi-spigot-test-toolkit:${commandApiVersion}")
 }

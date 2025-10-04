@@ -11,14 +11,14 @@ class KotlinShadingPlugin : JavaPlugin()
 fun shading() {
     val plugin: JavaPlugin = KotlinShadingPlugin()
     // #region bukkitConfigExample
-    CommandAPI.onLoad(CommandAPIPaperConfig(plugin.pluginMeta, plugin).silentLogs(true))
+    CommandAPI.onLoad(CommandAPIPaperConfig(plugin).silentLogs(true))
     // #endregion bukkitConfigExample
 }
 
 // #region shadingExample
 class MyPlugin : JavaPlugin() {
     override fun onLoad() {
-        CommandAPI.onLoad(CommandAPIPaperConfig(this.pluginMeta, this).verboseOutput(true)) // Load with verbose output
+        CommandAPI.onLoad(CommandAPIPaperConfig(this).verboseOutput(true)) // Load with verbose output
 
         CommandAPICommand("ping")
             .executes(CommandExecutor { sender, _ ->

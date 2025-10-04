@@ -1,15 +1,24 @@
 package test;
 
-import be.seeseemelk.mockbukkit.MockBukkit;
-import be.seeseemelk.mockbukkit.ServerMock;
-import createcommands.functionsandtags.Main;
-import dev.jorel.commandapi.CommandAPI;
+import com.mojang.brigadier.CommandDispatcher;
 import dev.jorel.commandapi.CommandAPIVersionHandler;
-import dev.jorel.commandapi.MockCommandAPIBukkit;
+import dev.jorel.commandapi.MockCommandAPIPaper;
 import dev.jorel.commandapi.MockCommandAPIPlugin;
+import dev.jorel.commandapi.MockCommandSource;
+import dev.jorel.commandapi.nms.MockPaperNMS;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.junit.jupiter.api.BeforeEach;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
+
+import java.io.File;
+import java.io.IOException;
 
 class LoadMockCommandAPI {
+    class Main extends JavaPlugin {
+
+    }
+
     // #region loadMockCommandAPIExample
     @BeforeEach
     public void setUp() {
@@ -34,12 +43,11 @@ class LoadMockCommandAPI {
 
     class CustomExample {
         // #region loadCustomCommandAPIPlatformImplementationExample
-        public class CustomMockCommandAPIBukkit extends MockCommandAPIBukkit {
+        public class CustomMockPaperNMS extends MockPaperNMS {
             // Implement a method that usually throws `UnimplementedMethodException`
             @Override
-            public void reloadDataPacks() {
-                CommandAPI.logInfo("Simulating data pack reload");
-                // Further logic
+            public void createDispatcherFile(File file, CommandDispatcher<MockCommandSource> brigadierDispatcher) throws IOException {
+                // Whatever logic you need
             }
         }
 
@@ -49,7 +57,9 @@ class LoadMockCommandAPI {
             MockBukkit.mock();
 
             // Tell the CommandAPI to use your custom platform implementation
-            CommandAPIVersionHandler.usePlatformImplementation(new CustomMockCommandAPIBukkit());
+            CommandAPIVersionHandler.usePlatformImplementation(
+                config -> new MockCommandAPIPaper(config, new CustomMockPaperNMS())
+            );
 
             // Load CommandAPI and your plugin as mentioned above...
         }

@@ -18,7 +18,7 @@ class UnregistrationKT {
     class MyPluginBootstrap : PluginBootstrap {
 
         override fun bootstrap(context: BootstrapContext) {
-            CommandAPI.onLoad(CommandAPIPaperConfig(context.pluginMeta, context))
+            CommandAPI.onLoad(CommandAPIPaperConfig(context))
 
             CommandAPICommand("inbootstrap")
                 .executes(CommandExecutor { sender, _ ->

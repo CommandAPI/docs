@@ -1,6 +1,6 @@
 ---
 order: 2
-preferences: ['build-system']
+preferences: ['paper-spigot', 'build-system']
 authors:
   - willkroboth
   - JorelAli
@@ -12,7 +12,9 @@ In the most common simple case, tests can be added directly next to plugin code.
 
 ## Dependencies
 
-When you add the dependencies for MockBukkit and `commandapi-bukkit-test-toolkit`, make sure to place them before your main dependencies for the CommandAPI and Spigot/Paper API. This ensures that certain classes that are compatible with the testing environment override the regular classes when running tests.
+<div class="paper">
+
+When you add the dependencies for MockBukkit and `commandapi-paper-test-toolkit`, make sure to place them before your main dependencies for the CommandAPI and Paper API. This ensures that certain classes that are compatible with the testing environment override the regular classes when running tests.
 
 <div class="maven">
 
@@ -20,32 +22,31 @@ When you add the dependencies for MockBukkit and `commandapi-bukkit-test-toolkit
 <dependencies>
     <!-- See https://github.com/MockBukkit/MockBukkit?tab=readme-ov-file#mag-usage for latest version -->
     <dependency>
-        <groupId>com.github.seeseemelk</groupId>
-        <artifactId>MockBukkit-v1.21</artifactId>
-        <version>3.128.0</version>
+        <groupId>org.mockbukkit.mockbukkit</groupId>
+        <artifactId>mockbukkit-v1.21</artifactId>
+        <version>4.72.8</version>
         <scope>test</scope>
     </dependency>
 
     <dependency>
         <groupId>dev.jorel</groupId>
-        <artifactId>commandapi-bukkit-test-toolkit</artifactId>
+        <artifactId>commandapi-paper-test-toolkit</artifactId>
         <version>11.0.0-SNAPSHOT</version>
         <scope>test</scope>
     </dependency>
 
-    <!-- May be the shade dependency and/or mojang-mapped -->
+    <!-- May also be the shade dependency -->
     <dependency>
         <groupId>dev.jorel</groupId>
-        <artifactId>commandapi-bukkit-core</artifactId>
+        <artifactId>commandapi-paper-core</artifactId>
         <version>11.0.0-SNAPSHOT</version>
         <scope>provided</scope>
     </dependency>
 
-    <!-- Can also be paper-api -->
     <dependency>
-        <groupId>org.spigotmc</groupId>
-        <artifactId>spigot-api</artifactId>
-        <version>1.21.1-R0.1-SNAPSHOT</version>
+        <groupId>io.papermc.paper</groupId>
+        <artifactId>paper-api</artifactId>
+        <version>1.21.8-R0.1-SNAPSHOT</version>
         <scope>provided</scope>
     </dependency>
 
@@ -53,7 +54,7 @@ When you add the dependencies for MockBukkit and `commandapi-bukkit-test-toolkit
     <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.8.2</version>
+        <version>5.13.3</version>
         <scope>test</scope>
     </dependency>
 </dependencies>
@@ -68,18 +69,17 @@ When you add the dependencies for MockBukkit and `commandapi-bukkit-test-toolkit
 ```groovy
 dependencies {
     // See https://github.com/MockBukkit/MockBukkit?tab=readme-ov-file#mag-usage for latest version
-    testImplementation 'com.github.seeseemelk:MockBukkit-v1.21:3.128.0'
+    testImplementation 'org.mockbukkit.mockbukkit:mockbukkit-v1.21:4.72.8'
 
-    testImplementation 'dev.jorel:commandapi-bukkit-test-toolkit:11.0.0-SNAPSHOT'
+    testImplementation 'dev.jorel:commandapi-paper-test-toolkit:11.0.0-SNAPSHOT'
 
-    // May be the shade dependency and/or mojang-mapped
-    compileOnly 'dev.jorel:commandapi-bukkit-core:11.0.0-SNAPSHOT'
+    // May also be the shade dependency
+    compileOnly 'dev.jorel:commandapi-paper-core:11.0.0-SNAPSHOT'
 
-    // Can also be paper-api
-    compileOnly 'org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT'
+    compileOnly 'io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT'
 
     // See https://junit.org/junit5/ for latest version
-    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.13.3'
 }
 ```
 
@@ -89,20 +89,118 @@ dependencies {
 ```kotlin
 dependencies {
     // See https://github.com/MockBukkit/MockBukkit?tab=readme-ov-file#mag-usage for latest version
-    testImplementation("com.github.seeseemelk:MockBukkit-v1.21:3.128.0")
+    testImplementation("org.mockbukkit.mockbukkit:mockbukkit-v1.21:4.72.8")
 
-    testImplementation("dev.jorel:commandapi-bukkit-test-toolkit:11.0.0-SNAPSHOT")
+    testImplementation("dev.jorel:commandapi-paper-test-toolkit:11.0.0-SNAPSHOT")
 
-    // May be the shade dependency and/or mojang-mapped
-    compileOnly("dev.jorel:commandapi-bukkit-core:11.0.0-SNAPSHOT")
+    // May also be the shade dependency
+    compileOnly("dev.jorel:commandapi-paper-core:11.0.0-SNAPSHOT")
 
-    // Can also be paper-api
-    compileOnly("org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT")
 
     // See https://junit.org/junit5/ for latest version
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.13.3")
 }
 ```
+
+</div>
+
+</div>
+
+</div>
+
+<div class="spigot">
+
+When you add the dependencies for MockBukkit and `commandapi-spigot-test-toolkit`, make sure to place them before your main dependencies for the CommandAPI and Spigot API. This ensures that certain classes that are compatible with the testing environment override the regular classes when running tests.
+
+<div class="maven">
+
+```xml
+<dependencies>
+    <!-- See https://github.com/MockBukkit/MockBukkit?tab=readme-ov-file#mag-usage for latest version -->
+    <dependency>
+        <groupId>org.mockbukkit.mockbukkit</groupId>
+        <artifactId>mockbukkit-v1.21</artifactId>
+        <version>4.72.8</version>
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>dev.jorel</groupId>
+        <artifactId>commandapi-spigot-test-toolkit</artifactId>
+        <version>11.0.0-SNAPSHOT</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- May also be the shade dependency -->
+    <dependency>
+        <groupId>dev.jorel</groupId>
+        <artifactId>commandapi-spigot-core</artifactId>
+        <version>11.0.0-SNAPSHOT</version>
+        <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.spigotmc</groupId>
+        <artifactId>spigot-api</artifactId>
+        <version>1.21.8-R0.1-SNAPSHOT</version>
+        <scope>provided</scope>
+    </dependency>
+
+    <!-- See https://junit.org/junit5/ for latest version -->
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.13.3</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+```
+
+</div>
+
+<div class="gradle">
+
+<div class="groovy">
+
+```groovy
+dependencies {
+    // See https://github.com/MockBukkit/MockBukkit?tab=readme-ov-file#mag-usage for latest version
+    testImplementation 'org.mockbukkit.mockbukkit:mockbukkit-v1.21:4.72.8'
+
+    testImplementation 'dev.jorel:commandapi-spigot-test-toolkit:11.0.0-SNAPSHOT'
+
+    // May also be the shade dependency
+    compileOnly 'dev.jorel:commandapi-spigot-core:11.0.0-SNAPSHOT'
+
+    compileOnly 'org.spigotmc:spigot-api:1.21.8-R0.1-SNAPSHOT'
+
+    // See https://junit.org/junit5/ for latest version
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.13.3'
+}
+```
+
+</div>
+<div class="kts">
+
+```kotlin
+dependencies {
+    // See https://github.com/MockBukkit/MockBukkit?tab=readme-ov-file#mag-usage for latest version
+    testImplementation("org.mockbukkit.mockbukkit:mockbukkit-v1.21:4.72.8")
+
+    testImplementation("dev.jorel:commandapi-spigot-test-toolkit:11.0.0-SNAPSHOT")
+
+    // May also be the shade dependency
+    compileOnly("dev.jorel:commandapi-spigot-core:11.0.0-SNAPSHOT")
+
+    compileOnly("org.spigotmc:spigot-api:1.21.8-R0.1-SNAPSHOT")
+
+    // See https://junit.org/junit5/ for latest version
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.13.3")
+}
+```
+
+</div>
 
 </div>
 

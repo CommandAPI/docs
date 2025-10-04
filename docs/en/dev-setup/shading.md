@@ -55,7 +55,7 @@ public class CommandAPIPaperConfig {
 }
 ```
 
-In order to create a `CommandAPIPaperConfig` object, you must give it a reference to your `PluginMeta` and a `LifecycleEventOwner` instance, meaning either a `JavaPlugin` or `BootstrapContext` instance. The CommandAPI always uses this to register events, so it is required when loading the CommandAPI on Paper.
+In order to create a `CommandAPIPaperConfig` object, you must give it a reference to a `LifecycleEventOwner` instance, meaning either a `JavaPlugin` or `BootstrapContext` instance. The CommandAPI always uses this to register commands and events, so it is required when loading the CommandAPI on Paper.
 
 For example, to load the CommandAPI on Paper with all logging disabled, you can use the following:
 

@@ -6,7 +6,7 @@ authors:
 
 # Testing Commands
 
-When developing large projects, it is good practice to add automated tests for your code. This section of the documentation describes how to use the `commandapi-bukkit-test-toolkit` dependency along with [MockBukkit](https://github.com/MockBukkit/MockBukkit) and [JUnit](https://junit.org/junit5/) to test the usage of commands registered with the CommandAPI.
+When developing large projects, it is good practice to add automated tests for your code. This section of the documentation describes how to use the `commandapi-spigot-test-toolkit`/`commandapi-paper-test-toolkit` dependency along with [MockBukkit](https://github.com/MockBukkit/MockBukkit) and [JUnit](https://junit.org/junit5/) to test the usage of commands registered with the CommandAPI.
 
 For a big-picture view, you can find example projects that include automated tests in the [CommandAPI GitHub repository](https://github.com/CommandAPI/CommandAPI/tree/master/examples).
 

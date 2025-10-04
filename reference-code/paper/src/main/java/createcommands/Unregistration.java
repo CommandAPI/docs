@@ -19,7 +19,7 @@ class Unregistration {
 
         @Override
         public void bootstrap(@NotNull BootstrapContext context) {
-            CommandAPI.onLoad(new CommandAPIPaperConfig<>(context.getPluginMeta(), context));
+            CommandAPI.onLoad(new CommandAPIPaperConfig(context));
 
             new CommandAPICommand("inbootstrap")
                 .executes((sender, args) -> {
