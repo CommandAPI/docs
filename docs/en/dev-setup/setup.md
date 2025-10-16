@@ -78,14 +78,13 @@ If you've never used a build system before, I highly recommend it! It makes it e
 </div>
 <div class="gradle">
 
-- Add the repositories to your <span class="groovy">`build.gradle`</span><span class="kts">`build.gradle.kts`</span> (the second repository is required because the CommandAPI depends on the NBT-API):
+- Add the repositories to your <span class="groovy">`build.gradle`</span><span class="kts">`build.gradle.kts`</span>:
 
   <div class="groovy">
   
   ```groovy
   repositories {
       mavenCentral()
-      maven { url = "https://repo.codemc.org/repository/maven-public/" }
   }
   ```
   
@@ -95,7 +94,6 @@ If you've never used a build system before, I highly recommend it! It makes it e
   ```kotlin
   repositories {
       mavenCentral()
-      maven("https://repo.codemc.org/repository/maven-public/")
   }
   ```
 
