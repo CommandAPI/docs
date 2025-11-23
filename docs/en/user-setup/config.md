@@ -31,13 +31,13 @@ silent-logs: false
 # Messages
 # Controls messages that the CommandAPI displays to players
 messages:
-
-    # Missing executor implementation (default: "This command has no implementations for %s")
-    # The message to display to senders when a command has no executor. Available
-    # parameters are:
-    #   %s - the executor class (lowercase)
-    #   %S - the executor class (normal case)
-    missing-executor-implementation: This command has no implementations for %s
+  
+  # Missing executor implementation (default: "This command has no implementations for %s")
+  # The message to display to senders when a command has no executor. Available
+  # parameters are:
+  #   %s - the executor class (lowercase)
+  #   %S - the executor class (normal case)
+  missing-executor-implementation: This command has no implementations for %s
 
 # Create dispatcher JSON (default: false)
 # If "true", the CommandAPI creates a command_registration.json file showing the
@@ -62,6 +62,20 @@ skip-initial-datapack-reload: true
 # /minecraft:reload is run. This allows the CommandAPI to automatically call its custom datapack-reloading
 # function which allows CommandAPI commands to be used in datapacks.
 hook-paper-reload: false
+
+# Turn on the CommandAPI's plugin messaging functionality (default: false)
+# If "false", the CommandAPI will not listen to incoming plugin messages
+# and attempts to send plugin messages will fail. Enabling networking by
+# setting this to "true" is currently only useful for allowing command
+# requirements on Velocity.
+enable-networking: false
+
+# Turn exceptions while sending and receiving packets into warnings (default: false)
+# If "false", the CommandAPI will throw an exception when receiving malformed packets
+# or if it tries to send a packet but cannot. If "true", these problems will be logged
+# as a warning, which does not include the stacktrace. Additionally, warnings can be hidden
+# by setting silent logs to "true".
+make-networking-exceptions-warnings: false
 
 # Plugins to convert (default: [])
 # Controls the list of plugins to process for command conversion.
@@ -94,13 +108,13 @@ silent-logs: false
 # Messages
 # Controls messages that the CommandAPI displays to players
 messages:
-
-    # Missing executor implementation (default: "This command has no implementations for %s")
-    # The message to display to senders when a command has no executor. Available
-    # parameters are:
-    #   %s - the executor class (lowercase)
-    #   %S - the executor class (normal case)
-    missing-executor-implementation: This command has no implementations for %s
+  
+  # Missing executor implementation (default: "This command has no implementations for %s")
+  # The message to display to senders when a command has no executor. Available
+  # parameters are:
+  #   %s - the executor class (lowercase)
+  #   %S - the executor class (normal case)
+  missing-executor-implementation: This command has no implementations for %s
 
 # Create dispatcher JSON (default: false)
 # If "true", the CommandAPI creates a command_registration.json file showing the
@@ -119,6 +133,20 @@ fallback-to-latest-nms: false
 # loading. Datapacks will still be reloaded if performed manually when "hook-paper-reload"
 # is set to "true" and /minecraft:reload is run.
 skip-initial-datapack-reload: true
+
+# Turn on the CommandAPI's plugin messaging functionality (default: false)
+# If "false", the CommandAPI will not listen to incoming plugin messages
+# and attempts to send plugin messages will fail. Enabling networking by
+# setting this to "true" is currently only useful for allowing command
+# requirements on Velocity.
+enable-networking: false
+
+# Turn exceptions while sending and receiving packets into warnings (default: false)
+# If "false", the CommandAPI will throw an exception when receiving malformed packets
+# or if it tries to send a packet but cannot. If "true", these problems will be logged
+# as a warning, which does not include the stacktrace. Additionally, warnings can be hidden
+# by setting silent logs to "true".
+make-networking-exceptions-warnings: false
 
 # Plugins to convert (default: [])
 # Controls the list of plugins to process for command conversion.
@@ -304,6 +332,42 @@ hook-paper-reload: true
 ```
 
 </div>
+
+### `enable-networking`
+
+Controls whether the CommandAPI's plugin messaging functionality is enabled.
+
+By default, this is set to `false`, and the CommandAPI will not attempt to to send or receive any plugin messages. At the moment, the only intended usecase for enabling networking is to allow [command requirements](../create-commands/requirements.md) to work on a [Velocity](../velocity/intro.md#updating-requirements) proxy server.
+
+**Default value**
+
+```yaml
+enable-networking: false
+```
+
+**Example value**
+
+```yaml
+enable-networking: true
+```
+
+### `make-networking-exceptions-warnings`
+
+Controls whether the CommandAPI will throw an exception or log a warning when networking errors occur.
+
+By default, this is set to `false`, so the CommandAPI will throw an exception when receiving malformed packets or if it tries to send a packet but cannot. If `true`, these problems will be logged as a warning, which reduces the length in the log by omitting the stack trace. Additionally, these warnings will be hidden completely if [`silent-logs`](#silent-logs) is also `true`.
+
+**Default value**
+
+```yaml
+make-networking-exceptions-warnings: false
+```
+
+**Example value**
+
+```yaml
+make-networking-exceptions-warnings: true
+```
 
 ### `plugins-to-convert`
 
