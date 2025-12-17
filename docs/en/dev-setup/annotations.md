@@ -23,7 +23,7 @@ The annotation system effectively needs to be added twice: Once for compilation 
       <dependency>
           <groupId>dev.jorel</groupId>
           <artifactId>commandapi-paper-annotations</artifactId>
-          <version>11.0.0</version>
+          <version>11.1.0</version>
           <scope>provided</scope>
       </dependency>
   </dependencies>
@@ -43,7 +43,7 @@ The annotation system effectively needs to be added twice: Once for compilation 
                       <path>
                           <groupId>dev.jorel</groupId>
                           <artifactId>commandapi-paper-annotations</artifactId>
-                          <version>11.0.0</version>
+                          <version>11.1.0</version>
                       </path>
                   </annotationProcessorPaths>
               </configuration>
@@ -62,7 +62,7 @@ The annotation system effectively needs to be added twice: Once for compilation 
       <dependency>
           <groupId>dev.jorel</groupId>
           <artifactId>commandapi-spigot-annotations</artifactId>
-          <version>11.0.0</version>
+          <version>11.1.0</version>
           <scope>provided</scope>
       </dependency>
   </dependencies>
@@ -82,7 +82,7 @@ The annotation system effectively needs to be added twice: Once for compilation 
                       <path>
                           <groupId>dev.jorel</groupId>
                           <artifactId>commandapi-spigot-annotations</artifactId>
-                          <version>11.0.0</version>
+                          <version>11.1.0</version>
                       </path>
                   </annotationProcessorPaths>
               </configuration>

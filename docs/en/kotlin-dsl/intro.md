@@ -27,7 +27,7 @@ To install the DSL, you need to add the Kotlin DSL dependency into your build sc
     <dependency>
         <groupId>dev.jorel</groupId>
         <artifactId>commandapi-kotlin-paper</artifactId>
-        <version>11.0.0</version>
+        <version>11.1.0</version>
     </dependency>
 </dependencies>
 ```
@@ -40,7 +40,7 @@ To install the DSL, you need to add the Kotlin DSL dependency into your build sc
     <dependency>
         <groupId>dev.jorel</groupId>
         <artifactId>commandapi-kotlin-spigot</artifactId>
-        <version>11.0.0</version>
+        <version>11.1.0</version>
     </dependency>
 </dependencies>
 ```
@@ -124,7 +124,7 @@ Next, you need to add the dependency:
 
 ```groovy
 dependencies {
-    implementation "dev.jorel:commandapi-kotlin-paper:11.0.0"
+    implementation "dev.jorel:commandapi-kotlin-paper:11.1.0"
 }
 ```
 
@@ -133,7 +133,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "dev.jorel:commandapi-kotlin-spigot:11.0.0"
+    implementation "dev.jorel:commandapi-kotlin-spigot:11.1.0"
 }
 ```
 
@@ -145,7 +145,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("dev.jorel:commandapi-kotlin-paper:11.0.0")
+    implementation("dev.jorel:commandapi-kotlin-paper:11.1.0")
 }
 ```
 
@@ -154,7 +154,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("dev.jorel:commandapi-kotlin-spigot:11.0.0")
+    implementation("dev.jorel:commandapi-kotlin-spigot:11.1.0")
 }
 ```
 
