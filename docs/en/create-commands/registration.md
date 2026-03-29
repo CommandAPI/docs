@@ -224,3 +224,9 @@ If you want your command to be accessible in Minecraft functions, make sure the 
 </div>
 
 The CommandAPI does support registering commands anytime after the server is done loading. Commands registered while the server is running _should_ work the same as commands registered in `onLoad()`/`onEnable()`.
+
+:::warning
+
+Registering commands after the server is done loading will _not_ work on Folia. Folia has currently disabled the `minecraft:reload` command, which is normally responsible for safely updating data packs. On Paper, the CommandAPI hooks into this functionality to update the list of commands the server provides. Folia does not support this, so the CommandAPI cannot register new commands after the server has started.
+
+:::
