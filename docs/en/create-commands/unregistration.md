@@ -110,6 +110,12 @@ Similarly, unregistrations are also handled in a lifecycle event which runs afte
 
 </div>
 
+:::warning
+
+Unregistering commands after the server is done loading will _not_ work on Folia. Folia has currently disabled the `minecraft:reload` command, which is normally responsible for safely updating data packs. On Paper, the CommandAPI hooks into this functionality to update the list of commands the server provides. Folia does not support this, so the CommandAPI cannot remove commands after the server has started.
+
+:::
+
 ## Unregistering a Bukkit command - `/version`
 
 <div class="paper">
