@@ -14,7 +14,7 @@ Sometimes, you want your command to fail on purpose. This is the way to "gracefu
 ```java
 throw CommandAPI.failWithString(String message);
 throw CommandAPI.failWithMessage(Message message);
-throw CommandAPIBukkit.failWithBaseComponents(BaseComponent... message);
+throw CommandAPISpigot.failWithBaseComponents(BaseComponent... message);
 throw CommandAPIPaper.failWithAdventureComponent(Component message);
 throw CommandAPIPaper.failWithAdventureComponent(ComponentLike message);
 ```
