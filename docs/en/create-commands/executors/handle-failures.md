@@ -1,5 +1,6 @@
 ---
 order: 6
+preferences: ["paper-spigot"]
 authors:
   - DerEchtePilz
   - willkroboth
@@ -11,13 +12,25 @@ authors:
 
 Sometimes, you want your command to fail on purpose. This is the way to "gracefully" handle errors in your command execution. This is performed by throwing any of the following methods:
 
+<div class="paper">
+
 ```java
 throw CommandAPI.failWithString(String message);
 throw CommandAPI.failWithMessage(Message message);
-throw CommandAPIBukkit.failWithBaseComponents(BaseComponent... message);
-throw CommandAPIBukkit.failWithAdventureComponent(Component message);
-throw CommandAPIBukkit.failWithAdventureComponent(ComponentLike message);
+throw CommandAPIPaper.failWithAdventureComponent(Component message);
+throw CommandAPIPaper.failWithAdventureComponent(ComponentLike message);
 ```
+
+</div>
+<div class="spigot">
+
+```java
+throw CommandAPI.failWithString(String message);
+throw CommandAPI.failWithMessage(Message message);
+throw CommandAPISpigot.failWithBaseComponents(BaseComponent... message);
+```
+
+</div>
 
 When the CommandAPI handles the fail method, it will cause the command to return a _success value_ of 0, to indicate failure.
 
