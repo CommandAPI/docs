@@ -38,30 +38,14 @@ Say we want a command to remove certain types of entities. Typically, this would
 
 Instead, we can combine all of these into one by using the `EntitySelectorArgument`. We want to be able to target multiple entities at a time, so we want to use the `EntitySelectorArgument.ManyEntities` constructor. We can simply retrieve the `Collection<Entity>` from this argument and iteratively remove each entity:
 
-<div class="paper">
-
 :::tabs
 ===Java
-<<< @/../reference-code/paper/src/main/java/createcommands/arguments/types/EntitiesArguments.java#entitySelectorArgumentExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/EntitiesArguments.java#entitySelectorArgumentExample
 ===Kotlin
-<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#entitySelectorArgumentExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#entitySelectorArgumentExample
 ===Kotlin DSL
-<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#entitySelectorArgumentExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#entitySelectorArgumentExampleDSL
 :::
-
-</div>
-<div class="spigot">
-
-:::tabs
-===Java
-<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/types/EntitiesArguments.java#entitySelectorArgumentExample
-===Kotlin
-<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#entitySelectorArgumentExample
-===Kotlin DSL
-<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#entitySelectorArgumentExampleDSL
-:::
-
-</div>
 
 We could then use this to target specific entities, for example:
 
@@ -79,11 +63,43 @@ We could then use this to target specific entities, for example:
 
 ::::
 
+::::tip Example – Player argument without entity selectors
+
+When registering a `EntitySelectorArgument.OnePlayer` you might notice that it accepts `Entity Selectors` (`@a`, `@e`, `@r`, etc.). You might want to only suggest Player names to make it clearer than only one Player will be accepted. The [`ArgumentSuggestions`](../suggestions/suggestions.md) API makes this simple. For this example, let us create a /warp command:
+
+```mccmd
+/warp <player>
+```
+
+To get a `EntitySelectorArgument.OnePlayer` which only suggests the actual names, we can define it like this:
+
+:::tabs
+===Java
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/EntitiesArguments.java#buildNoSelectorSuggestions
+===Kotlin
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#buildNoSelectorSuggestions
+:::
+
+Now we can define the rest of the command and include our suggestion inside it like this:
+
+:::tabs
+===Java
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/EntitiesArguments.java#noSelectorSuggestionsExample
+===Kotlin
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#noSelectorSuggestionsExample
+:::
+
+And there we have it! One thing to note is that entity selectors are still a valid input; they’re just not included in the suggestions.
+
+![WarpCommand](/images/entityselectorplayerexample.gif)
+
+::::
+
 ## PlayerProfile argument
 
 The `PlayerProfileArgument` can serve a similar purpose as the `EntitySelectorArgument.OnePlayer` or `EntitySelectorArgument.ManyPlayers` if you only reference online players, but it can also be used to reference players that are offline or have never logged into your server.
 
-Because of this, it has a performance overhead even when the input is an online player or an entity selector.
+Because of this, it has a performance overhead even when the input is an online player.
 
 <div class="paper">
 
@@ -95,65 +111,6 @@ The `PlayerProfileArgument` returns a `List<com.destroystokyo.paper.profile.Play
 The `PlayerProfileArgument` returns a `List<org.bukkit.profile.PlayerProfile>`.
 
 </div>
-
-::::tip Example – PlayerProfileArgument without entity selectors
-
-When registering a `PlayerProfileArgument` you might notice that it includes `Entity Selectors` (`@a`, `@e`, `@r`, etc.). If you want to avoid those, you can use argument suggestions to only suggest the player names. For this example, let us create a /warp command:
-
-```mccmd
-/warp <player>
-```
-
-To get a `PlayerProfileArgument` which only suggests the actual names, we can define it like this:
-
-<div class="paper">
-
-:::tabs
-===Java
-<<< @/../reference-code/paper/src/main/java/createcommands/arguments/types/EntitiesArguments.java#buildNoSelectorSuggestions
-===Kotlin
-<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#buildNoSelectorSuggestions
-:::
-
-</div>
-<div class="spigot">
-
-:::tabs
-===Java
-<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/types/EntitiesArguments.java#buildNoSelectorSuggestions
-===Kotlin
-<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#buildNoSelectorSuggestions
-:::
-
-</div>
-
-Now we can define the rest of the command and include our suggestion inside it like this:
-
-<div class="paper">
-
-:::tabs
-===Java
-<<< @/../reference-code/paper/src/main/java/createcommands/arguments/types/EntitiesArguments.java#noSelectorSuggestionsExample
-===Kotlin
-<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#noSelectorSuggestionsExample
-:::
-
-</div>
-<div class="spigot">
-
-:::tabs
-===Java
-<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/types/EntitiesArguments.java#noSelectorSuggestionsExample
-===Kotlin
-<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#noSelectorSuggestionsExample
-:::
-
-</div>
-
-And there we have it! One thing to note is that entity selectors are still a valid input; they’re just not included in the suggestions.
-![WarpCommand](/images/entityselectorplayerexample.gif)
-
-::::
 
 ## AsyncPlayerProfile argument
 
@@ -229,30 +186,14 @@ Say we want a command to spawn a specific type of entity, similar to the `/summo
 
 Since we're trying to specify an entity type, we will use the `EntityTypeArgument` as our argument type for `<entity>`. We combine this with the `IntegerArgument` class with a specified range of $1 \le \textit{amount} \le 100$:
 
-<div class="paper">
-
 :::tabs
 ===Java
-<<< @/../reference-code/paper/src/main/java/createcommands/arguments/types/EntitiesArguments.java#entityTypeArgumentExample
+<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/types/EntitiesArguments.java#entityTypeArgumentExample
 ===Kotlin
-<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#entityTypeArgumentExample
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#entityTypeArgumentExample
 ===Kotlin DSL
-<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#entityTypeArgumentExampleDSL
+<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#entityTypeArgumentExampleDSL
 :::
-
-</div>
-<div class="spigot">
-
-:::tabs
-===Java
-<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/types/EntitiesArguments.java#entityTypeArgumentExample
-===Kotlin
-<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#entityTypeArgumentExample
-===Kotlin DSL
-<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/types/EntitiesArguments.kt#entityTypeArgumentExampleDSL
-:::
-
-</div>
 
 Note how in this example above, we have to explicitly state `Player player, CommandArguments args`. This is due to a limitation of Java's type inference system which is discussed [here](../../registration#setting-the-commands-executor).
 
