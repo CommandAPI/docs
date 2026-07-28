@@ -161,12 +161,26 @@ Say we have a plugin that registers custom items which can be crafted. In this e
 
 To do this, we first register our custom items:
 
+<div class="paper">
+
 :::tabs
 ===Java
-<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerCustomItem
+<<< @/../reference-code/paper/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerCustomItem
 ===Kotlin
-<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerCustomItem
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerCustomItem
 :::
+
+</div>
+<div class="spigot">
+
+:::tabs
+===Java
+<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerCustomItem
+===Kotlin
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerCustomItem
+:::
+
+</div>
 
 Once we've done that, we can now include them in our command registration. To do this, we use `replaceSafeSuggestions(recipes)` and then register our command as normal:
 
