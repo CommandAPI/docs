@@ -203,30 +203,72 @@ Say we have a command to spawn mobs:
 
 Now say that we don't want non-op players to spawn bosses. To do this, we'll create a `List<EntityType>` which is the list of all mobs that non-ops are allowed to spawn:
 
+<div class="paper">
+
 :::tabs
 ===Java
-<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createForbiddenMobsList
+<<< @/../reference-code/paper/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createForbiddenMobsList
 ===Kotlin
-<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createForbiddenMobsList
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createForbiddenMobsList
 :::
+
+</div>
+<div class="spigot">
+
+:::tabs
+===Java
+<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createForbiddenMobsList
+===Kotlin
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createForbiddenMobsList
+:::
+
+</div>
 
 We then use our safe arguments to return an `EntityType[]` as the list of values that are suggested to the player. In this example, we use the `sender()` method to determine if the sender has permissions to view the suggestions:
 
+<div class="paper">
+
 :::tabs
 ===Java
-<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createSafeArguments
+<<< @/../reference-code/paper/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createSafeArguments
 ===Kotlin
-<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createSafeArguments
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createSafeArguments
 :::
+
+</div>
+<div class="spigot">
+
+:::tabs
+===Java
+<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createSafeArguments
+===Kotlin
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createSafeArguments
+:::
+
+</div>
 
 Now we register our command as normal:
 
+<div class="paper">
+
 :::tabs
 ===Java
-<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerSpawnMobCommand
+<<< @/../reference-code/paper/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerSpawnMobCommand
 ===Kotlin
-<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerSpawnMobCommand
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerSpawnMobCommand
 :::
+
+</div>
+<div class="spigot">
+
+:::tabs
+===Java
+<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerSpawnMobCommand
+===Kotlin
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerSpawnMobCommand
+:::
+
+</div>
 
 ::::
 
@@ -240,20 +282,48 @@ Say we wanted to remove a potion effect from a player. To do this, we'll use the
 
 Now, we don't want to remove a potion effect that doesn't exist on a player, so instead we'll use the safe arguments to find a list of potion effects on the target player and then only suggest those potion effects. To do this, we'll use the `previousArguments()` method, as it allows us to access the previously defined `<player>` argument.
 
+<div class="paper">
+
 :::tabs
 ===Java
-<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createSafePotionEffectArguments
+<<< @/../reference-code/paper/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createSafePotionEffectArguments
 ===Kotlin
-<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createSafePotionEffectArguments
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createSafePotionEffectArguments
 :::
+
+</div>
+<div class="spigot">
+
+:::tabs
+===Java
+<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#createSafePotionEffectArguments
+===Kotlin
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#createSafePotionEffectArguments
+:::
+
+</div>
 
 And then we can register our command as normal:
 
+<div class="paper">
+
 :::tabs
 ===Java
-<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerRemoveEffectCommand
+<<< @/../reference-code/paper/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerRemoveEffectCommand
 ===Kotlin
-<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerRemoveEffectCommand
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerRemoveEffectCommand
 :::
+
+</div>
+<div class="spigot">
+
+:::tabs
+===Java
+<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerRemoveEffectCommand
+===Kotlin
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerRemoveEffectCommand
+:::
+
+</div>
 
 ::::
