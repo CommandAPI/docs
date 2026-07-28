@@ -11,7 +11,9 @@ fun conversion() {
     // #region simpleConvertExample
     class YourPlugin : JavaPlugin() {
         override fun onEnable() {
-            Converter.convert(Bukkit.getPluginManager().getPlugin("TargetPlugin") as JavaPlugin)
+            Converter.convert(Bukkit.getPluginManager().getPlugin("TargetPlugin") as JavaPlugin) {
+                command -> command.register()
+            }
             // Other code goes here...
         }
     }
@@ -21,19 +23,21 @@ fun conversion() {
     val essentials = Bukkit.getPluginManager().getPlugin("Essentials") as JavaPlugin
 
     // /speed <speed>
-    Converter.convert(essentials, "speed", IntegerArgument("speed", 0, 10))
+    Converter.convert(essentials, "speed", {command -> command.register()}, IntegerArgument("speed", 0, 10))
 
     // /speed <target>
-    Converter.convert(essentials, "speed", EntitySelectorArgument.OnePlayer("target"))
+    Converter.convert(essentials, "speed", {command -> command.register()}, EntitySelectorArgument.OnePlayer("target"))
 
     // /speed <walk/fly> <speed>
     Converter.convert(essentials, "speed",
+        {command -> command.register()},
         MultiLiteralArgument("modes", "walk", "fly"),
         IntegerArgument("speed", 0, 10)
     )
 
     // /speed <walk/fly> <speed> <target>
     Converter.convert(essentials, "speed",
+        {command -> command.register()},
         MultiLiteralArgument("modes", "walk", "fly"),
         IntegerArgument("speed", 0, 10),
         EntitySelectorArgument.OnePlayer("target")

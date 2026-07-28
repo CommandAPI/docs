@@ -1,5 +1,6 @@
 package utils;
 
+import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.Converter;
 import dev.jorel.commandapi.arguments.EntitySelectorArgument;
 import dev.jorel.commandapi.arguments.IntegerArgument;
@@ -12,7 +13,7 @@ class Conversion {
     public class YourPlugin extends JavaPlugin {
         @Override
         public void onEnable() {
-            Converter.convert((JavaPlugin) Bukkit.getPluginManager().getPlugin("TargetPlugin"));
+            Converter.convert((JavaPlugin) Bukkit.getPluginManager().getPlugin("TargetPlugin"), CommandAPICommand::register);
             // Other code goes here...
         }
     }
@@ -23,19 +24,21 @@ class Conversion {
         JavaPlugin essentials = (JavaPlugin) Bukkit.getPluginManager().getPlugin("Essentials");
 
         // /speed <speed>
-        Converter.convert(essentials, "speed", new IntegerArgument("speed", 0, 10));
+        Converter.convert(essentials, "speed", CommandAPICommand::register, new IntegerArgument("speed", 0, 10));
 
         // /speed <target>
-        Converter.convert(essentials, "speed", new EntitySelectorArgument.OnePlayer("target"));
+        Converter.convert(essentials, "speed", CommandAPICommand::register, new EntitySelectorArgument.OnePlayer("target"));
 
         // /speed <walk/fly> <speed>
         Converter.convert(essentials, "speed",
+            CommandAPICommand::register,
             new MultiLiteralArgument("modes", "walk", "fly"),
             new IntegerArgument("speed", 0, 10)
         );
 
         // /speed <walk/fly> <speed> <target>
         Converter.convert(essentials, "speed",
+            CommandAPICommand::register,
             new MultiLiteralArgument("modes", "walk", "fly"),
             new IntegerArgument("speed", 0, 10),
             new EntitySelectorArgument.OnePlayer("target")

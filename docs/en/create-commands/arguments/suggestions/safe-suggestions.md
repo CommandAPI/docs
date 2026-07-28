@@ -170,12 +170,26 @@ To do this, we first register our custom items:
 
 Once we've done that, we can now include them in our command registration. To do this, we use `replaceSafeSuggestions(recipes)` and then register our command as normal:
 
+<div class="paper">
+
 :::tabs
 ===Java
-<<< @/../reference-code/bukkit/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerCommandWithSafeSuggestions
+<<< @/../reference-code/paper/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerCommandWithSafeSuggestions
 ===Kotlin
-<<< @/../reference-code/bukkit/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerCommandWithSafeSuggestions
+<<< @/../reference-code/paper/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerCommandWithSafeSuggestions
 :::
+
+</div>
+<div class="spigot">
+
+:::tabs
+===Java
+<<< @/../reference-code/spigot/src/main/java/createcommands/arguments/suggestions/SafeSuggestions.java#registerCommandWithSafeSuggestions
+===Kotlin
+<<< @/../reference-code/spigot/src/main/kotlin/createcommands/arguments/suggestions/SafeSuggestions.kt#registerCommandWithSafeSuggestions
+:::
+
+</div>
 
 ::::
 
