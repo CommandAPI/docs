@@ -15,4 +15,5 @@ dependencies {
     implementation("org.spigotmc:spigot-api:$spigotVersion")
 
     testImplementation("dev.jorel:commandapi-spigot-test-toolkit:${commandApiVersion}")
+    testImplementation("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
 }

@@ -18,7 +18,7 @@ val junitVersion: String by project
 val mockBukkitVersion: String by project
 
 repositories {
-    mavenLocal()
+    //mavenLocal()
     maven {
         url = uri("https://libraries.minecraft.net")
     }
@@ -38,6 +38,7 @@ repositories {
     maven {
         url = uri("https://repo.maven.apache.org/maven2/")
     }
+    mavenCentral()
 }
 
 dependencies {
