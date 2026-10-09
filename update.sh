@@ -16,7 +16,8 @@ sed -i "s/<version>$oldVer<\/version>/<version>$newVer<\/version>/" docs/en/test
 sed -i "s/<version>$oldVer<\/version>/<version>$newVer<\/version>/" docs/en/velocity/intro.md
 
 # Update CommandAPI version in documentation files (Gradle)
-sed -i "s/dev.jorel:commandapi-annotations:$oldVer/dev.jorel:commandapi-annotations:$newVer/" docs/en/dev-setup/annotations.md
+sed -i "s/dev.jorel:commandapi-paper-annotations:$oldVer/dev.jorel:commandapi-paper-annotations:$newVer/" docs/en/dev-setup/annotations.md
+sed -i "s/dev.jorel:commandapi-spigot-annotations:$oldVer/dev.jorel:commandapi-spigot-annotations:$newVer/" docs/en/dev-setup/annotations.md
 sed -i "s/dev.jorel:commandapi-paper-core:$oldVer/dev.jorel:commandapi-paper-core:$newVer/" docs/en/dev-setup/setup.md
 sed -i "s/dev.jorel:commandapi-spigot-core:$oldVer/dev.jorel:commandapi-spigot-core:$newVer/" docs/en/dev-setup/setup.md
 sed -i "s/dev.jorel:commandapi-paper-shade:$oldVer/dev.jorel:commandapi-paper-shade:$newVer/" docs/en/dev-setup/shading.md

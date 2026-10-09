@@ -126,8 +126,8 @@ The annotation system effectively needs to be added twice: Once for compilation 
 
   ```groovy
   dependencies {
-      compileOnly "dev.jorel:commandapi-paper-annotations:11.0.0"
-      annotationProcessor "dev.jorel:commandapi-paper-annotations:11.0.0"
+      compileOnly "dev.jorel:commandapi-paper-annotations:12.1.0"
+      annotationProcessor "dev.jorel:commandapi-paper-annotations:12.1.0"
   }
   ```
 
@@ -136,8 +136,8 @@ The annotation system effectively needs to be added twice: Once for compilation 
 
   ```groovy
   dependencies {
-      compileOnly "dev.jorel:commandapi-spigot-annotations:11.0.0"
-      annotationProcessor "dev.jorel:commandapi-spigot-annotations:11.0.0"
+      compileOnly "dev.jorel:commandapi-spigot-annotations:12.1.0"
+      annotationProcessor "dev.jorel:commandapi-spigot-annotations:12.1.0"
   }
   ```
 
@@ -151,8 +151,8 @@ The annotation system effectively needs to be added twice: Once for compilation 
   
   ```kotlin
   dependencies {
-      compileOnly("dev.jorel:commandapi-paper-annotations:11.0.0")
-      annotationProcessor("dev.jorel:commandapi-paper-annotations:11.0.0")
+      compileOnly("dev.jorel:commandapi-paper-annotations:12.1.0")
+      annotationProcessor("dev.jorel:commandapi-paper-annotations:12.1.0")
   }
   ```
   
@@ -161,8 +161,8 @@ The annotation system effectively needs to be added twice: Once for compilation 
 
   ```kotlin
   dependencies {
-      compileOnly("dev.jorel:commandapi-spigot-annotations:11.0.0")
-      annotationProcessor("dev.jorel:commandapi-spigot-annotations:11.0.0")
+      compileOnly("dev.jorel:commandapi-spigot-annotations:12.1.0")
+      annotationProcessor("dev.jorel:commandapi-spigot-annotations:12.1.0")
   }
   ```
 
